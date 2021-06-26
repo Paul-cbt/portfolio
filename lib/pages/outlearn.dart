@@ -46,18 +46,20 @@ class _OutLearnState extends State<OutLearn> {
                       text: "2020-2021     ",
                       style: TextStyle(
                         fontSize: 20,
+                        color: Theme.of(context).textTheme.bodyText1?.color,
                       ),
                       children: [
                     TextSpan(
                       text: "OutLearn",
                       style: TextStyle(
-                        fontSize: 24,
-                      ),
+                          fontSize: 24,
+                          color: Theme.of(context).textTheme.bodyText1?.color),
                     ),
                     TextSpan(
                       text: ", ",
                       style: TextStyle(
                         fontSize: 20,
+                        color: Theme.of(context).textTheme.bodyText1?.color,
                       ),
                     ),
                     TextSpan(
@@ -85,6 +87,7 @@ class _OutLearnState extends State<OutLearn> {
                       width: 250,
                       child: Text(
                         "I fully developed and released this studying app using Flutter & Firebase",
+                        textAlign: TextAlign.justify,
                         style: TextStyle(fontSize: 22),
                       )),
                   InkWell(

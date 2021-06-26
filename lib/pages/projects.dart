@@ -67,7 +67,7 @@ class _ProjectsState extends State<Projects> {
                           alignment: Alignment.centerRight,
                           child: AnimatedSwitcher(
                             duration: Duration(milliseconds: 500),
-                            child: page < 2
+                            child: page < 1
                                 ? IconButton(
                                     onPressed: () {
                                       controller.nextPage(

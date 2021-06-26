@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:portfolio/pages/contact.dart';
 import 'package:portfolio/pages/home.dart';
 import 'package:flutter/material.dart';
 import 'package:portfolio/pages/navbar.dart';
@@ -79,6 +80,7 @@ class _WrapperState extends State<Wrapper> {
                   controller: controller,
                 ),
                 Projects(),
+                Contact()
               ],
             ),
             NavBar(

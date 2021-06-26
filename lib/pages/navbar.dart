@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 class NavBar extends StatefulWidget {
   final PageController controller;
@@ -45,12 +46,23 @@ class _NavBarState extends State<NavBar> {
           ),
           TextButton(
               onPressed: () {
-                widget.controller.animateToPage(0,
+                widget.controller.animateToPage(3,
                     duration: Duration(milliseconds: 500),
                     curve: Curves.easeIn);
               },
               child: Text(
                 "contact",
+                style: Theme.of(context).textTheme.bodyText1,
+              )),
+          SizedBox(
+            width: 15,
+          ),
+          TextButton(
+              onPressed: () {
+                launch("https://github.com/Paul-cbt/portfolio");
+              },
+              child: Text(
+                "GitHub",
                 style: Theme.of(context).textTheme.bodyText1,
               )),
           SizedBox(

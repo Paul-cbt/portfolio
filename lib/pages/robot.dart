@@ -50,12 +50,14 @@ class _RobotsState extends State<Robots> {
                       text: "2018-2020    ",
                       style: TextStyle(
                         fontSize: 20,
+                        color: Theme.of(context).textTheme.bodyText1?.color,
                       ),
                       children: [
                     TextSpan(
                       text: "Robotics",
                       style: TextStyle(
                         fontSize: 24,
+                        color: Theme.of(context).textTheme.bodyText1?.color,
                       ),
                     ),
                   ]))
@@ -74,10 +76,11 @@ class _RobotsState extends State<Robots> {
               Column(
                 children: [
                   Container(
-                      width: 250,
+                      width: 240,
                       child: Text(
                         "I participated in robot competitions, using Arduino, Python and C++",
                         style: TextStyle(fontSize: 22),
+                        textAlign: TextAlign.justify,
                       )),
                 ],
               ),

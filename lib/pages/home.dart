@@ -91,9 +91,9 @@ class _HomeState extends State<Home> {
                   text: TextSpan(
                       text: "Hello.\n",
                       style: TextStyle(
-                        fontSize: 50,
-                        fontFamily: "Noto",
-                      ),
+                          fontSize: 50,
+                          fontFamily: "Noto",
+                          color: Theme.of(context).textTheme.bodyText1.color),
                       children: [
                     TextSpan(
                       text: "I'm ",
