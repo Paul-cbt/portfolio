@@ -20,6 +20,12 @@ class ZoomableVideo extends StatefulWidget {
 class _ZoomableVideoState extends State<ZoomableVideo> {
   late VideoPlayerController _controller;
   late VideoPlayerController _controller2;
+  @override
+  void setState(fn) {
+    if (mounted) {
+      super.setState(fn);
+    }
+  }
 
   bool loading = true;
   @override

@@ -14,6 +14,13 @@ class Signature extends StatefulWidget {
 }
 
 class _SignatureState extends State<Signature> with TickerProviderStateMixin {
+  @override
+  void setState(fn) {
+    if (mounted) {
+      super.setState(fn);
+    }
+  }
+
   late Timer timer;
   late Timer timer2;
 

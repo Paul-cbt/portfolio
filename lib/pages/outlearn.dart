@@ -12,6 +12,13 @@ class OutLearn extends StatefulWidget {
 
 class _OutLearnState extends State<OutLearn> {
   @override
+  void setState(fn) {
+    if (mounted) {
+      super.setState(fn);
+    }
+  }
+
+  @override
   Widget build(BuildContext context) {
     return Column(
       children: [
@@ -73,66 +80,128 @@ class _OutLearnState extends State<OutLearn> {
           ),
         ),
         SizedBox(
-          height: 40,
+          height: MediaQuery.of(context).size.width > 1000 ? 40 : 20,
         ),
-        Container(
-          width: 800,
-          margin: EdgeInsets.only(left: 70),
-          child: Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: [
-              Column(
-                children: [
-                  Container(
-                      width: 250,
+        if (MediaQuery.of(context).size.width > 1000)
+          Container(
+            width: 800,
+            margin: EdgeInsets.only(left: 70),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                Column(
+                  children: [
+                    Container(
+                        width: 250,
+                        child: Text(
+                          "I fully developed and released this studying app using Flutter & Firebase",
+                          textAlign: TextAlign.justify,
+                          style: TextStyle(fontSize: 22),
+                        )),
+                    InkWell(
+                      onTap: () {
+                        launch("https://outlearnapp.com");
+                      },
                       child: Text(
-                        "I fully developed and released this studying app using Flutter & Firebase",
-                        textAlign: TextAlign.justify,
-                        style: TextStyle(fontSize: 22),
+                        "-> Go to Site",
+                        style: TextStyle(
+                            color:
+                                Theme.of(context).textTheme.headline4?.color),
+                      ),
+                    )
+                  ],
+                ),
+                SizedBox(
+                  width: 50,
+                ),
+                Container(
+                  width: 400,
+                  child: CarouselSlider(
+                      items: [
+                        ZoomableImage(
+                            borderRadius: BorderRadius.circular(20),
+                            path: "1.png"),
+                        ZoomableImage(
+                            borderRadius: BorderRadius.circular(20),
+                            path: "2.png"),
+                        ZoomableImage(
+                            borderRadius: BorderRadius.circular(20),
+                            path: "3.png"),
+                        ZoomableImage(
+                            borderRadius: BorderRadius.circular(20),
+                            path: "4.png")
+                      ],
+                      options: CarouselOptions(
+                        autoPlay: true,
+                        aspectRatio: 2.0,
+                        height: 300,
+                        viewportFraction: 0.36,
+                        enlargeCenterPage: true,
                       )),
-                  InkWell(
-                    onTap: () {
-                      launch("https://outlearnapp.com");
-                    },
-                    child: Text(
-                      "-> Go to Site",
-                      style: TextStyle(
-                          color: Theme.of(context).textTheme.headline4?.color),
-                    ),
-                  )
-                ],
-              ),
-              SizedBox(
-                width: 50,
-              ),
-              Container(
-                width: 400,
-                child: CarouselSlider(
-                    items: [
-                      ZoomableImage(
-                          borderRadius: BorderRadius.circular(20),
-                          path: "1.png"),
-                      ZoomableImage(
-                          borderRadius: BorderRadius.circular(20),
-                          path: "2.png"),
-                      ZoomableImage(
-                          borderRadius: BorderRadius.circular(20),
-                          path: "3.png"),
-                      ZoomableImage(
-                          borderRadius: BorderRadius.circular(20),
-                          path: "4.png")
-                    ],
-                    options: CarouselOptions(
-                      autoPlay: true,
-                      aspectRatio: 2.0,
-                      height: 300,
-                      viewportFraction: 0.36,
-                      enlargeCenterPage: true,
-                    )),
-              )
-            ],
+                )
+              ],
+            ),
           ),
-        )
+        if (MediaQuery.of(context).size.width <= 1000)
+          Container(
+            padding: EdgeInsets.only(left: 10, right: 10),
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                Column(
+                  children: [
+                    Container(
+                        child: Text(
+                      "I fully developed and released this studying app using Flutter & Firebase",
+                      textAlign: TextAlign.justify,
+                      style: TextStyle(fontSize: 22),
+                    )),
+                    InkWell(
+                      onTap: () {
+                        launch("https://outlearnapp.com");
+                      },
+                      child: Text(
+                        "-> Go to Site",
+                        style: TextStyle(
+                            color:
+                                Theme.of(context).textTheme.headline4?.color),
+                      ),
+                    )
+                  ],
+                ),
+                SizedBox(
+                  height: 10,
+                ),
+                Container(
+                  width: MediaQuery.of(context).size.width - 20 > 300
+                      ? 300
+                      : MediaQuery.of(context).size.width - 20,
+                  child: CarouselSlider(
+                      items: [
+                        ZoomableImage(
+                            borderRadius: BorderRadius.circular(20),
+                            path: "1.png"),
+                        ZoomableImage(
+                            borderRadius: BorderRadius.circular(20),
+                            path: "2.png"),
+                        ZoomableImage(
+                            borderRadius: BorderRadius.circular(20),
+                            path: "3.png"),
+                        ZoomableImage(
+                            borderRadius: BorderRadius.circular(20),
+                            path: "4.png")
+                      ],
+                      options: CarouselOptions(
+                        autoPlay: true,
+                        aspectRatio: 2.0,
+                        height: MediaQuery.of(context).size.height / 4,
+                        viewportFraction: 0.36,
+                        enlargeCenterPage: true,
+                      )),
+                )
+              ],
+            ),
+          )
       ],
     );
   }

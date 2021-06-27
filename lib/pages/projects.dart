@@ -16,6 +16,13 @@ class Projects extends StatefulWidget {
 }
 
 class _ProjectsState extends State<Projects> {
+  @override
+  void setState(fn) {
+    if (mounted) {
+      super.setState(fn);
+    }
+  }
+
   PageController controller = PageController();
   int page = 0;
   @override
@@ -46,21 +53,24 @@ class _ProjectsState extends State<Projects> {
                     height: 400,
                     child: Stack(
                       children: [
-                        PageView(
-                          onPageChanged: (value) {
-                            setState(() {
-                              page = value;
-                            });
-                          },
-                          controller: controller,
-                          children: [
-                            Container(
-                                width: MediaQuery.of(context).size.width,
-                                child: OutLearn()),
-                            Container(
-                                width: MediaQuery.of(context).size.width,
-                                child: Robots()),
-                          ],
+                        Container(
+                          width: MediaQuery.of(context).size.width,
+                          child: PageView(
+                            onPageChanged: (value) {
+                              setState(() {
+                                page = value;
+                              });
+                            },
+                            controller: controller,
+                            children: [
+                              Container(
+                                  width: MediaQuery.of(context).size.width,
+                                  child: OutLearn()),
+                              Container(
+                                  width: MediaQuery.of(context).size.width,
+                                  child: Robots()),
+                            ],
+                          ),
                         ),
                         Container(
                           margin: EdgeInsets.only(right: 10),
@@ -125,8 +135,13 @@ class _ProjectsState extends State<Projects> {
                 ),
                 child: GestureDetector(
                   onTap: () {
-                    Provider.of<AppStateNotifier>(context, listen: false)
-                        .updateTheme(false);
+                    if (Theme.of(context).brightness == Brightness.light) {
+                      Provider.of<AppStateNotifier>(context, listen: false)
+                          .updateTheme(true);
+                    } else {
+                      Provider.of<AppStateNotifier>(context, listen: false)
+                          .updateTheme(false);
+                    }
                   },
                   child: Image.asset(
                     "desk-lamp.png",

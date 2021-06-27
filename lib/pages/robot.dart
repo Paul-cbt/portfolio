@@ -16,6 +16,13 @@ class Robots extends StatefulWidget {
 
 class _RobotsState extends State<Robots> {
   @override
+  void setState(fn) {
+    if (mounted) {
+      super.setState(fn);
+    }
+  }
+
+  @override
   Widget build(BuildContext context) {
     return Column(
       children: [
@@ -65,33 +72,58 @@ class _RobotsState extends State<Robots> {
           ),
         ),
         SizedBox(
-          height: 40,
+          height: MediaQuery.of(context).size.width > 1000 ? 40 : 20,
         ),
-        Container(
-          width: 800,
-          margin: EdgeInsets.only(left: 70),
-          child: Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: [
-              Column(
-                children: [
-                  Container(
-                      width: 240,
-                      child: Text(
-                        "I participated in robot competitions, using Arduino, Python and C++",
-                        style: TextStyle(fontSize: 22),
-                        textAlign: TextAlign.justify,
-                      )),
-                ],
-              ),
-              SizedBox(
-                width: 50,
-              ),
-              ZoomableVideo(
-                  borderRadius: BorderRadius.circular(10), path: "robot.mp4")
-            ],
+        if (MediaQuery.of(context).size.width > 1000)
+          Container(
+            width: 800,
+            margin: EdgeInsets.only(left: 70),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                Column(
+                  children: [
+                    Container(
+                        width: 240,
+                        child: Text(
+                          "I participated in robot competitions, using Arduino, Python and C++",
+                          style: TextStyle(fontSize: 22),
+                          textAlign: TextAlign.justify,
+                        )),
+                  ],
+                ),
+                SizedBox(
+                  width: 50,
+                ),
+                ZoomableVideo(
+                    borderRadius: BorderRadius.circular(10), path: "robot.mp4")
+              ],
+            ),
           ),
-        )
+        if (MediaQuery.of(context).size.width <= 1000)
+          Container(
+            padding: EdgeInsets.only(left: 10, right: 10),
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                Column(
+                  children: [
+                    Container(
+                        child: Text(
+                      "I participated in robot competitions, using Arduino, Python and C++",
+                      style: TextStyle(fontSize: 22),
+                      textAlign: TextAlign.justify,
+                    )),
+                  ],
+                ),
+                SizedBox(
+                  height: 10,
+                ),
+                ZoomableVideo(
+                    borderRadius: BorderRadius.circular(10), path: "robot.mp4")
+              ],
+            ),
+          )
       ],
     );
   }

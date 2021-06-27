@@ -17,6 +17,13 @@ class ZoomableImage extends StatefulWidget {
 
 class _ZoomableImageState extends State<ZoomableImage> {
   @override
+  void setState(fn) {
+    if (mounted) {
+      super.setState(fn);
+    }
+  }
+
+  @override
   Widget build(BuildContext context) {
     return InkWell(
       radius: 100,
