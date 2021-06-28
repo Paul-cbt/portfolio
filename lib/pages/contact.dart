@@ -20,6 +20,7 @@ class _ContactState extends State<Contact> {
   double fontSize = 22;
   @override
   Widget build(BuildContext context) {
+    fontSize = MediaQuery.of(context).size.width > 375 ? 22 : 17;
     return Container(
         height: MediaQuery.of(context).size.height,
         width: MediaQuery.of(context).size.width,
@@ -157,7 +158,8 @@ class _ContactState extends State<Contact> {
                         right: MediaQuery.of(context).size.width / 5, top: 0),
                     child: Image.asset(
                       "car.png",
-                      height: 400,
+                      height:
+                          MediaQuery.of(context).size.width > 500 ? 400 : 200,
                     ),
                   )
                 ],
@@ -165,6 +167,7 @@ class _ContactState extends State<Contact> {
             : Container(
                 height: MediaQuery.of(context).size.height,
                 child: Stack(
+                  fit: StackFit.expand,
                   children: [
                     Container(
                       alignment: Alignment.bottomLeft,
@@ -176,125 +179,132 @@ class _ContactState extends State<Contact> {
                                 Theme.of(context).textTheme.headline1?.color),
                       ),
                     ),
-                    Column(mainAxisSize: MainAxisSize.min, children: [
-                      Container(
-                        alignment: Alignment.center,
-                        child: Image.asset(
-                          "car.png",
-                          height: 400,
-                        ),
-                      ),
-                      Container(
-                        width: 400,
-                        child: Column(
-                          mainAxisSize: MainAxisSize.min,
-                          children: [
-                            RichText(
-                                text: TextSpan(
-                                    text: "Wrapping up.\n\n",
-                                    style: TextStyle(
-                                      fontSize: 35,
-                                      color: Theme.of(context)
-                                          .textTheme
-                                          .headline6
-                                          ?.color,
-                                      fontFamily: "Noto",
-                                    ),
-                                    children: [
-                                  TextSpan(
-                                    text: "If you're in search for a ",
-                                    style: TextStyle(
-                                      fontSize: fontSize,
-                                      color: Theme.of(context)
-                                          .textTheme
-                                          .headline1
-                                          ?.color,
-                                      fontFamily: "Noto",
-                                    ),
-                                  ),
-                                  TextSpan(
-                                    text: "young",
-                                    style: TextStyle(
-                                      fontSize: fontSize,
-                                      color: Theme.of(context)
-                                          .textTheme
-                                          .headline6
-                                          ?.color,
-                                      fontFamily: "Noto",
-                                    ),
-                                  ),
-                                  TextSpan(
-                                    text: " and ",
-                                    style: TextStyle(
-                                      fontSize: fontSize,
-                                      color: Theme.of(context)
-                                          .textTheme
-                                          .headline1
-                                          ?.color,
-                                      fontFamily: "Noto",
-                                    ),
-                                  ),
-                                  TextSpan(
-                                    text: "motivated",
-                                    style: TextStyle(
-                                      fontSize: fontSize,
-                                      color: Theme.of(context)
-                                          .textTheme
-                                          .headline6
-                                          ?.color,
-                                      fontFamily: "Noto",
-                                    ),
-                                  ),
-                                  TextSpan(
-                                    text: " creative developer,",
-                                    style: TextStyle(
-                                      fontSize: fontSize,
-                                      color: Theme.of(context)
-                                          .textTheme
-                                          .headline1
-                                          ?.color,
-                                      fontFamily: "Noto",
-                                    ),
-                                  ),
-                                  TextSpan(
-                                    text: " reachout!",
-                                    style: TextStyle(
-                                      fontSize: fontSize,
-                                      color: Theme.of(context)
-                                          .textTheme
-                                          .headline6
-                                          ?.color,
-                                      fontFamily: "Noto",
-                                    ),
-                                  ),
-                                ])),
-                            TextButton.icon(
-                                onPressed: () {
-                                  launch("mailto:paulcbt@outlook.com");
-                                },
-                                icon: Icon(Icons.mail_outline,
-                                    size: 30,
-                                    color: Theme.of(context)
-                                        .textTheme
-                                        .bodyText2
-                                        ?.color),
-                                label: Text(
-                                  "Mail",
-                                  style: TextStyle(
-                                      fontSize: 20,
-                                      color: Theme.of(context)
-                                          .textTheme
-                                          .bodyText2
-                                          ?.color),
-                                )),
-                            SizedBox(
-                              height: 10,
+                    Column(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          Container(
+                            alignment: Alignment.center,
+                            child: Image.asset(
+                              "car.png",
+                              height: MediaQuery.of(context).size.width > 500 &&
+                                      MediaQuery.of(context).size.height > 800
+                                  ? 400
+                                  : 200,
                             ),
-                            Container(height: 80, child: Signature())
-                          ],
-                        ),
-                      ),
-                    ]),
+                          ),
+                          Container(
+                            alignment: Alignment.center,
+                            constraints: BoxConstraints(maxWidth: 400),
+                            padding: EdgeInsets.only(left: 5, right: 5),
+                            child: Column(
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              children: [
+                                RichText(
+                                    text: TextSpan(
+                                        text: "Wrapping up.\n\n",
+                                        style: TextStyle(
+                                          fontSize: 35,
+                                          color: Theme.of(context)
+                                              .textTheme
+                                              .headline6
+                                              ?.color,
+                                          fontFamily: "Noto",
+                                        ),
+                                        children: [
+                                      TextSpan(
+                                        text: "If you're in search for a ",
+                                        style: TextStyle(
+                                          fontSize: fontSize,
+                                          color: Theme.of(context)
+                                              .textTheme
+                                              .headline1
+                                              ?.color,
+                                          fontFamily: "Noto",
+                                        ),
+                                      ),
+                                      TextSpan(
+                                        text: "young",
+                                        style: TextStyle(
+                                          fontSize: fontSize,
+                                          color: Theme.of(context)
+                                              .textTheme
+                                              .headline6
+                                              ?.color,
+                                          fontFamily: "Noto",
+                                        ),
+                                      ),
+                                      TextSpan(
+                                        text: " and ",
+                                        style: TextStyle(
+                                          fontSize: fontSize,
+                                          color: Theme.of(context)
+                                              .textTheme
+                                              .headline1
+                                              ?.color,
+                                          fontFamily: "Noto",
+                                        ),
+                                      ),
+                                      TextSpan(
+                                        text: "motivated",
+                                        style: TextStyle(
+                                          fontSize: fontSize,
+                                          color: Theme.of(context)
+                                              .textTheme
+                                              .headline6
+                                              ?.color,
+                                          fontFamily: "Noto",
+                                        ),
+                                      ),
+                                      TextSpan(
+                                        text: " creative developer,",
+                                        style: TextStyle(
+                                          fontSize: fontSize,
+                                          color: Theme.of(context)
+                                              .textTheme
+                                              .headline1
+                                              ?.color,
+                                          fontFamily: "Noto",
+                                        ),
+                                      ),
+                                      TextSpan(
+                                        text: " reachout!",
+                                        style: TextStyle(
+                                          fontSize: fontSize,
+                                          color: Theme.of(context)
+                                              .textTheme
+                                              .headline6
+                                              ?.color,
+                                          fontFamily: "Noto",
+                                        ),
+                                      ),
+                                    ])),
+                                TextButton.icon(
+                                    onPressed: () {
+                                      launch("mailto:paulcbt@outlook.com");
+                                    },
+                                    icon: Icon(Icons.mail_outline,
+                                        size: 30,
+                                        color: Theme.of(context)
+                                            .textTheme
+                                            .bodyText2
+                                            ?.color),
+                                    label: Text(
+                                      "Mail",
+                                      style: TextStyle(
+                                          fontSize: 20,
+                                          color: Theme.of(context)
+                                              .textTheme
+                                              .bodyText2
+                                              ?.color),
+                                    )),
+                                SizedBox(
+                                  height: 10,
+                                ),
+                                Container(height: 80, child: Signature())
+                              ],
+                            ),
+                          ),
+                        ]),
                   ],
                 )));
   }

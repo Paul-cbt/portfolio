@@ -11,6 +11,7 @@ class OutLearn extends StatefulWidget {
 }
 
 class _OutLearnState extends State<OutLearn> {
+  bool isBig = true;
   @override
   void setState(fn) {
     if (mounted) {
@@ -20,6 +21,7 @@ class _OutLearnState extends State<OutLearn> {
 
   @override
   Widget build(BuildContext context) {
+    isBig = MediaQuery.of(context).size.width > 375;
     return Column(
       children: [
         Container(
@@ -52,27 +54,27 @@ class _OutLearnState extends State<OutLearn> {
                   text: TextSpan(
                       text: "2020-2021     ",
                       style: TextStyle(
-                        fontSize: 20,
+                        fontSize: isBig ? 20 : 10,
                         color: Theme.of(context).textTheme.bodyText1?.color,
                       ),
                       children: [
                     TextSpan(
                       text: "OutLearn",
                       style: TextStyle(
-                          fontSize: 24,
+                          fontSize: isBig ? 24 : 12,
                           color: Theme.of(context).textTheme.bodyText1?.color),
                     ),
                     TextSpan(
                       text: ", ",
                       style: TextStyle(
-                        fontSize: 20,
+                        fontSize: isBig ? 20 : 10,
                         color: Theme.of(context).textTheme.bodyText1?.color,
                       ),
                     ),
                     TextSpan(
                       text: "Founder and CEO",
                       style: TextStyle(
-                          fontSize: 20,
+                          fontSize: isBig ? 20 : 10,
                           color: Theme.of(context).textTheme.headline4?.color),
                     )
                   ]))
@@ -96,7 +98,7 @@ class _OutLearnState extends State<OutLearn> {
                         child: Text(
                           "I fully developed and released this studying app using Flutter & Firebase",
                           textAlign: TextAlign.justify,
-                          style: TextStyle(fontSize: 22),
+                          style: TextStyle(fontSize: isBig ? 22 : 14),
                         )),
                     InkWell(
                       onTap: () {
@@ -154,7 +156,7 @@ class _OutLearnState extends State<OutLearn> {
                         child: Text(
                       "I fully developed and released this studying app using Flutter & Firebase",
                       textAlign: TextAlign.justify,
-                      style: TextStyle(fontSize: 22),
+                      style: TextStyle(fontSize: isBig ? 22 : 14),
                     )),
                     InkWell(
                       onTap: () {

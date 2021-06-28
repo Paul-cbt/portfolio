@@ -75,12 +75,13 @@ class _SwipeUpState extends State<SwipeUp> with SingleTickerProviderStateMixin {
       children: <Widget>[
         widget.body,
         Positioned(
-          bottom: widget.animate
-              ? (_swipeOffset / 2) +
-                  (MediaQuery.of(context).size.height /
-                      40 *
-                      (1 - _animation.value))
-              : _swipeOffset / 2,
+          bottom: (widget.animate
+                  ? (_swipeOffset / 2) +
+                      (MediaQuery.of(context).size.height /
+                          40 *
+                          (1 - _animation.value))
+                  : _swipeOffset / 2) +
+              (MediaQuery.of(context).size.width > 400 ? 0 : 30),
           width: MediaQuery.of(context).size.width,
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.center,

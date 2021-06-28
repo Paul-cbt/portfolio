@@ -84,7 +84,7 @@ class _PlayMusicState extends State<PlayMusic>
                           40 *
                           (1 - _animation.value))
                   : _swipeOffset / 2),
-          bottom: 0,
+          bottom: 3,
           child: Container(
             margin: EdgeInsets.only(bottom: 10),
             child: Row(

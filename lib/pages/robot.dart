@@ -56,14 +56,16 @@ class _RobotsState extends State<Robots> {
                   text: TextSpan(
                       text: "2018-2020    ",
                       style: TextStyle(
-                        fontSize: 20,
+                        fontSize:
+                            MediaQuery.of(context).size.width > 410 ? 20 : 14,
                         color: Theme.of(context).textTheme.bodyText1?.color,
                       ),
                       children: [
                     TextSpan(
                       text: "Robotics",
                       style: TextStyle(
-                        fontSize: 24,
+                        fontSize:
+                            MediaQuery.of(context).size.width > 410 ? 24 : 18,
                         color: Theme.of(context).textTheme.bodyText1?.color,
                       ),
                     ),
@@ -111,7 +113,10 @@ class _RobotsState extends State<Robots> {
                     Container(
                         child: Text(
                       "I participated in robot competitions, using Arduino, Python and C++",
-                      style: TextStyle(fontSize: 22),
+                      style: TextStyle(
+                        fontSize:
+                            MediaQuery.of(context).size.width > 410 ? 24 : 14,
+                      ),
                       textAlign: TextAlign.justify,
                     )),
                   ],

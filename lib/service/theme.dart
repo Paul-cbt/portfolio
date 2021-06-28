@@ -19,7 +19,7 @@ class AppTheme {
 
   static final ThemeData darkTheme = ThemeData(
       brightness: Brightness.dark,
-      scaffoldBackgroundColor: themecolor,
+      scaffoldBackgroundColor: Color(0xff222831),
       accentColor: Colors.black,
       shadowColor: Colors.black87,
       primaryColorLight: Colors.white,
@@ -43,7 +43,7 @@ class AppTheme {
       backgroundColor: Color(0xFF2b2e4a));
   static final ThemeData lightTheme = ThemeData(
       brightness: Brightness.light,
-      scaffoldBackgroundColor: Color(0xFFffe3c9),
+      scaffoldBackgroundColor: Colors.white,
       primaryColor: Colors.white,
       primaryColorLight: Colors.black,
       fontFamily: "Noto",

@@ -28,44 +28,167 @@ class _PresentationState extends State<Presentation> {
   @override
   Widget build(BuildContext context) {
     print(MediaQuery.of(context).size.width);
-    return SwipeUp(
-        color: Theme.of(context).primaryColorLight,
-        sensitivity: 0.5,
-        animate: true,
-        onSwipe: () {
-          widget.controller.animateToPage(2,
-              duration: Duration(milliseconds: 500), curve: Curves.easeOut);
-        },
-        body: Container(
-          height: MediaQuery.of(context).size.height,
-          child: Stack(children: [
-            if (MediaQuery.of(context).size.width > 1143)
-              Container(
-                alignment: Alignment.centerLeft,
-                margin: EdgeInsets.only(
-                    left: MediaQuery.of(context).size.width > 1389
-                        ? MediaQuery.of(context).size.width / 6
-                        : MediaQuery.of(context).size.width > 1000
-                            ? MediaQuery.of(context).size.width / 15
-                            : 30),
-                child: Material(
-                    color: Colors.transparent,
-                    child: ZoomableImage(
-                        height: 400,
-                        borderRadius: BorderRadius.only(
-                          bottomLeft: radius,
-                          topRight: radius,
-                          bottomRight: radius,
-                          // topLeft: radius
-                        ),
-                        path: "me1.jpg")),
+    return Container(
+      height: MediaQuery.of(context).size.height,
+      child: Stack(children: [
+        if (MediaQuery.of(context).size.width > 1143)
+          Container(
+            alignment: Alignment.centerLeft,
+            margin: EdgeInsets.only(
+                left: MediaQuery.of(context).size.width > 1389
+                    ? MediaQuery.of(context).size.width / 6
+                    : MediaQuery.of(context).size.width > 1000
+                        ? MediaQuery.of(context).size.width / 15
+                        : 30),
+            child: Material(
+                color: Colors.transparent,
+                child: ZoomableImage(
+                    height: 400,
+                    borderRadius: BorderRadius.only(
+                      bottomLeft: radius,
+                      topRight: radius,
+                      bottomRight: radius,
+                      // topLeft: radius
+                    ),
+                    path: "me1.jpg")),
+          ),
+        if (MediaQuery.of(context).size.width > 1143)
+          Align(
+            alignment: Alignment.centerRight,
+            child: Container(
+              width: 580,
+              alignment: Alignment.centerRight,
+              margin: EdgeInsets.only(
+                  right: MediaQuery.of(context).size.width > 1389
+                      ? MediaQuery.of(context).size.width / 8
+                      : MediaQuery.of(context).size.width > 1000
+                          ? MediaQuery.of(context).size.width / 15
+                          : 30,
+                  top: 0),
+              child: Column(
+                mainAxisSize: MainAxisSize.min,
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  RichText(
+                      textAlign: TextAlign.justify,
+                      text: TextSpan(
+                          text: "About Me\n\n",
+                          style: TextStyle(
+                            fontSize: 35,
+                            color: Theme.of(context).textTheme.headline6?.color,
+                            fontFamily: "Noto",
+                          ),
+                          children: [
+                            TextSpan(
+                              text: "I'm Paul, a 17 years old developer from ",
+                              style: TextStyle(
+                                fontSize: fontSize,
+                                color: Theme.of(context)
+                                    .textTheme
+                                    .headline1
+                                    ?.color,
+                                fontFamily: "Noto",
+                              ),
+                            ),
+                            TextSpan(
+                              text: "Munich, Germany.",
+                              style: TextStyle(
+                                fontSize: fontSize,
+                                color: Theme.of(context)
+                                    .textTheme
+                                    .headline6
+                                    ?.color,
+                                fontFamily: "Noto",
+                              ),
+                            ),
+                            TextSpan(
+                              text:
+                                  " I was alwas very passionate about programming and I started when I was arround 8\n",
+                              style: TextStyle(
+                                fontSize: fontSize,
+                                color: Theme.of(context)
+                                    .textTheme
+                                    .headline1
+                                    ?.color,
+                                fontFamily: "Noto",
+                              ),
+                            ),
+                            TextSpan(
+                              text: "In 2019, I teached myself ",
+                              style: TextStyle(
+                                fontSize: fontSize,
+                                color: Theme.of(context)
+                                    .textTheme
+                                    .headline1
+                                    ?.color,
+                                fontFamily: "Noto",
+                              ),
+                            ),
+                            TextSpan(
+                              text: "Flutter",
+                              style: TextStyle(
+                                fontSize: fontSize,
+                                color: Theme.of(context)
+                                    .textTheme
+                                    .headline6
+                                    ?.color,
+                                fontFamily: "Noto",
+                              ),
+                            ),
+                            TextSpan(
+                              text:
+                                  " and in the following months I also learned ",
+                              style: TextStyle(
+                                fontSize: fontSize,
+                                color: Theme.of(context)
+                                    .textTheme
+                                    .headline1
+                                    ?.color,
+                                fontFamily: "Noto",
+                              ),
+                            ),
+                            TextSpan(
+                              text: "React and node.js",
+                              style: TextStyle(
+                                fontSize: fontSize,
+                                color: Theme.of(context)
+                                    .textTheme
+                                    .headline6
+                                    ?.color,
+                                fontFamily: "Noto",
+                              ),
+                            ),
+                          ])),
+                ],
               ),
-            if (MediaQuery.of(context).size.width > 1143)
-              Align(
-                alignment: Alignment.centerRight,
-                child: Container(
-                  width: 580,
-                  alignment: Alignment.centerRight,
+            ),
+          ),
+        if (MediaQuery.of(context).size.width <= 1143)
+          Container(
+            alignment: Alignment.center,
+            child: Column(
+              mainAxisSize: MainAxisSize.min,
+              children: [
+                Container(
+                  margin: EdgeInsets.only(
+                      left: MediaQuery.of(context).size.width > 1389
+                          ? MediaQuery.of(context).size.width / 6
+                          : MediaQuery.of(context).size.width > 1000
+                              ? MediaQuery.of(context).size.width / 15
+                              : 30),
+                  child: Material(
+                      color: Colors.transparent,
+                      child: ZoomableImage(
+                          height: MediaQuery.of(context).size.height / 3,
+                          borderRadius: BorderRadius.only(
+                            bottomLeft: radius,
+                            topRight: radius,
+                            bottomRight: radius,
+                            // topLeft: radius
+                          ),
+                          path: "me1.jpg")),
+                ),
+                Container(
                   margin: EdgeInsets.only(
                       right: MediaQuery.of(context).size.width > 1389
                           ? MediaQuery.of(context).size.width / 8
@@ -73,6 +196,7 @@ class _PresentationState extends State<Presentation> {
                               ? MediaQuery.of(context).size.width / 15
                               : 30,
                       top: 0),
+                  padding: EdgeInsets.only(left: 10, right: 10),
                   child: Column(
                     mainAxisSize: MainAxisSize.min,
                     mainAxisAlignment: MainAxisAlignment.center,
@@ -94,7 +218,7 @@ class _PresentationState extends State<Presentation> {
                                   text:
                                       "I'm Paul, a 17 years old developer from ",
                                   style: TextStyle(
-                                    fontSize: fontSize,
+                                    fontSize: smallFontSize,
                                     color: Theme.of(context)
                                         .textTheme
                                         .headline1
@@ -105,7 +229,7 @@ class _PresentationState extends State<Presentation> {
                                 TextSpan(
                                   text: "Munich, Germany.",
                                   style: TextStyle(
-                                    fontSize: fontSize,
+                                    fontSize: smallFontSize,
                                     color: Theme.of(context)
                                         .textTheme
                                         .headline6
@@ -117,7 +241,7 @@ class _PresentationState extends State<Presentation> {
                                   text:
                                       " I was alwas very passionate about programming and I started when I was arround 8\n",
                                   style: TextStyle(
-                                    fontSize: fontSize,
+                                    fontSize: smallFontSize,
                                     color: Theme.of(context)
                                         .textTheme
                                         .headline1
@@ -128,7 +252,7 @@ class _PresentationState extends State<Presentation> {
                                 TextSpan(
                                   text: "In 2019, I teached myself ",
                                   style: TextStyle(
-                                    fontSize: fontSize,
+                                    fontSize: smallFontSize,
                                     color: Theme.of(context)
                                         .textTheme
                                         .headline1
@@ -139,7 +263,7 @@ class _PresentationState extends State<Presentation> {
                                 TextSpan(
                                   text: "Flutter",
                                   style: TextStyle(
-                                    fontSize: fontSize,
+                                    fontSize: smallFontSize,
                                     color: Theme.of(context)
                                         .textTheme
                                         .headline6
@@ -151,7 +275,7 @@ class _PresentationState extends State<Presentation> {
                                   text:
                                       " and in the following months I also learned ",
                                   style: TextStyle(
-                                    fontSize: fontSize,
+                                    fontSize: smallFontSize,
                                     color: Theme.of(context)
                                         .textTheme
                                         .headline1
@@ -162,7 +286,7 @@ class _PresentationState extends State<Presentation> {
                                 TextSpan(
                                   text: "React and node.js",
                                   style: TextStyle(
-                                    fontSize: fontSize,
+                                    fontSize: smallFontSize,
                                     color: Theme.of(context)
                                         .textTheme
                                         .headline6
@@ -174,150 +298,10 @@ class _PresentationState extends State<Presentation> {
                     ],
                   ),
                 ),
-              ),
-            if (MediaQuery.of(context).size.width <= 1143)
-              Container(
-                alignment: Alignment.center,
-                child: Column(
-                  mainAxisSize: MainAxisSize.min,
-                  children: [
-                    Container(
-                      margin: EdgeInsets.only(
-                          left: MediaQuery.of(context).size.width > 1389
-                              ? MediaQuery.of(context).size.width / 6
-                              : MediaQuery.of(context).size.width > 1000
-                                  ? MediaQuery.of(context).size.width / 15
-                                  : 30),
-                      child: Material(
-                          color: Colors.transparent,
-                          child: ZoomableImage(
-                              height: MediaQuery.of(context).size.height / 3,
-                              borderRadius: BorderRadius.only(
-                                bottomLeft: radius,
-                                topRight: radius,
-                                bottomRight: radius,
-                                // topLeft: radius
-                              ),
-                              path: "me1.jpg")),
-                    ),
-                    Container(
-                      margin: EdgeInsets.only(
-                          right: MediaQuery.of(context).size.width > 1389
-                              ? MediaQuery.of(context).size.width / 8
-                              : MediaQuery.of(context).size.width > 1000
-                                  ? MediaQuery.of(context).size.width / 15
-                                  : 30,
-                          top: 0),
-                      padding: EdgeInsets.only(left: 10, right: 10),
-                      child: Column(
-                        mainAxisSize: MainAxisSize.min,
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: [
-                          RichText(
-                              textAlign: TextAlign.justify,
-                              text: TextSpan(
-                                  text: "About Me\n\n",
-                                  style: TextStyle(
-                                    fontSize: 35,
-                                    color: Theme.of(context)
-                                        .textTheme
-                                        .headline6
-                                        ?.color,
-                                    fontFamily: "Noto",
-                                  ),
-                                  children: [
-                                    TextSpan(
-                                      text:
-                                          "I'm Paul, a 17 years old developer from ",
-                                      style: TextStyle(
-                                        fontSize: smallFontSize,
-                                        color: Theme.of(context)
-                                            .textTheme
-                                            .headline1
-                                            ?.color,
-                                        fontFamily: "Noto",
-                                      ),
-                                    ),
-                                    TextSpan(
-                                      text: "Munich, Germany.",
-                                      style: TextStyle(
-                                        fontSize: smallFontSize,
-                                        color: Theme.of(context)
-                                            .textTheme
-                                            .headline6
-                                            ?.color,
-                                        fontFamily: "Noto",
-                                      ),
-                                    ),
-                                    TextSpan(
-                                      text:
-                                          " I was alwas very passionate about programming and I started when I was arround 8\n",
-                                      style: TextStyle(
-                                        fontSize: smallFontSize,
-                                        color: Theme.of(context)
-                                            .textTheme
-                                            .headline1
-                                            ?.color,
-                                        fontFamily: "Noto",
-                                      ),
-                                    ),
-                                    TextSpan(
-                                      text: "In 2019, I teached myself ",
-                                      style: TextStyle(
-                                        fontSize: smallFontSize,
-                                        color: Theme.of(context)
-                                            .textTheme
-                                            .headline1
-                                            ?.color,
-                                        fontFamily: "Noto",
-                                      ),
-                                    ),
-                                    TextSpan(
-                                      text: "Flutter",
-                                      style: TextStyle(
-                                        fontSize: smallFontSize,
-                                        color: Theme.of(context)
-                                            .textTheme
-                                            .headline6
-                                            ?.color,
-                                        fontFamily: "Noto",
-                                      ),
-                                    ),
-                                    TextSpan(
-                                      text:
-                                          " and in the following months I also learned ",
-                                      style: TextStyle(
-                                        fontSize: smallFontSize,
-                                        color: Theme.of(context)
-                                            .textTheme
-                                            .headline1
-                                            ?.color,
-                                        fontFamily: "Noto",
-                                      ),
-                                    ),
-                                    TextSpan(
-                                      text: "React and node.js",
-                                      style: TextStyle(
-                                        fontSize: smallFontSize,
-                                        color: Theme.of(context)
-                                            .textTheme
-                                            .headline6
-                                            ?.color,
-                                        fontFamily: "Noto",
-                                      ),
-                                    ),
-                                  ])),
-                        ],
-                      ),
-                    ),
-                  ],
-                ),
-              )
-          ]),
-        ),
-        child: Material(
-            color: Colors.transparent,
-            child: Text('Swipe Up',
-                style: TextStyle(color: Theme.of(context).primaryColorLight))));
+              ],
+            ),
+          )
+      ]),
+    );
   }
 }

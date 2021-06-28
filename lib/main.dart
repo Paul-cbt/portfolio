@@ -51,6 +51,8 @@ class _WrapperState extends State<Wrapper> with SingleTickerProviderStateMixin {
   bool isScrolling = false;
   late AnimationController iconController;
   bool hasPlayedMusic = false;
+  bool hasLoadedMusic = false;
+  final assetsAudioPlayer = AssetsAudioPlayer.withId("music");
 
   PageController controller = PageController();
   @override
@@ -60,18 +62,44 @@ class _WrapperState extends State<Wrapper> with SingleTickerProviderStateMixin {
     }
   }
 
+  void startMusic() async {
+    if (!hasLoadedMusic) {
+      await loadMusic();
+    }
+    assetsAudioPlayer.playOrPause();
+  }
+
+  Future loadMusic() async {
+    await assetsAudioPlayer.open(Audio("cropNight.mp3"),
+        volume: 0.2,
+        autoStart: false,
+        respectSilentMode: true,
+        loopMode: LoopMode.single,
+        notificationSettings: NotificationSettings(),
+        playInBackground: PlayInBackground.disabledRestoreOnForeground,
+        showNotification: false);
+    hasLoadedMusic = true;
+  }
+
   @override
   void initState() {
+    loadMusic();
+
     iconController =
         AnimationController(vsync: this, duration: Duration(milliseconds: 200));
     super.initState();
   }
 
   @override
+  void dispose() {
+    assetsAudioPlayer.dispose();
+    super.dispose();
+  }
+
+  @override
   Widget build(BuildContext context) {
     int page = 0;
     return Scaffold(
-      backgroundColor: Colors.transparent,
       body: Listener(
         onPointerSignal: (PointerSignalEvent event) {
           if (event is PointerScrollEvent) {
@@ -95,26 +123,30 @@ class _WrapperState extends State<Wrapper> with SingleTickerProviderStateMixin {
           ),
           child: Stack(
             children: [
-              PageView(
-                physics: PageScrollPhysics(),
-                allowImplicitScrolling: true,
-                onPageChanged: (value) {
-                  setState(() {
-                    page = value;
-                  });
-                },
-                scrollDirection: Axis.vertical,
+              Scrollbar(
+                isAlwaysShown: MediaQuery.of(context).size.width > 500,
                 controller: controller,
-                children: [
-                  Home(
-                    controller: controller,
-                  ),
-                  Presentation(
-                    controller: controller,
-                  ),
-                  Projects(),
-                  Contact()
-                ],
+                child: PageView(
+                  physics: PageScrollPhysics(),
+                  allowImplicitScrolling: true,
+                  onPageChanged: (value) {
+                    setState(() {
+                      page = value;
+                    });
+                  },
+                  scrollDirection: Axis.vertical,
+                  controller: controller,
+                  children: [
+                    Home(
+                      controller: controller,
+                    ),
+                    Presentation(
+                      controller: controller,
+                    ),
+                    Projects(),
+                    Contact()
+                  ],
+                ),
               ),
               NavBar(
                 controller: controller,
@@ -137,6 +169,7 @@ class _WrapperState extends State<Wrapper> with SingleTickerProviderStateMixin {
                 alignment: Alignment.bottomRight,
                 child: InkWell(
                   onTap: () {
+                    startMusic();
                     setState(() {
                       hasPlayedMusic = true;
                     });

@@ -61,6 +61,7 @@ class _ZoomableVideoState extends State<ZoomableVideo> {
   @override
   Widget build(BuildContext context) {
     return Stack(
+      fit: StackFit.loose,
       children: [
         Container(
           height: 200,
@@ -104,9 +105,9 @@ class _ZoomableVideoState extends State<ZoomableVideo> {
                     contentPadding: EdgeInsets.all(0),
                     content: Container(
                       child: Stack(
+                        fit: StackFit.loose,
                         children: [
                           Container(
-                            alignment: Alignment.center,
                             child: InteractiveViewer(
                               constrained: true,
                               child: ClipRRect(
@@ -115,9 +116,7 @@ class _ZoomableVideoState extends State<ZoomableVideo> {
                                     duration: Duration(milliseconds: 300),
                                     child: !loading
                                         ? Container(
-                                            height: MediaQuery.of(context)
-                                                .size
-                                                .height,
+                                            color: Colors.amber,
                                             child: AspectRatio(
                                               aspectRatio: _controller2
                                                   .value.aspectRatio,

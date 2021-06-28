@@ -29,7 +29,7 @@ class _NavBarState extends State<NavBar> {
                 style: Theme.of(context).textTheme.bodyText1,
               )),
           SizedBox(
-            width: 15,
+            width: MediaQuery.of(context).size.width > 375 ? 15 : 5,
           ),
           TextButton(
               onPressed: () {
@@ -42,7 +42,7 @@ class _NavBarState extends State<NavBar> {
                 style: Theme.of(context).textTheme.bodyText1,
               )),
           SizedBox(
-            width: 15,
+            width: MediaQuery.of(context).size.width > 375 ? 15 : 5,
           ),
           TextButton(
               onPressed: () {
@@ -55,7 +55,7 @@ class _NavBarState extends State<NavBar> {
                 style: Theme.of(context).textTheme.bodyText1,
               )),
           SizedBox(
-            width: 15,
+            width: MediaQuery.of(context).size.width > 375 ? 15 : 5,
           ),
           TextButton(
               onPressed: () {
@@ -66,7 +66,7 @@ class _NavBarState extends State<NavBar> {
                 style: Theme.of(context).textTheme.bodyText1,
               )),
           SizedBox(
-            width: 30,
+            width: MediaQuery.of(context).size.width > 375 ? 30 : 5,
           )
         ],
       ),

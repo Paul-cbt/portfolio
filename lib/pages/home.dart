@@ -1,10 +1,11 @@
 // @dart=2.9
 import 'package:flutter/material.dart';
 import 'package:hovering/hovering.dart';
-import 'package:portfolio/service/swipeUp.dart';
+// import 'package:portfolio/service/swipeUp.dart';
 import 'package:portfolio/service/theme.dart';
 import 'package:portfolio/service/zoomableImage.dart';
 import 'package:provider/provider.dart';
+import 'package:swipe_up/swipe_up.dart';
 
 class Home extends StatefulWidget {
   final PageController controller;
@@ -44,7 +45,8 @@ class _HomeState extends State<Home> {
           child: Stack(children: [
             Container(
               alignment: Alignment.topLeft,
-              margin: EdgeInsets.only(left: 20),
+              margin: EdgeInsets.only(
+                  left: MediaQuery.of(context).size.width > 375 ? 20 : 5),
               child: Material(
                 color: Colors.transparent,
                 child: HoverWidget(
@@ -63,8 +65,9 @@ class _HomeState extends State<Home> {
                     },
                     child: Image.asset(
                       "ceiling-lamp.png",
-                      height: 140,
-                      width: 130,
+                      height:
+                          MediaQuery.of(context).size.width > 840 ? 140 : 75,
+                      width: MediaQuery.of(context).size.width > 840 ? 130 : 70,
                     ),
                   ),
                   child: GestureDetector(
@@ -81,8 +84,9 @@ class _HomeState extends State<Home> {
                     },
                     child: Image.asset(
                       "ceiling-lamp.png",
-                      height: 130,
-                      width: 130,
+                      height:
+                          MediaQuery.of(context).size.width > 840 ? 130 : 70,
+                      width: MediaQuery.of(context).size.width > 840 ? 130 : 70,
                     ),
                   ),
                 ),

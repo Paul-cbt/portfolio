@@ -50,64 +50,56 @@ class _ProjectsState extends State<Projects> {
                     height: 40,
                   ),
                   Container(
-                    height: 400,
-                    child: Stack(
+                    height: MediaQuery.of(context).size.height / 4 + 200,
+                    width: MediaQuery.of(context).size.width,
+                    child: PageView(
+                      onPageChanged: (value) {
+                        setState(() {
+                          page = value;
+                        });
+                      },
+                      controller: controller,
                       children: [
                         Container(
-                          width: MediaQuery.of(context).size.width,
-                          child: PageView(
-                            onPageChanged: (value) {
-                              setState(() {
-                                page = value;
-                              });
-                            },
-                            controller: controller,
-                            children: [
-                              Container(
-                                  width: MediaQuery.of(context).size.width,
-                                  child: OutLearn()),
-                              Container(
-                                  width: MediaQuery.of(context).size.width,
-                                  child: Robots()),
-                            ],
-                          ),
-                        ),
+                            width: MediaQuery.of(context).size.width,
+                            child: OutLearn()),
                         Container(
-                          margin: EdgeInsets.only(right: 10),
-                          alignment: Alignment.centerRight,
-                          child: AnimatedSwitcher(
-                            duration: Duration(milliseconds: 500),
-                            child: page < 1
-                                ? IconButton(
-                                    onPressed: () {
-                                      controller.nextPage(
-                                          duration: Duration(milliseconds: 500),
-                                          curve: Curves.easeIn);
-                                    },
-                                    icon: Icon(Icons.arrow_forward))
-                                : Container(),
-                          ),
-                        ),
-                        Container(
-                          margin: EdgeInsets.only(left: 10),
-                          alignment: Alignment.centerLeft,
-                          child: AnimatedSwitcher(
-                            duration: Duration(milliseconds: 500),
-                            child: page > 0
-                                ? IconButton(
-                                    onPressed: () {
-                                      print("yes pressed");
-                                      controller.previousPage(
-                                          duration: Duration(milliseconds: 500),
-                                          curve: Curves.easeIn);
-                                    },
-                                    icon: Icon(Icons.arrow_back))
-                                : Container(),
-                          ),
-                        ),
+                            width: MediaQuery.of(context).size.width,
+                            child: Robots()),
                       ],
                     ),
-                  )
+                  ),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Container(
+                        margin: EdgeInsets.only(left: 10),
+                        child: IconButton(
+                            color: page > 0
+                                ? Theme.of(context).primaryColorLight
+                                : Colors.grey,
+                            onPressed: () {
+                              print("yes pressed");
+                              controller.previousPage(
+                                  duration: Duration(milliseconds: 500),
+                                  curve: Curves.easeIn);
+                            },
+                            icon: Icon(Icons.arrow_back)),
+                      ),
+                      Container(
+                          margin: EdgeInsets.only(right: 10),
+                          child: IconButton(
+                              color: page < 1
+                                  ? Theme.of(context).primaryColorLight
+                                  : Colors.grey,
+                              onPressed: () {
+                                controller.nextPage(
+                                    duration: Duration(milliseconds: 500),
+                                    curve: Curves.easeIn);
+                              },
+                              icon: Icon(Icons.arrow_forward))),
+                    ],
+                  ),
                 ],
               )),
           Container(
@@ -129,8 +121,8 @@ class _ProjectsState extends State<Projects> {
                   },
                   child: Image.asset(
                     "desk-lamp.png",
-                    height: 140,
-                    width: 130,
+                    height: MediaQuery.of(context).size.width > 375 ? 140 : 70,
+                    width: MediaQuery.of(context).size.width > 375 ? 130 : 70,
                   ),
                 ),
                 child: GestureDetector(
@@ -145,8 +137,8 @@ class _ProjectsState extends State<Projects> {
                   },
                   child: Image.asset(
                     "desk-lamp.png",
-                    height: 130,
-                    width: 130,
+                    height: MediaQuery.of(context).size.width > 375 ? 130 : 70,
+                    width: MediaQuery.of(context).size.width > 375 ? 130 : 70,
                   ),
                 ),
               ),
