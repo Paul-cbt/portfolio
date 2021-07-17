@@ -1,4 +1,7 @@
+import 'package:cached_network_image/cached_network_image.dart';
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
+import 'package:shimmer/shimmer.dart';
 
 class ZoomableImage extends StatefulWidget {
   final BorderRadius borderRadius;
@@ -48,9 +51,21 @@ class _ZoomableImageState extends State<ZoomableImage> {
                           tag: widget.path,
                           child: ClipRRect(
                             borderRadius: BorderRadius.circular(10),
-                            child: Image.asset(
-                              widget.path,
-                            ),
+                            child: kIsWeb
+                                ? CachedNetworkImage(
+                                    placeholder: (context, url) {
+                                      return Shimmer.fromColors(
+                                        child:
+                                            Container(height: 300, width: 600),
+                                        baseColor:
+                                            Colors.grey[300] ?? Colors.grey,
+                                        highlightColor:
+                                            Colors.grey[100] ?? Colors.grey,
+                                      );
+                                    },
+                                    imageUrl: "assets/${widget.path}",
+                                  )
+                                : Image.asset("assets/${widget.path}"),
                           ),
                         ),
                       ),
@@ -64,12 +79,27 @@ class _ZoomableImageState extends State<ZoomableImage> {
         tag: widget.path,
         child: ClipRRect(
           borderRadius: widget.borderRadius,
-          child: Image.asset(
-            widget.path,
-            height: widget.height,
-            width: widget.width,
-            fit: BoxFit.fitHeight,
-          ),
+          child: kIsWeb
+              ? CachedNetworkImage(
+                  placeholder: (context, url) {
+                    return Shimmer.fromColors(
+                      child:
+                          Container(height: widget.height, width: widget.width),
+                      baseColor: Colors.grey[300] ?? Colors.grey,
+                      highlightColor: Colors.grey[100] ?? Colors.grey,
+                    );
+                  },
+                  imageUrl: "assets/${widget.path}",
+                  height: widget.height,
+                  width: widget.width,
+                  fit: BoxFit.fitHeight,
+                )
+              : Image.asset(
+                  "assets/${widget.path}",
+                  height: widget.height,
+                  width: widget.width,
+                  fit: BoxFit.fitHeight,
+                ),
         ),
       ),
     );

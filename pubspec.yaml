@@ -39,7 +39,10 @@ dependencies:
   timelines: 0.0.2+1
   url_launcher: ^6.0.4
   video_player: ^2.1.4
+  cached_network_image: ^3.0.0
+  just_audio: ^0.8.0
   particles_flutter: ^0.1.2
+  shimmer: ^2.0.0
   provider: ^5.0.0
   hovering: ^1.0.4
   assets_audio_player: ^3.0.3+3

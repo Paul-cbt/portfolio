@@ -166,6 +166,7 @@ class _PresentationState extends State<Presentation> {
         if (MediaQuery.of(context).size.width <= 1143)
           Container(
             alignment: Alignment.center,
+            margin: EdgeInsets.only(left: 10),
             child: Column(
               mainAxisSize: MainAxisSize.min,
               children: [
