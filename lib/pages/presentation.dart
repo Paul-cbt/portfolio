@@ -103,7 +103,7 @@ class _PresentationState extends State<Presentation> {
                             ),
                             TextSpan(
                               text:
-                                  " I was alwas very passionate about programming and I started when I was arround 8\n",
+                                  " I was always very passionate about programming and I started when I was arround 8\n",
                               style: TextStyle(
                                 fontSize: fontSize,
                                 color: Theme.of(context)
@@ -240,7 +240,7 @@ class _PresentationState extends State<Presentation> {
                                 ),
                                 TextSpan(
                                   text:
-                                      " I was alwas very passionate about programming and I started when I was arround 8\n",
+                                      " I was always very passionate about programming and I started when I was arround 8\n",
                                   style: TextStyle(
                                     fontSize: smallFontSize,
                                     color: Theme.of(context)
