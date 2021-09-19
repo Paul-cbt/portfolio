@@ -115,7 +115,7 @@ class _RobotsState extends State<Robots> {
                       "I participated in robot competitions, using Arduino, Python and C++",
                       style: TextStyle(
                         fontSize:
-                            MediaQuery.of(context).size.width > 410 ? 24 : 14,
+                            MediaQuery.of(context).size.width > 436 ? 24 : 14,
                       ),
                       textAlign: TextAlign.justify,
                     )),

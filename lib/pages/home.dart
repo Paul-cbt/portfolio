@@ -32,7 +32,7 @@ class _HomeState extends State<Home> {
     print(MediaQuery.of(context).size.width);
     return SwipeUp(
         color: Theme.of(context).primaryColorLight,
-        sensitivity: 0.5,
+        sensitivity: 0.3,
         expand: false,
         showArrow: true,
         animate: true,

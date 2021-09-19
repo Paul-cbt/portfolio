@@ -21,7 +21,7 @@ class _OutLearnState extends State<OutLearn> {
 
   @override
   Widget build(BuildContext context) {
-    isBig = MediaQuery.of(context).size.width > 375;
+    isBig = MediaQuery.of(context).size.width > 436;
     return Column(
       children: [
         Container(
@@ -54,27 +54,27 @@ class _OutLearnState extends State<OutLearn> {
                   text: TextSpan(
                       text: "2020-2021     ",
                       style: TextStyle(
-                        fontSize: isBig ? 20 : 10,
+                        fontSize: isBig ? 20 : 13,
                         color: Theme.of(context).textTheme.bodyText1?.color,
                       ),
                       children: [
                     TextSpan(
                       text: "OutLearn",
                       style: TextStyle(
-                          fontSize: isBig ? 24 : 12,
+                          fontSize: isBig ? 24 : 15,
                           color: Theme.of(context).textTheme.bodyText1?.color),
                     ),
                     TextSpan(
                       text: ", ",
                       style: TextStyle(
-                        fontSize: isBig ? 20 : 10,
+                        fontSize: isBig ? 20 : 13,
                         color: Theme.of(context).textTheme.bodyText1?.color,
                       ),
                     ),
                     TextSpan(
                       text: "Founder and CEO",
                       style: TextStyle(
-                          fontSize: isBig ? 20 : 10,
+                          fontSize: isBig ? 20 : 13,
                           color: Theme.of(context).textTheme.headline4?.color),
                     )
                   ]))

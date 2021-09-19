@@ -117,25 +117,52 @@ class _ContactState extends State<Contact> {
                         SizedBox(
                           height: 30,
                         ),
-                        TextButton.icon(
-                            onPressed: () {
-                              launch("mailto:paulcbt@outlook.com");
-                            },
-                            icon: Icon(Icons.mail_outline,
-                                size: 30,
-                                color: Theme.of(context)
-                                    .textTheme
-                                    .bodyText2
-                                    ?.color),
-                            label: Text(
-                              "Mail",
-                              style: TextStyle(
-                                  fontSize: 20,
-                                  color: Theme.of(context)
-                                      .textTheme
-                                      .bodyText2
-                                      ?.color),
-                            )),
+                        Row(
+                          mainAxisSize: MainAxisSize.min,
+                          children: [
+                            TextButton.icon(
+                                onPressed: () {
+                                  launch("mailto:paulcbt@outlook.com");
+                                },
+                                icon: Icon(Icons.mail_outline,
+                                    size: 30,
+                                    color: Theme.of(context)
+                                        .textTheme
+                                        .bodyText2
+                                        ?.color),
+                                label: Text(
+                                  "Mail",
+                                  style: TextStyle(
+                                      fontSize: 20,
+                                      color: Theme.of(context)
+                                          .textTheme
+                                          .bodyText2
+                                          ?.color),
+                                )),
+                            SizedBox(
+                              width: 20,
+                            ),
+                            TextButton.icon(
+                                onPressed: () {
+                                  launch("assets/cv.pdf");
+                                },
+                                icon: Icon(Icons.download,
+                                    size: 30,
+                                    color: Theme.of(context)
+                                        .textTheme
+                                        .bodyText2
+                                        ?.color),
+                                label: Text(
+                                  "Resume",
+                                  style: TextStyle(
+                                      fontSize: 20,
+                                      color: Theme.of(context)
+                                          .textTheme
+                                          .bodyText2
+                                          ?.color),
+                                )),
+                          ],
+                        ),
                         SizedBox(
                           height: 30,
                         ),
@@ -171,7 +198,8 @@ class _ContactState extends State<Contact> {
                   children: [
                     Container(
                       alignment: Alignment.bottomLeft,
-                      margin: EdgeInsets.fromLTRB(20, 0, 0, 20),
+                      margin: EdgeInsets.fromLTRB(20, 0, 0,
+                          MediaQuery.of(context).size.width > 584 ? 20 : 50),
                       child: Text(
                         "PS: Oh! And it's me you're listening to in the background",
                         style: TextStyle(
@@ -278,25 +306,52 @@ class _ContactState extends State<Contact> {
                                         ),
                                       ),
                                     ])),
-                                TextButton.icon(
-                                    onPressed: () {
-                                      launch("mailto:paulcbt@outlook.com");
-                                    },
-                                    icon: Icon(Icons.mail_outline,
-                                        size: 30,
-                                        color: Theme.of(context)
-                                            .textTheme
-                                            .bodyText2
-                                            ?.color),
-                                    label: Text(
-                                      "Mail",
-                                      style: TextStyle(
-                                          fontSize: 20,
-                                          color: Theme.of(context)
-                                              .textTheme
-                                              .bodyText2
-                                              ?.color),
-                                    )),
+                                Row(
+                                  mainAxisSize: MainAxisSize.min,
+                                  children: [
+                                    TextButton.icon(
+                                        onPressed: () {
+                                          launch("mailto:paulcbt@outlook.com");
+                                        },
+                                        icon: Icon(Icons.mail_outline,
+                                            size: 30,
+                                            color: Theme.of(context)
+                                                .textTheme
+                                                .bodyText2
+                                                ?.color),
+                                        label: Text(
+                                          "Mail",
+                                          style: TextStyle(
+                                              fontSize: 20,
+                                              color: Theme.of(context)
+                                                  .textTheme
+                                                  .bodyText2
+                                                  ?.color),
+                                        )),
+                                    SizedBox(
+                                      width: 20,
+                                    ),
+                                    TextButton.icon(
+                                        onPressed: () {
+                                          launch("assets/cv.pdf");
+                                        },
+                                        icon: Icon(Icons.download,
+                                            size: 30,
+                                            color: Theme.of(context)
+                                                .textTheme
+                                                .bodyText2
+                                                ?.color),
+                                        label: Text(
+                                          "Resume",
+                                          style: TextStyle(
+                                              fontSize: 20,
+                                              color: Theme.of(context)
+                                                  .textTheme
+                                                  .bodyText2
+                                                  ?.color),
+                                        )),
+                                  ],
+                                ),
                                 SizedBox(
                                   height: 10,
                                 ),
