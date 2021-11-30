@@ -32,7 +32,6 @@ class _ZoomableVideoState extends State<ZoomableVideo> {
   void initState() {
     _controller = VideoPlayerController.asset(widget.path)
       ..initialize().then((_) {
-        print("finished loading");
         _controller.setVolume(0);
 
         _controller.play();
@@ -44,7 +43,6 @@ class _ZoomableVideoState extends State<ZoomableVideo> {
       });
     _controller2 = VideoPlayerController.asset(widget.path)
       ..initialize().then((_) {
-        print("finished loading");
         _controller2.setVolume(0);
 
         _controller2.play();
@@ -95,7 +93,6 @@ class _ZoomableVideoState extends State<ZoomableVideo> {
           radius: 100,
           borderRadius: widget.borderRadius,
           onTap: () {
-            print("tapped");
             _controller2.play();
             showDialog(
               context: context,

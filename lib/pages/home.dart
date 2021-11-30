@@ -29,7 +29,6 @@ class _HomeState extends State<Home> {
   Radius radius = Radius.circular(100);
   @override
   Widget build(BuildContext context) {
-    print(MediaQuery.of(context).size.width);
     return SwipeUp(
         color: Theme.of(context).primaryColorLight,
         sensitivity: 0.3,

@@ -79,7 +79,6 @@ class _ProjectsState extends State<Projects> {
                                 ? Theme.of(context).primaryColorLight
                                 : Colors.grey,
                             onPressed: () {
-                              print("yes pressed");
                               controller.previousPage(
                                   duration: Duration(milliseconds: 500),
                                   curve: Curves.easeIn);

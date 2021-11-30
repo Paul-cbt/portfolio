@@ -27,7 +27,6 @@ class _PresentationState extends State<Presentation> {
 
   @override
   Widget build(BuildContext context) {
-    print(MediaQuery.of(context).size.width);
     return Container(
       height: MediaQuery.of(context).size.height,
       child: Stack(children: [
@@ -202,100 +201,97 @@ class _PresentationState extends State<Presentation> {
                     mainAxisSize: MainAxisSize.min,
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
+                      Text(
+                        "About Me\n\n",
+                        style: TextStyle(
+                          fontSize: 35,
+                          color: Theme.of(context).textTheme.headline6?.color,
+                          fontFamily: "Noto",
+                        ),
+                      ),
                       RichText(
                           textAlign: TextAlign.justify,
-                          text: TextSpan(
-                              text: "About Me\n\n",
+                          text: TextSpan(children: [
+                            TextSpan(
+                              text: "I'm Paul, a 17 years old developer from ",
                               style: TextStyle(
-                                fontSize: 35,
+                                fontSize: smallFontSize,
+                                color: Theme.of(context)
+                                    .textTheme
+                                    .headline1
+                                    ?.color,
+                                fontFamily: "Noto",
+                              ),
+                            ),
+                            TextSpan(
+                              text: "Munich, Germany.",
+                              style: TextStyle(
+                                fontSize: smallFontSize,
                                 color: Theme.of(context)
                                     .textTheme
                                     .headline6
                                     ?.color,
                                 fontFamily: "Noto",
                               ),
-                              children: [
-                                TextSpan(
-                                  text:
-                                      "I'm Paul, a 17 years old developer from ",
-                                  style: TextStyle(
-                                    fontSize: smallFontSize,
-                                    color: Theme.of(context)
-                                        .textTheme
-                                        .headline1
-                                        ?.color,
-                                    fontFamily: "Noto",
-                                  ),
-                                ),
-                                TextSpan(
-                                  text: "Munich, Germany.",
-                                  style: TextStyle(
-                                    fontSize: smallFontSize,
-                                    color: Theme.of(context)
-                                        .textTheme
-                                        .headline6
-                                        ?.color,
-                                    fontFamily: "Noto",
-                                  ),
-                                ),
-                                TextSpan(
-                                  text:
-                                      " I always was very passionate about programming and I started when I was arround 8\n",
-                                  style: TextStyle(
-                                    fontSize: smallFontSize,
-                                    color: Theme.of(context)
-                                        .textTheme
-                                        .headline1
-                                        ?.color,
-                                    fontFamily: "Noto",
-                                  ),
-                                ),
-                                TextSpan(
-                                  text: "In 2019, I teached myself ",
-                                  style: TextStyle(
-                                    fontSize: smallFontSize,
-                                    color: Theme.of(context)
-                                        .textTheme
-                                        .headline1
-                                        ?.color,
-                                    fontFamily: "Noto",
-                                  ),
-                                ),
-                                TextSpan(
-                                  text: "Flutter",
-                                  style: TextStyle(
-                                    fontSize: smallFontSize,
-                                    color: Theme.of(context)
-                                        .textTheme
-                                        .headline6
-                                        ?.color,
-                                    fontFamily: "Noto",
-                                  ),
-                                ),
-                                TextSpan(
-                                  text:
-                                      " and in the following months I also learned ",
-                                  style: TextStyle(
-                                    fontSize: smallFontSize,
-                                    color: Theme.of(context)
-                                        .textTheme
-                                        .headline1
-                                        ?.color,
-                                    fontFamily: "Noto",
-                                  ),
-                                ),
-                                TextSpan(
-                                  text: "React and node.js",
-                                  style: TextStyle(
-                                    fontSize: smallFontSize,
-                                    color: Theme.of(context)
-                                        .textTheme
-                                        .headline6
-                                        ?.color,
-                                    fontFamily: "Noto",
-                                  ),
-                                ),
-                              ])),
+                            ),
+                            TextSpan(
+                              text:
+                                  " I always was very passionate about programming and I started when I was arround 8\n",
+                              style: TextStyle(
+                                fontSize: smallFontSize,
+                                color: Theme.of(context)
+                                    .textTheme
+                                    .headline1
+                                    ?.color,
+                                fontFamily: "Noto",
+                              ),
+                            ),
+                            TextSpan(
+                              text: "In 2019, I teached myself ",
+                              style: TextStyle(
+                                fontSize: smallFontSize,
+                                color: Theme.of(context)
+                                    .textTheme
+                                    .headline1
+                                    ?.color,
+                                fontFamily: "Noto",
+                              ),
+                            ),
+                            TextSpan(
+                              text: "Flutter",
+                              style: TextStyle(
+                                fontSize: smallFontSize,
+                                color: Theme.of(context)
+                                    .textTheme
+                                    .headline6
+                                    ?.color,
+                                fontFamily: "Noto",
+                              ),
+                            ),
+                            TextSpan(
+                              text:
+                                  " and in the following months I also learned ",
+                              style: TextStyle(
+                                fontSize: smallFontSize,
+                                color: Theme.of(context)
+                                    .textTheme
+                                    .headline1
+                                    ?.color,
+                                fontFamily: "Noto",
+                              ),
+                            ),
+                            TextSpan(
+                              text: "React and node.js",
+                              style: TextStyle(
+                                fontSize: smallFontSize,
+                                color: Theme.of(context)
+                                    .textTheme
+                                    .headline6
+                                    ?.color,
+                                fontFamily: "Noto",
+                              ),
+                            ),
+                          ])),
                     ],
                   ),
                 ),

@@ -115,18 +115,15 @@ class _WrapperState extends State<Wrapper> with SingleTickerProviderStateMixin {
         },
         onPointerSignal: (PointerSignalEvent event) {
           //if user is using mouse
-          debugPrint("got event2");
+
           setState(() {
             isScrollingWithFinger = false;
           });
           if (event is PointerScrollEvent) {
             if (event.scrollDelta.dy > 0) {
-              debugPrint("building");
               try {
-                debugPrint((controller.offset.toString()));
                 double offSet = controller.offset -
                     page * MediaQuery.of(context).size.height;
-                debugPrint("offeset : ${offSet.toString()}");
 
                 if (offSet < 0) {
                   setState(() {
@@ -139,12 +136,9 @@ class _WrapperState extends State<Wrapper> with SingleTickerProviderStateMixin {
                 }
               } catch (e) {}
             } else if (event.scrollDelta.dy < 0) {
-              debugPrint("building");
               try {
-                debugPrint((controller.offset.toString()));
                 double offSet = controller.offset -
                     page * MediaQuery.of(context).size.height;
-                debugPrint("offeset : ${offSet.toString()}");
 
                 if (offSet > 0) {
                   setState(() {
@@ -158,31 +152,6 @@ class _WrapperState extends State<Wrapper> with SingleTickerProviderStateMixin {
               } catch (e) {}
             }
           }
-          // if (event is PointerScrollEvent) {
-          //   if (event.scrollDelta.dy > 0) {
-          //     if (page < 4) {
-          //       setState(() {
-          //         physics = NeverScrollableScrollPhysics();
-          //       });
-          //       debugPrint("jumping");
-
-          //       controller.nextPage(
-          //           duration: Duration(milliseconds: 1000),
-          //           curve: Curves.easeIn);
-          //     }
-          //   } else {
-          //     if (page > 0) {
-          //       setState(() {
-          //         physics = NeverScrollableScrollPhysics();
-          //       });
-          //       debugPrint("jumping");
-
-          //       controller.previousPage(
-          //           duration: Duration(milliseconds: 1000),
-          //           curve: Curves.easeIn);
-          //     }
-          //   }
-          // }
         },
         child: Container(
           decoration: BoxDecoration(
