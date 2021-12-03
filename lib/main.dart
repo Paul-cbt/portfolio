@@ -103,131 +103,150 @@ class _WrapperState extends State<Wrapper> with SingleTickerProviderStateMixin {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Listener(
-        onPointerMove: (event) {
-          //if user is using a touch screen for example
-          if (!pageSnapping) {
-            setState(() {
-              isScrollingWithFinger = true;
-              pageSnapping = true;
-            });
-          }
-        },
-        onPointerSignal: (PointerSignalEvent event) {
-          //if user is using mouse
-
-          setState(() {
-            isScrollingWithFinger = false;
-          });
-          if (event is PointerScrollEvent) {
-            if (event.scrollDelta.dy > 0) {
-              try {
-                double offSet = controller.offset -
-                    page * MediaQuery.of(context).size.height;
-
-                if (offSet < 0) {
-                  setState(() {
-                    pageSnapping = true;
-                  });
-                } else {
-                  setState(() {
-                    pageSnapping = false;
-                  });
-                }
-              } catch (e) {}
-            } else if (event.scrollDelta.dy < 0) {
-              try {
-                double offSet = controller.offset -
-                    page * MediaQuery.of(context).size.height;
-
-                if (offSet > 0) {
-                  setState(() {
-                    pageSnapping = true;
-                  });
-                } else {
-                  setState(() {
-                    pageSnapping = false;
-                  });
-                }
-              } catch (e) {}
+      body: ScrollConfiguration(
+        behavior: ScrollConfiguration.of(context).copyWith(
+          dragDevices: {
+            PointerDeviceKind.touch,
+            PointerDeviceKind.mouse,
+          },
+        ),
+        child: Listener(
+          onPointerMove: (event) {
+            //if user is using a touch screen for example
+            if (!pageSnapping) {
+              setState(() {
+                isScrollingWithFinger = true;
+                pageSnapping = true;
+              });
             }
-          }
-        },
-        child: Container(
-          decoration: BoxDecoration(
-            gradient: LinearGradient(
-                transform: GradientRotation(page < 2 ? -15 : 0),
-                colors: [
-                  Theme.of(context).textTheme.headline2?.color ?? Colors.white,
-                  Theme.of(context).textTheme.headline3?.color ?? Colors.white,
-                ],
-                begin: (page < 2 ? Alignment.topLeft : Alignment.bottomLeft),
-                end: page < 2 ? Alignment.bottomRight : Alignment.topRight),
-          ),
-          child: Stack(
-            children: [
-              Scrollbar(
-                isAlwaysShown: MediaQuery.of(context).size.width > 500,
-                controller: controller,
-                child: PageView(
-                  physics: ScrollPhysics(),
-                  pageSnapping: pageSnapping,
-                  allowImplicitScrolling: true,
-                  onPageChanged: (value) {
+          },
+          onPointerSignal: (PointerSignalEvent event) {
+            //if user is using mouse
+
+            setState(() {
+              isScrollingWithFinger = false;
+            });
+            if (event is PointerScrollEvent) {
+              if (event.scrollDelta.dy > 0) {
+                try {
+                  double offSet = controller.offset -
+                      page * MediaQuery.of(context).size.height;
+
+                  if (offSet < 0) {
                     setState(() {
-                      page = value;
+                      pageSnapping = true;
                     });
-                  },
-                  scrollDirection: Axis.vertical,
-                  controller: controller,
-                  children: [
-                    Home(
-                      controller: controller,
-                    ),
-                    Presentation(
-                      controller: controller,
-                    ),
-                    Projects(),
-                    Contact()
+                  } else {
+                    setState(() {
+                      pageSnapping = false;
+                    });
+                  }
+                } catch (e) {}
+              } else if (event.scrollDelta.dy < 0) {
+                try {
+                  double offSet = controller.offset -
+                      page * MediaQuery.of(context).size.height;
+
+                  if (offSet > 0) {
+                    setState(() {
+                      pageSnapping = true;
+                    });
+                  } else {
+                    setState(() {
+                      pageSnapping = false;
+                    });
+                  }
+                } catch (e) {}
+              }
+            }
+          },
+          child: Container(
+            decoration: BoxDecoration(
+              gradient: LinearGradient(
+                  transform: GradientRotation(page < 2 ? -15 : 0),
+                  colors: [
+                    Theme.of(context).textTheme.headline2?.color ??
+                        Colors.white,
+                    Theme.of(context).textTheme.headline3?.color ??
+                        Colors.white,
                   ],
+                  begin: (page < 2 ? Alignment.topLeft : Alignment.bottomLeft),
+                  end: page < 2 ? Alignment.bottomRight : Alignment.topRight),
+            ),
+            child: Stack(
+              children: [
+                Scrollbar(
+                  isAlwaysShown: MediaQuery.of(context).size.width > 500,
+                  controller: controller,
+                  child: ScrollConfiguration(
+                    behavior: ScrollConfiguration.of(context).copyWith(
+                      dragDevices: {
+                        PointerDeviceKind.touch,
+                        PointerDeviceKind.mouse,
+                      },
+                    ),
+                    child: PageView(
+                      physics: ScrollPhysics(),
+                      pageSnapping: pageSnapping,
+                      allowImplicitScrolling: true,
+                      onPageChanged: (value) {
+                        setState(() {
+                          page = value;
+                        });
+                      },
+                      scrollDirection: Axis.vertical,
+                      controller: controller,
+                      children: [
+                        Home(
+                          controller: controller,
+                        ),
+                        Presentation(
+                          controller: controller,
+                        ),
+                        Projects(),
+                        Contact()
+                      ],
+                    ),
+                  ),
                 ),
-              ),
-              NavBar(
-                controller: controller,
-              ),
-              if (!hasPlayedMusic)
+                NavBar(
+                  controller: controller,
+                ),
+                if (!hasPlayedMusic)
+                  Container(
+                    alignment: Alignment.bottomRight,
+                    child: PlayMusic(
+                        body: Container(),
+                        color: Theme.of(context).primaryColorLight,
+                        child: Material(
+                            color: Colors.transparent,
+                            child: Text('Start concert',
+                                style: TextStyle(
+                                    color:
+                                        Theme.of(context).primaryColorLight))),
+                        onSwipe: () {}),
+                  ),
                 Container(
+                  margin: EdgeInsets.only(right: 10, bottom: 10),
                   alignment: Alignment.bottomRight,
-                  child: PlayMusic(
-                      body: Container(),
-                      color: Theme.of(context).primaryColorLight,
-                      child: Material(
-                          color: Colors.transparent,
-                          child: Text('Start concert',
-                              style: TextStyle(
-                                  color: Theme.of(context).primaryColorLight))),
-                      onSwipe: () {}),
-                ),
-              Container(
-                margin: EdgeInsets.only(right: 10, bottom: 10),
-                alignment: Alignment.bottomRight,
-                child: InkWell(
-                  onTap: () {
-                    startMusic();
-                    setState(() {
-                      hasPlayedMusic = true;
-                    });
-                    iconController.status.index == 0
-                        ? iconController.forward()
-                        : iconController.reverse();
-                  },
-                  child: AnimatedIcon(
-                      size: 30,
-                      icon: AnimatedIcons.play_pause,
-                      progress: iconController),
-                ),
-              )
-            ],
+                  child: InkWell(
+                    onTap: () {
+                      startMusic();
+                      setState(() {
+                        hasPlayedMusic = true;
+                      });
+                      iconController.status.index == 0
+                          ? iconController.forward()
+                          : iconController.reverse();
+                    },
+                    child: AnimatedIcon(
+                        size: 30,
+                        icon: AnimatedIcons.play_pause,
+                        progress: iconController),
+                  ),
+                )
+              ],
+            ),
           ),
         ),
       ),
