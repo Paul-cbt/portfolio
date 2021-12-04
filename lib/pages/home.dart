@@ -107,7 +107,7 @@ class _HomeState extends State<Home> {
                           bottomLeft: radius,
                           bottomRight: radius,
                           topLeft: radius),
-                      path: "me3.jpg")),
+                      path: "me3.jpeg")),
             if (MediaQuery.of(context).size.width > 840)
               Container(
                 alignment: Alignment.centerLeft,
@@ -200,7 +200,7 @@ class _HomeState extends State<Home> {
                                 bottomLeft: radius,
                                 bottomRight: radius,
                                 topLeft: radius),
-                            path: "me3.jpg")),
+                            path: "me3.jpeg")),
                     Container(
                       child: RichText(
                           text: TextSpan(
