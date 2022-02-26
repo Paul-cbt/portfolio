@@ -1,3 +1,4 @@
+// @dart=2.9
 import 'package:assets_audio_player/assets_audio_player.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
@@ -41,7 +42,7 @@ class MyApp extends StatelessWidget {
 }
 
 class Wrapper extends StatefulWidget {
-  const Wrapper({Key? key}) : super(key: key);
+  const Wrapper({Key key}) : super(key: key);
 
   @override
   _WrapperState createState() => _WrapperState();
@@ -49,7 +50,7 @@ class Wrapper extends StatefulWidget {
 
 class _WrapperState extends State<Wrapper> with SingleTickerProviderStateMixin {
   bool isScrolling = false;
-  late AnimationController iconController;
+  AnimationController iconController;
   bool hasPlayedMusic = false;
   bool hasLoadedMusic = false;
   final assetsAudioPlayer = AssetsAudioPlayer.withId("music");

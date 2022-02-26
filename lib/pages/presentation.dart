@@ -79,7 +79,7 @@ class _PresentationState extends State<Presentation> {
                           ),
                           children: [
                             TextSpan(
-                              text: "I'm Paul, a 17 years old developer from ",
+                              text: "I'm Paul, a 18 years old developer from ",
                               style: TextStyle(
                                 fontSize: fontSize,
                                 color: Theme.of(context)

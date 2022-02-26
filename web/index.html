@@ -16,12 +16,13 @@
 
     <meta charset="UTF-8">
     <meta content="IE=Edge" http-equiv="X-UA-Compatible">
-    <meta name="My portfolio" content=":)">
-
+    <meta name="Paul Caubet Portfolio" content="Hi, I'm Paul, a 18 years old flutter developer">
+    <link rel="icon" href="icons/Icon-192.png">
+    <link rel="shortcut icon" href="icons/Icon-192.png">
     <!-- iOS meta tags & icons -->
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black">
-    <meta name="apple-mobile-web-app-title" content="portfolio">
+    <meta name="apple-mobile-web-app-title" content="Portfolio">
     <link rel="apple-touch-icon" href="icons/Icon-192.png">
     <link rel="stylesheet" href="style.css">
     <title>Paul Caubet</title>
@@ -32,15 +33,17 @@
 <body>
     <div id="container">
         <div class="divider" aria-hidden="true"></div>
-        <p class="loading-text" aria-label="Loading">
-            <span class="letter" aria-hidden="true">L</span>
-            <span class="letter" aria-hidden="true">o</span>
-            <span class="letter" aria-hidden="true">a</span>
-            <span class="letter" aria-hidden="true">d</span>
-            <span class="letter" aria-hidden="true">i</span>
-            <span class="letter" aria-hidden="true">n</span>
-            <span class="letter" aria-hidden="true">g</span>
-        </p>
+        <div class="loader">
+            <div class="square" ></div>
+            <div class="square"></div>
+            <div class="square last"></div>
+            <div class="square clear"></div>
+            <div class="square"></div>
+            <div class="square last"></div>
+            <div class="square clear"></div>
+            <div class="square "></div>
+            <div class="square last"></div>
+          </div>
     </div>
     <!-- iOS 15 WebGL 2.0 fix (https://github.com/flutter/flutter/issues/89655) -->
     <!-- (your_username): Remove when https://github.com/flutter/engine/pull/29038 will be merged to stable -->
