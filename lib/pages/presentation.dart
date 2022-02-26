@@ -213,7 +213,7 @@ class _PresentationState extends State<Presentation> {
                           textAlign: TextAlign.justify,
                           text: TextSpan(children: [
                             TextSpan(
-                              text: "I'm Paul, a 17 years old developer from ",
+                              text: "I'm Paul, a 18 years old developer from ",
                               style: TextStyle(
                                 fontSize: smallFontSize,
                                 color: Theme.of(context)
