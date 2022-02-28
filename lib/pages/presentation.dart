@@ -49,7 +49,7 @@ class _PresentationState extends State<Presentation> {
                       bottomRight: radius,
                       // topLeft: radius
                     ),
-                    path: "me1.jpg")),
+                    path: "me10.jpg")),
           ),
         if (MediaQuery.of(context).size.width > 1143)
           Align(
@@ -186,7 +186,7 @@ class _PresentationState extends State<Presentation> {
                             bottomRight: radius,
                             // topLeft: radius
                           ),
-                          path: "me1.jpg")),
+                          path: "me10.jpg")),
                 ),
                 Container(
                   margin: EdgeInsets.only(
