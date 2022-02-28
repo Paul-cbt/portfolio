@@ -6,6 +6,7 @@ import 'package:portfolio/service/theme.dart';
 import 'package:portfolio/service/zoomableImage.dart';
 import 'package:provider/provider.dart';
 import 'package:swipe_up/swipe_up.dart';
+import 'package:universal_html/html.dart' as uni;
 
 class Home extends StatefulWidget {
   final PageController controller;
@@ -16,6 +17,16 @@ class Home extends StatefulWidget {
 }
 
 class _HomeState extends State<Home> {
+  @override
+  void initState() {
+    var loader = uni.document.getElementsByClassName('container');
+    if (loader.isNotEmpty) {
+      loader.first.remove();
+      //remove the loading in the html file
+    }
+    super.initState();
+  }
+
   @override
   void setState(fn) {
     if (mounted) {
