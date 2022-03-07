@@ -10,6 +10,7 @@ import 'package:portfolio/pages/presentation.dart';
 import 'package:portfolio/pages/projects.dart';
 import 'package:portfolio/service/playMusic.dart';
 import 'package:portfolio/service/theme.dart';
+import 'package:universal_html/html.dart' as uni;
 
 import 'package:provider/provider.dart';
 
@@ -88,6 +89,11 @@ class _WrapperState extends State<Wrapper> with SingleTickerProviderStateMixin {
 
   @override
   void initState() {
+    var loader = uni.document.getElementsByClassName('info');
+    if (loader.isNotEmpty) {
+      loader.first.remove();
+      //remove the loading in the html file
+    }
     loadMusic();
 
     iconController =
