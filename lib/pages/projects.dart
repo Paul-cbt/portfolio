@@ -94,7 +94,7 @@ class _ProjectsState extends State<Projects> {
                       Container(
                           margin: EdgeInsets.only(right: 10),
                           child: IconButton(
-                              color: page < 1
+                              color: page < 2
                                   ? Theme.of(context).primaryColorLight
                                   : Colors.grey,
                               onPressed: () {
