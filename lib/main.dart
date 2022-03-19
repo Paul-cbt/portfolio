@@ -229,6 +229,10 @@ class _WrapperState extends State<Wrapper> with SingleTickerProviderStateMixin {
                             color: Colors.transparent,
                             child: Text('Start concert',
                                 style: TextStyle(
+                                    fontSize:
+                                        MediaQuery.of(context).size.width > 500
+                                            ? 20
+                                            : 13,
                                     color:
                                         Theme.of(context).primaryColorLight))),
                         onSwipe: () {}),

@@ -76,7 +76,8 @@ class _PlayMusicState extends State<PlayMusic>
       children: <Widget>[
         widget.body,
         Positioned(
-          left: MediaQuery.of(context).size.width -
+          left: (MediaQuery.of(context).size.width > 500 ? -10 : 20) +
+              MediaQuery.of(context).size.width -
               170 +
               (widget.animate
                   ? (_swipeOffset / 2) +
@@ -88,7 +89,7 @@ class _PlayMusicState extends State<PlayMusic>
           child: Container(
             margin: EdgeInsets.only(bottom: 10),
             child: Row(
-              crossAxisAlignment: CrossAxisAlignment.end,
+              crossAxisAlignment: CrossAxisAlignment.center,
               children: <Widget>[
                 Padding(
                     padding: EdgeInsets.only(bottom: 3),
