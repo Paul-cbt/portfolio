@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:hovering/hovering.dart';
 import 'package:portfolio/pages/outlearn.dart';
 import 'package:portfolio/pages/robot.dart';
+import 'package:portfolio/pages/teacherAtn.dart';
 import 'package:portfolio/service/theme.dart';
 import 'package:portfolio/service/zoomableImage.dart';
 import 'package:provider/provider.dart';
@@ -50,7 +51,9 @@ class _ProjectsState extends State<Projects> {
                     height: 40,
                   ),
                   Container(
-                    height: MediaQuery.of(context).size.height / 4 + 200,
+                    height: MediaQuery.of(context).size.width <= 1000
+                        ? MediaQuery.of(context).size.height - 250
+                        : MediaQuery.of(context).size.height / 4 + 200,
                     width: MediaQuery.of(context).size.width,
                     child: PageView(
                       onPageChanged: (value) {
@@ -63,6 +66,9 @@ class _ProjectsState extends State<Projects> {
                         Container(
                             width: MediaQuery.of(context).size.width,
                             child: OutLearn()),
+                        Container(
+                            width: MediaQuery.of(context).size.width,
+                            child: TeacherAtn()),
                         Container(
                             width: MediaQuery.of(context).size.width,
                             child: Robots()),

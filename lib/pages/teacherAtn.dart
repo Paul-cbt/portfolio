@@ -3,14 +3,14 @@ import 'package:flutter/material.dart';
 import 'package:portfolio/service/zoomableImage.dart';
 import 'package:url_launcher/url_launcher.dart';
 
-class OutLearn extends StatefulWidget {
-  const OutLearn({Key? key}) : super(key: key);
+class TeacherAtn extends StatefulWidget {
+  const TeacherAtn({Key? key}) : super(key: key);
 
   @override
-  _OutLearnState createState() => _OutLearnState();
+  _TeacherAtnState createState() => _TeacherAtnState();
 }
 
-class _OutLearnState extends State<OutLearn> {
+class _TeacherAtnState extends State<TeacherAtn> {
   bool isBig = true;
   @override
   void setState(fn) {
@@ -52,31 +52,24 @@ class _OutLearnState extends State<OutLearn> {
               ),
               RichText(
                   text: TextSpan(
-                      text: "2020-2021     ",
+                      text: "2021, ",
                       style: TextStyle(
                         fontSize: isBig ? 20 : 13,
                         color: Theme.of(context).textTheme.bodyText1?.color,
                       ),
                       children: [
                     TextSpan(
-                      text: "OutLearn",
+                      text: "client work    ",
+                      style: TextStyle(
+                          fontSize: isBig ? 16 : 10,
+                          color: Theme.of(context).textTheme.headline4?.color),
+                    ),
+                    TextSpan(
+                      text: "Private language teacher",
                       style: TextStyle(
                           fontSize: isBig ? 24 : 15,
                           color: Theme.of(context).textTheme.bodyText1?.color),
                     ),
-                    TextSpan(
-                      text: ", ",
-                      style: TextStyle(
-                        fontSize: isBig ? 20 : 13,
-                        color: Theme.of(context).textTheme.bodyText1?.color,
-                      ),
-                    ),
-                    TextSpan(
-                      text: "Founder and CEO",
-                      style: TextStyle(
-                          fontSize: isBig ? 20 : 13,
-                          color: Theme.of(context).textTheme.headline4?.color),
-                    )
                   ]))
             ],
           ),
@@ -94,24 +87,12 @@ class _OutLearnState extends State<OutLearn> {
                 Column(
                   children: [
                     Container(
-                        width: 250,
+                        width: 300,
                         child: Text(
-                          "I fully developed and released this studying app using Flutter & Firebase",
-                          textAlign:
-                              isBig ? TextAlign.justify : TextAlign.center,
+                          "Fully functional language Learning app, main features are video watch with clickable caption and integrated google translate",
+                          textAlign: TextAlign.justify,
                           style: TextStyle(fontSize: isBig ? 22 : 14),
                         )),
-                    InkWell(
-                      onTap: () {
-                        launch("https://outlearnapp.com");
-                      },
-                      child: Text(
-                        "-> Go to Site",
-                        style: TextStyle(
-                            color:
-                                Theme.of(context).textTheme.headline4?.color),
-                      ),
-                    )
                   ],
                 ),
                 SizedBox(
@@ -123,22 +104,18 @@ class _OutLearnState extends State<OutLearn> {
                       items: [
                         ZoomableImage(
                             borderRadius: BorderRadius.circular(20),
-                            path: "1.png"),
+                            path: "home.png"),
                         ZoomableImage(
                             borderRadius: BorderRadius.circular(20),
-                            path: "2.png"),
+                            path: "watch.png"),
                         ZoomableImage(
                             borderRadius: BorderRadius.circular(20),
-                            path: "3.png"),
-                        ZoomableImage(
-                            borderRadius: BorderRadius.circular(20),
-                            path: "4.png")
+                            path: "random.png"),
                       ],
                       options: CarouselOptions(
                         autoPlay: true,
-                        aspectRatio: 2.0,
-                        height: 300,
-                        viewportFraction: 0.36,
+                        aspectRatio: 1920 / 1080,
+                        viewportFraction: 0.8,
                         enlargeCenterPage: true,
                       )),
                 )
@@ -155,50 +132,35 @@ class _OutLearnState extends State<OutLearn> {
                   children: [
                     Container(
                         child: Text(
-                      "I fully developed and released this studying app using Flutter & Firebase",
+                      "Fully functional language learning app, main features are video watch with clickable caption and integrated google translate",
                       textAlign: TextAlign.center,
                       style: TextStyle(fontSize: isBig ? 22 : 14),
                     )),
-                    InkWell(
-                      onTap: () {
-                        launch("https://outlearnapp.com");
-                      },
-                      child: Text(
-                        "-> Go to Site",
-                        style: TextStyle(
-                            color:
-                                Theme.of(context).textTheme.headline4?.color),
-                      ),
-                    )
                   ],
                 ),
                 SizedBox(
                   height: 10,
                 ),
                 Container(
-                  width: MediaQuery.of(context).size.width - 20 > 300
-                      ? 300
-                      : MediaQuery.of(context).size.width - 20,
+                  constraints: BoxConstraints(
+                      maxHeight:
+                          MediaQuery.of(context).size.height - 300 - 300),
                   child: CarouselSlider(
                       items: [
                         ZoomableImage(
                             borderRadius: BorderRadius.circular(20),
-                            path: "1.png"),
+                            path: "home.png"),
                         ZoomableImage(
                             borderRadius: BorderRadius.circular(20),
-                            path: "2.png"),
+                            path: "watch.png"),
                         ZoomableImage(
                             borderRadius: BorderRadius.circular(20),
-                            path: "3.png"),
-                        ZoomableImage(
-                            borderRadius: BorderRadius.circular(20),
-                            path: "4.png")
+                            path: "random.png"),
                       ],
                       options: CarouselOptions(
                         autoPlay: true,
-                        aspectRatio: 2.0,
-                        height: MediaQuery.of(context).size.height / 4,
-                        viewportFraction: 0.36,
+                        aspectRatio: 1920 / 1080,
+                        viewportFraction: 0.8,
                         enlargeCenterPage: true,
                       )),
                 )

@@ -193,19 +193,10 @@ class _ContactState extends State<Contact> {
               )
             : Container(
                 height: MediaQuery.of(context).size.height,
-                child: Stack(
-                  fit: StackFit.expand,
+                child: Column(
                   children: [
-                    Container(
-                      alignment: Alignment.bottomLeft,
-                      margin: EdgeInsets.fromLTRB(20, 0, 0,
-                          MediaQuery.of(context).size.width > 584 ? 20 : 50),
-                      child: Text(
-                        "PS: Oh! And it's me you're listening to in the background",
-                        style: TextStyle(
-                            color:
-                                Theme.of(context).textTheme.headline1?.color),
-                      ),
+                    SizedBox(
+                      height: 70,
                     ),
                     Column(
                         mainAxisAlignment: MainAxisAlignment.center,
@@ -216,11 +207,12 @@ class _ContactState extends State<Contact> {
                               "car.png",
                               height: MediaQuery.of(context).size.width > 500 &&
                                       MediaQuery.of(context).size.height > 800
-                                  ? 400
-                                  : 200,
+                                  ? 350
+                                  : 150,
                             ),
                           ),
                           Container(
+                            height: 320,
                             alignment: Alignment.center,
                             constraints: BoxConstraints(maxWidth: 400),
                             padding: EdgeInsets.only(left: 5, right: 5),
@@ -229,7 +221,7 @@ class _ContactState extends State<Contact> {
                               children: [
                                 RichText(
                                     text: TextSpan(
-                                        text: "Wrapping up.\n\n",
+                                        text: "Wrapping up.\n",
                                         style: TextStyle(
                                           fontSize: 35,
                                           color: Theme.of(context)
@@ -306,60 +298,75 @@ class _ContactState extends State<Contact> {
                                         ),
                                       ),
                                     ])),
-                                Row(
-                                  mainAxisSize: MainAxisSize.min,
-                                  children: [
-                                    TextButton.icon(
-                                        onPressed: () {
-                                          launch("mailto:paulcbt@outlook.com");
-                                        },
-                                        icon: Icon(Icons.mail_outline,
-                                            size: 30,
-                                            color: Theme.of(context)
-                                                .textTheme
-                                                .bodyText2
-                                                ?.color),
-                                        label: Text(
-                                          "Mail",
-                                          style: TextStyle(
-                                              fontSize: 20,
-                                              color: Theme.of(context)
-                                                  .textTheme
-                                                  .bodyText2
-                                                  ?.color),
-                                        )),
-                                    SizedBox(
-                                      width: 20,
-                                    ),
-                                    TextButton.icon(
-                                        onPressed: () {
-                                          launch("assets/cv.pdf");
-                                        },
-                                        icon: Icon(Icons.download,
-                                            size: 30,
-                                            color: Theme.of(context)
-                                                .textTheme
-                                                .bodyText2
-                                                ?.color),
-                                        label: Text(
-                                          "Resume",
-                                          style: TextStyle(
-                                              fontSize: 20,
-                                              color: Theme.of(context)
-                                                  .textTheme
-                                                  .bodyText2
-                                                  ?.color),
-                                        )),
-                                  ],
-                                ),
-                                SizedBox(
-                                  height: 10,
-                                ),
-                                Container(height: 80, child: Signature())
                               ],
                             ),
                           ),
                         ]),
+                    Row(
+                      mainAxisSize: MainAxisSize.min,
+                      children: [
+                        TextButton.icon(
+                            onPressed: () {
+                              launch("mailto:paulcbt@outlook.com");
+                            },
+                            icon: Icon(Icons.mail_outline,
+                                size: 30,
+                                color: Theme.of(context)
+                                    .textTheme
+                                    .bodyText2
+                                    ?.color),
+                            label: Text(
+                              "Mail",
+                              style: TextStyle(
+                                  fontSize: 20,
+                                  color: Theme.of(context)
+                                      .textTheme
+                                      .bodyText2
+                                      ?.color),
+                            )),
+                        SizedBox(
+                          width: 20,
+                        ),
+                        TextButton.icon(
+                            onPressed: () {
+                              launch("assets/cv.pdf");
+                            },
+                            icon: Icon(Icons.download,
+                                size: 30,
+                                color: Theme.of(context)
+                                    .textTheme
+                                    .bodyText2
+                                    ?.color),
+                            label: Text(
+                              "Resume",
+                              style: TextStyle(
+                                  fontSize: 20,
+                                  color: Theme.of(context)
+                                      .textTheme
+                                      .bodyText2
+                                      ?.color),
+                            )),
+                      ],
+                    ),
+                    SizedBox(
+                      height: 10,
+                    ),
+                    Container(
+                        height: 80,
+                        padding: EdgeInsets.only(left: 15, right: 5),
+                        child: Signature()),
+                    Spacer(),
+                    Container(
+                      alignment: Alignment.bottomLeft,
+                      margin: EdgeInsets.fromLTRB(15, 0, 0,
+                          MediaQuery.of(context).size.width > 584 ? 20 : 50),
+                      child: Text(
+                        "PS: Oh! And it's me you're listening to in the background",
+                        style: TextStyle(
+                            color:
+                                Theme.of(context).textTheme.headline1?.color),
+                      ),
+                    ),
                   ],
                 )));
   }
