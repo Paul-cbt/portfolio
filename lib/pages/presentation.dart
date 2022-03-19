@@ -147,7 +147,7 @@ class _PresentationState extends State<Presentation> {
                               ),
                             ),
                             TextSpan(
-                              text: "React and node.js",
+                              text: "node.js",
                               style: TextStyle(
                                 fontSize: fontSize,
                                 color: Theme.of(context)
@@ -281,7 +281,7 @@ class _PresentationState extends State<Presentation> {
                               ),
                             ),
                             TextSpan(
-                              text: "React and node.js",
+                              text: "node.js",
                               style: TextStyle(
                                 fontSize: smallFontSize,
                                 color: Theme.of(context)
