@@ -227,7 +227,8 @@ class _WrapperState extends State<Wrapper> with SingleTickerProviderStateMixin {
                 if (!hasPlayedMusic &&
                     (MediaQuery.of(context).size.width > 700 ||
                         page == 0 ||
-                        page == 3))
+                        page == 3) &&
+                    MediaQuery.of(context).size.width > 365)
                   Container(
                     alignment: Alignment.bottomRight,
                     child: PlayMusic(

@@ -19,6 +19,7 @@ class _NavBarState extends State<NavBar> {
       alignment: Alignment.topRight,
       child: Wrap(
         alignment: WrapAlignment.end,
+        spacing: MediaQuery.of(context).size.width > 375 ? 15 : 5,
         children: [
           TextButton(
               onPressed: () {
@@ -30,9 +31,6 @@ class _NavBarState extends State<NavBar> {
                 "home",
                 style: Theme.of(context).textTheme.bodyText1,
               )),
-          SizedBox(
-            width: MediaQuery.of(context).size.width > 375 ? 15 : 5,
-          ),
           TextButton(
               onPressed: () {
                 widget.controller.animateToPage(2,
@@ -43,9 +41,6 @@ class _NavBarState extends State<NavBar> {
                 "projects",
                 style: Theme.of(context).textTheme.bodyText1,
               )),
-          SizedBox(
-            width: MediaQuery.of(context).size.width > 375 ? 15 : 5,
-          ),
           TextButton(
               onPressed: () {
                 widget.controller.animateToPage(3,
@@ -56,9 +51,6 @@ class _NavBarState extends State<NavBar> {
                 "contact",
                 style: Theme.of(context).textTheme.bodyText1,
               )),
-          SizedBox(
-            width: MediaQuery.of(context).size.width > 375 ? 15 : 5,
-          ),
           TextButton(
               onPressed: () {
                 launch("https://www.fiverr.com/cpaul08");
@@ -67,9 +59,6 @@ class _NavBarState extends State<NavBar> {
                 "Fiverr",
                 style: Theme.of(context).textTheme.bodyText1,
               )),
-          SizedBox(
-            width: MediaQuery.of(context).size.width > 375 ? 15 : 5,
-          ),
           TextButton(
               onPressed: () {
                 launch("https://github.com/Paul-cbt/portfolio");
@@ -78,9 +67,6 @@ class _NavBarState extends State<NavBar> {
                 "GitHub",
                 style: Theme.of(context).textTheme.bodyText1,
               )),
-          SizedBox(
-            width: MediaQuery.of(context).size.width > 375 ? 30 : 5,
-          )
         ],
       ),
     );

@@ -208,6 +208,9 @@ class _HomeState extends State<Home> {
                             ),
                           )
                         ])),
+                    const SizedBox(
+                      height: 10,
+                    ),
                     QuoteBuilder(
                         maxWidth: MediaQuery.of(context).size.width / 2 - 50)
                   ],
@@ -310,6 +313,17 @@ class _HomeState extends State<Home> {
                             )
                           ])),
                     ),
+                    const SizedBox(
+                      height: 10,
+                    ),
+                    Center(
+                        child: Padding(
+                      padding: const EdgeInsets.symmetric(horizontal: 20),
+                      child: QuoteBuilder(
+                        maxWidth: 280,
+                        center: true,
+                      ),
+                    ))
                   ],
                 ),
               )

@@ -4,7 +4,9 @@ import 'package:flutter/material.dart';
 
 class QuoteBuilder extends StatefulWidget {
   final double maxWidth;
-  const QuoteBuilder({Key? key, required this.maxWidth}) : super(key: key);
+  final bool center;
+  const QuoteBuilder({Key? key, required this.maxWidth, this.center = false})
+      : super(key: key);
 
   @override
   State<QuoteBuilder> createState() => _QuoteBuilderState();
@@ -67,6 +69,7 @@ class _QuoteBuilderState extends State<QuoteBuilder> {
                     TextSpan(text: quotes[index]),
                     TextSpan(text: '"')
                   ]),
+              textAlign: widget.center ? TextAlign.center : TextAlign.left,
             ),
           );
         },
