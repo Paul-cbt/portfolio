@@ -216,10 +216,18 @@ class _WrapperState extends State<Wrapper> with SingleTickerProviderStateMixin {
                     ),
                   ),
                 ),
-                NavBar(
-                  controller: controller,
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.end,
+                  children: [
+                    NavBar(
+                      controller: controller,
+                    ),
+                  ],
                 ),
-                if (!hasPlayedMusic)
+                if (!hasPlayedMusic &&
+                    (MediaQuery.of(context).size.width > 700 ||
+                        page == 0 ||
+                        page == 3))
                   Container(
                     alignment: Alignment.bottomRight,
                     child: PlayMusic(

@@ -166,7 +166,17 @@ class _ContactState extends State<Contact> {
                         SizedBox(
                           height: 30,
                         ),
-                        Container(height: 80, child: Signature())
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            Center(
+                              child: Container(
+                                  alignment: Alignment.center,
+                                  height: 80,
+                                  child: Signature()),
+                            ),
+                          ],
+                        )
                       ],
                     ),
                   ),
@@ -208,11 +218,11 @@ class _ContactState extends State<Contact> {
                               height: MediaQuery.of(context).size.width > 500 &&
                                       MediaQuery.of(context).size.height > 800
                                   ? 350
-                                  : 150,
+                                  : 140,
                             ),
                           ),
                           Container(
-                            height: 320,
+                            height: 310,
                             alignment: Alignment.center,
                             constraints: BoxConstraints(maxWidth: 400),
                             padding: EdgeInsets.only(left: 5, right: 5),
@@ -351,10 +361,15 @@ class _ContactState extends State<Contact> {
                     SizedBox(
                       height: 10,
                     ),
-                    Container(
-                        height: 80,
-                        padding: EdgeInsets.only(left: 15, right: 5),
-                        child: Signature()),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        Container(
+                            height: 80,
+                            padding: EdgeInsets.only(left: 15, right: 5),
+                            child: Signature()),
+                      ],
+                    ),
                     Spacer(),
                     Container(
                       alignment: Alignment.bottomLeft,
