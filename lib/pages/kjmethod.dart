@@ -1,16 +1,17 @@
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
+import 'package:portfolio/service/zommableVideo.dart';
 import 'package:portfolio/service/zoomableImage.dart';
 import 'package:url_launcher/url_launcher.dart';
 
-class OutLearn extends StatefulWidget {
-  const OutLearn({Key? key}) : super(key: key);
+class KjMethod extends StatefulWidget {
+  const KjMethod({Key? key}) : super(key: key);
 
   @override
-  _OutLearnState createState() => _OutLearnState();
+  _KjMethodState createState() => _KjMethodState();
 }
 
-class _OutLearnState extends State<OutLearn> {
+class _KjMethodState extends State<KjMethod> {
   bool isBig = true;
   @override
   void setState(fn) {
@@ -52,31 +53,24 @@ class _OutLearnState extends State<OutLearn> {
               ),
               RichText(
                   text: TextSpan(
-                      text: "2020-2022     ",
+                      text: "2022, ",
                       style: TextStyle(
                         fontSize: isBig ? 20 : 13,
                         color: Theme.of(context).textTheme.bodyText1?.color,
                       ),
                       children: [
                     TextSpan(
-                      text: "OutLearn",
+                      text: "client work    ",
+                      style: TextStyle(
+                          fontSize: isBig ? 16 : 10,
+                          color: Theme.of(context).textTheme.headline4?.color),
+                    ),
+                    TextSpan(
+                      text: "Real estate exam coach",
                       style: TextStyle(
                           fontSize: isBig ? 24 : 15,
                           color: Theme.of(context).textTheme.bodyText1?.color),
                     ),
-                    TextSpan(
-                      text: ", ",
-                      style: TextStyle(
-                        fontSize: isBig ? 20 : 13,
-                        color: Theme.of(context).textTheme.bodyText1?.color,
-                      ),
-                    ),
-                    TextSpan(
-                      text: "Founder and CEO",
-                      style: TextStyle(
-                          fontSize: isBig ? 20 : 13,
-                          color: Theme.of(context).textTheme.headline4?.color),
-                    )
                   ]))
             ],
           ),
@@ -96,17 +90,17 @@ class _OutLearnState extends State<OutLearn> {
                     Container(
                         width: 250,
                         child: Text(
-                          "I fully developed and released this studying app using Flutter & Firebase",
+                          "Complete exam prep app",
                           textAlign:
                               isBig ? TextAlign.justify : TextAlign.center,
                           style: TextStyle(fontSize: isBig ? 22 : 14),
                         )),
                     InkWell(
                       onTap: () {
-                        launch("https://outlearnapp.com");
+                        launch("https://www.kjmethod.com/?r_done=1");
                       },
                       child: Text(
-                        "-> Go to Site",
+                        "-> Go to kjmethod.com",
                         style: TextStyle(
                             color:
                                 Theme.of(context).textTheme.headline4?.color),
@@ -123,16 +117,21 @@ class _OutLearnState extends State<OutLearn> {
                       items: [
                         ZoomableImage(
                             borderRadius: BorderRadius.circular(20),
-                            path: "1.png"),
+                            path: "kjmethod/kj1.png"),
+                        Center(
+                          child: ZoomableVideo(
+                              borderRadius: BorderRadius.circular(10),
+                              path: "kjmethod/homeAnimation.mp4"),
+                        ),
                         ZoomableImage(
                             borderRadius: BorderRadius.circular(20),
-                            path: "2.png"),
+                            path: "kjmethod/kj2.png"),
                         ZoomableImage(
                             borderRadius: BorderRadius.circular(20),
-                            path: "3.png"),
+                            path: "kjmethod/kj3.png"),
                         ZoomableImage(
                             borderRadius: BorderRadius.circular(20),
-                            path: "4.png")
+                            path: "kjmethod/kj4.png")
                       ],
                       options: CarouselOptions(
                         autoPlay: true,
@@ -155,16 +154,16 @@ class _OutLearnState extends State<OutLearn> {
                   children: [
                     Container(
                         child: Text(
-                      "I fully developed and released this studying app using Flutter & Firebase",
+                      "Complete exam prep app",
                       textAlign: TextAlign.center,
                       style: TextStyle(fontSize: isBig ? 22 : 14),
                     )),
                     InkWell(
                       onTap: () {
-                        launch("https://outlearnapp.com");
+                        launch("https://www.kjmethod.com/?r_done=1");
                       },
                       child: Text(
-                        "-> Go to Site",
+                        "-> Go to kjmethod.com",
                         style: TextStyle(
                             color:
                                 Theme.of(context).textTheme.headline4?.color),
@@ -183,16 +182,21 @@ class _OutLearnState extends State<OutLearn> {
                       items: [
                         ZoomableImage(
                             borderRadius: BorderRadius.circular(20),
-                            path: "1.png"),
+                            path: "kjmethod/kj1.png"),
+                        Center(
+                          child: ZoomableVideo(
+                              borderRadius: BorderRadius.circular(10),
+                              path: "kjmethod/homeAnimation.mp4"),
+                        ),
                         ZoomableImage(
                             borderRadius: BorderRadius.circular(20),
-                            path: "2.png"),
+                            path: "kjmethod/kj2.png"),
                         ZoomableImage(
                             borderRadius: BorderRadius.circular(20),
-                            path: "3.png"),
+                            path: "kjmethod/kj3.png"),
                         ZoomableImage(
                             borderRadius: BorderRadius.circular(20),
-                            path: "4.png")
+                            path: "kjmethod/kj4.png")
                       ],
                       options: CarouselOptions(
                         autoPlay: true,

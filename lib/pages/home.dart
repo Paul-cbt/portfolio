@@ -1,6 +1,7 @@
 // @dart=2.9
 import 'package:flutter/material.dart';
 import 'package:hovering/hovering.dart';
+import 'package:portfolio/pages/quoteBuilder.dart';
 // import 'package:portfolio/service/swipeUp.dart';
 import 'package:portfolio/service/theme.dart';
 import 'package:portfolio/service/zoomableImage.dart';
@@ -128,74 +129,89 @@ class _HomeState extends State<Home> {
                         : MediaQuery.of(context).size.width > 1000
                             ? MediaQuery.of(context).size.width / 10
                             : 30),
-                child: RichText(
-                    text: TextSpan(
-                        text: "Hello.\n",
-                        style: TextStyle(
-                            fontSize: 50,
-                            fontFamily: "Noto",
-                            color: Theme.of(context).textTheme.bodyText1.color),
-                        children: [
-                      TextSpan(
-                        text: "I'm ",
-                        style: TextStyle(
-                          fontSize: 50,
-                          fontFamily: "Noto",
-                        ),
-                      ),
-                      TextSpan(
-                        text: "Paul",
-                        style: TextStyle(
-                          fontSize: 50,
-                          color: Theme.of(context).textTheme.bodyText2?.color,
-                          fontFamily: "Noto",
-                        ),
-                      ),
-                      TextSpan(
-                        text: ",\n",
-                        style: TextStyle(
-                          fontSize: 50,
-                          fontFamily: "Noto",
-                        ),
-                      ),
-                      TextSpan(
-                        text: "a ",
-                        style: TextStyle(
-                          fontSize: 40,
-                          fontFamily: "Noto",
-                        ),
-                      ),
-                      TextSpan(
-                        text: "mobile",
-                        style: TextStyle(
-                          fontSize: 40,
-                          color: Theme.of(context).textTheme.bodyText2?.color,
-                          fontFamily: "Noto",
-                        ),
-                      ),
-                      TextSpan(
-                        text: " and ",
-                        style: TextStyle(
-                          fontSize: 40,
-                          fontFamily: "Noto",
-                        ),
-                      ),
-                      TextSpan(
-                        text: "Web",
-                        style: TextStyle(
-                          fontSize: 40,
-                          color: Theme.of(context).textTheme.bodyText2?.color,
-                          fontFamily: "Noto",
-                        ),
-                      ),
-                      TextSpan(
-                        text: " dev",
-                        style: TextStyle(
-                          fontSize: 40,
-                          fontFamily: "Noto",
-                        ),
-                      )
-                    ])),
+                child: Column(
+                  // mainAxisSize: MainAxisSize.max,
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    RichText(
+                        text: TextSpan(
+                            text: "Hello.\n",
+                            style: TextStyle(
+                                fontSize: 50,
+                                fontFamily: "Noto",
+                                color: Theme.of(context)
+                                    .textTheme
+                                    .bodyText1
+                                    .color),
+                            children: [
+                          TextSpan(
+                            text: "I'm ",
+                            style: TextStyle(
+                              fontSize: 50,
+                              fontFamily: "Noto",
+                            ),
+                          ),
+                          TextSpan(
+                            text: "Paul",
+                            style: TextStyle(
+                              fontSize: 50,
+                              color:
+                                  Theme.of(context).textTheme.bodyText2?.color,
+                              fontFamily: "Noto",
+                            ),
+                          ),
+                          TextSpan(
+                            text: ",\n",
+                            style: TextStyle(
+                              fontSize: 50,
+                              fontFamily: "Noto",
+                            ),
+                          ),
+                          TextSpan(
+                            text: "a ",
+                            style: TextStyle(
+                              fontSize: 40,
+                              fontFamily: "Noto",
+                            ),
+                          ),
+                          TextSpan(
+                            text: "mobile",
+                            style: TextStyle(
+                              fontSize: 40,
+                              color:
+                                  Theme.of(context).textTheme.bodyText2?.color,
+                              fontFamily: "Noto",
+                            ),
+                          ),
+                          TextSpan(
+                            text: " and ",
+                            style: TextStyle(
+                              fontSize: 40,
+                              fontFamily: "Noto",
+                            ),
+                          ),
+                          TextSpan(
+                            text: "Web",
+                            style: TextStyle(
+                              fontSize: 40,
+                              color:
+                                  Theme.of(context).textTheme.bodyText2?.color,
+                              fontFamily: "Noto",
+                            ),
+                          ),
+                          TextSpan(
+                            text: " dev",
+                            style: TextStyle(
+                              fontSize: 40,
+                              fontFamily: "Noto",
+                            ),
+                          )
+                        ])),
+                    QuoteBuilder(
+                        maxWidth: MediaQuery.of(context).size.width / 2 - 50)
+                  ],
+                ),
               ),
             if (MediaQuery.of(context).size.width <= 840)
               Container(

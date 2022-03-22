@@ -1,6 +1,7 @@
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 import 'package:hovering/hovering.dart';
+import 'package:portfolio/pages/kjmethod.dart';
 import 'package:portfolio/pages/outlearn.dart';
 import 'package:portfolio/pages/robot.dart';
 import 'package:portfolio/pages/teacherAtn.dart';
@@ -8,6 +9,7 @@ import 'package:portfolio/service/theme.dart';
 import 'package:portfolio/service/zoomableImage.dart';
 import 'package:provider/provider.dart';
 import 'package:url_launcher/url_launcher.dart';
+import 'package:page_view_indicators/circle_page_indicator.dart';
 
 class Projects extends StatefulWidget {
   const Projects({Key? key}) : super(key: key);
@@ -25,6 +27,8 @@ class _ProjectsState extends State<Projects> {
   }
 
   PageController controller = PageController();
+  final _currentPageNotifier = ValueNotifier<int>(0);
+
   int page = 0;
   @override
   Widget build(BuildContext context) {
@@ -52,13 +56,14 @@ class _ProjectsState extends State<Projects> {
                   ),
                   Container(
                     height: MediaQuery.of(context).size.width <= 1000
-                        ? MediaQuery.of(context).size.height - 250
+                        ? MediaQuery.of(context).size.height - 280
                         : MediaQuery.of(context).size.height / 4 + 200,
                     width: MediaQuery.of(context).size.width,
                     child: PageView(
                       onPageChanged: (value) {
                         setState(() {
                           page = value;
+                          _currentPageNotifier.value = value;
                         });
                       },
                       controller: controller,
@@ -68,11 +73,24 @@ class _ProjectsState extends State<Projects> {
                             child: OutLearn()),
                         Container(
                             width: MediaQuery.of(context).size.width,
+                            child: KjMethod()),
+                        Container(
+                            width: MediaQuery.of(context).size.width,
                             child: TeacherAtn()),
                         Container(
                             width: MediaQuery.of(context).size.width,
                             child: Robots()),
                       ],
+                    ),
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.all(8.0),
+                    child: SizedBox(
+                      height: 20,
+                      child: CirclePageIndicator(
+                        itemCount: 4,
+                        currentPageNotifier: _currentPageNotifier,
+                      ),
                     ),
                   ),
                   Row(
