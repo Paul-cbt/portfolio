@@ -13,10 +13,12 @@ class _NavBarState extends State<NavBar> {
   @override
   Widget build(BuildContext context) {
     return Container(
+      constraints:
+          BoxConstraints(maxWidth: MediaQuery.of(context).size.width - 65),
       margin: EdgeInsets.only(top: 10),
       alignment: Alignment.topRight,
-      child: Row(
-        mainAxisSize: MainAxisSize.min,
+      child: Wrap(
+        alignment: WrapAlignment.end,
         children: [
           TextButton(
               onPressed: () {
@@ -52,6 +54,17 @@ class _NavBarState extends State<NavBar> {
               },
               child: Text(
                 "contact",
+                style: Theme.of(context).textTheme.bodyText1,
+              )),
+          SizedBox(
+            width: MediaQuery.of(context).size.width > 375 ? 15 : 5,
+          ),
+          TextButton(
+              onPressed: () {
+                launch("https://www.fiverr.com/cpaul08");
+              },
+              child: Text(
+                "Fiverr",
                 style: Theme.of(context).textTheme.bodyText1,
               )),
           SizedBox(
