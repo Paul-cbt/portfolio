@@ -36,6 +36,7 @@ dependencies:
   delayed_display: 1.1.0
   flutter_gifimage: ^1.0.1
   universal_html: ^2.0.8
+  page_view_indicators: ^2.0.0
 
   flutter_svg: ^0.22.0
   timelines: 0.0.2+1
