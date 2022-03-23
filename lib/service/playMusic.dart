@@ -1,3 +1,5 @@
+// ignore_for_file: unnecessary_null_comparison
+
 library swipe_up;
 
 import 'package:flutter/material.dart';
@@ -36,7 +38,6 @@ class _PlayMusicState extends State<PlayMusic>
     }
   }
 
-  late double _initialOffset;
   late double _swipeOffset;
 
   late AnimationController _animationController;
@@ -44,7 +45,6 @@ class _PlayMusicState extends State<PlayMusic>
 
   @override
   void initState() {
-    _initialOffset = 0.0;
     _swipeOffset = 0.0;
     if (widget.animate) initialAnimation();
     super.initState();
