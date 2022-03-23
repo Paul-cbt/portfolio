@@ -1,7 +1,6 @@
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 import 'package:portfolio/service/zoomableImage.dart';
-import 'package:url_launcher/url_launcher.dart';
 
 class TeacherAtn extends StatefulWidget {
   const TeacherAtn({Key? key}) : super(key: key);

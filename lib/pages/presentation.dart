@@ -1,9 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:hovering/hovering.dart';
-import 'package:portfolio/service/swipeUp.dart';
-import 'package:portfolio/service/theme.dart';
 import 'package:portfolio/service/zoomableImage.dart';
-import 'package:provider/provider.dart';
 
 class Presentation extends StatefulWidget {
   final PageController controller;
