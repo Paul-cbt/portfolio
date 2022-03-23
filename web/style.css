@@ -307,6 +307,7 @@
   .title{
     color:var(--color-crayon);
     font-size:1.5rem;
+	margin-left: 1em;
     font-family: 'M PLUS Rounded 1c', sans-serif; 
     text-transform:uppercase;
     letter-spacing:1px;
