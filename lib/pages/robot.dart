@@ -1,11 +1,6 @@
 //@dart=2.9
-import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:portfolio/service/zommableVideo.dart';
-import 'package:portfolio/service/zoomableImage.dart';
-import 'package:url_launcher/url_launcher.dart';
-import 'package:video_player/video_player.dart';
 
 class Robots extends StatefulWidget {
   const Robots({Key key}) : super(key: key);

@@ -4,7 +4,6 @@ import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:portfolio/pages/contact.dart';
 import 'package:portfolio/pages/home.dart';
-import 'package:flutter/material.dart';
 import 'package:portfolio/pages/navbar.dart';
 import 'package:portfolio/pages/presentation.dart';
 import 'package:portfolio/pages/projects.dart';

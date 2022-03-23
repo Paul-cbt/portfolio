@@ -1,4 +1,5 @@
-import 'package:carousel_slider/carousel_slider.dart';
+// ignore_for_file: import_of_legacy_library_into_null_safe
+
 import 'package:flutter/material.dart';
 import 'package:hovering/hovering.dart';
 import 'package:portfolio/pages/kjmethod.dart';
@@ -6,9 +7,7 @@ import 'package:portfolio/pages/outlearn.dart';
 import 'package:portfolio/pages/robot.dart';
 import 'package:portfolio/pages/teacherAtn.dart';
 import 'package:portfolio/service/theme.dart';
-import 'package:portfolio/service/zoomableImage.dart';
 import 'package:provider/provider.dart';
-import 'package:url_launcher/url_launcher.dart';
 import 'package:page_view_indicators/circle_page_indicator.dart';
 
 class Projects extends StatefulWidget {
