@@ -29,7 +29,7 @@ class MyApp extends StatelessWidget {
     return Consumer<AppStateNotifier>(
       builder: (context, appState, child) {
         return MaterialApp(
-          title: 'Paul Caubet',
+          title: 'Paul Caubet || Portfolio',
           theme: AppTheme.lightTheme,
           darkTheme: AppTheme.darkTheme,
           themeMode: appState.isDarkMode ? ThemeMode.dark : ThemeMode.light,
