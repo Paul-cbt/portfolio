@@ -2,10 +2,11 @@
 
 import 'package:flutter/material.dart';
 import 'package:hovering/hovering.dart';
-import 'package:portfolio/pages/kjmethod.dart';
-import 'package:portfolio/pages/outlearn.dart';
-import 'package:portfolio/pages/robot.dart';
-import 'package:portfolio/pages/teacherAtn.dart';
+import 'package:portfolio/pages/projects/kjmethod.dart';
+import 'package:portfolio/pages/projects/leascore.dart';
+import 'package:portfolio/pages/projects/outlearn.dart';
+import 'package:portfolio/pages/projects/robot.dart';
+import 'package:portfolio/pages/projects/teacherAtn.dart';
 import 'package:portfolio/service/theme.dart';
 import 'package:provider/provider.dart';
 import 'package:page_view_indicators/circle_page_indicator.dart';
@@ -70,6 +71,9 @@ class _ProjectsState extends State<Projects> {
                         Container(
                             width: MediaQuery.of(context).size.width,
                             child: OutLearn()),
+                        Container(
+                            width: MediaQuery.of(context).size.width,
+                            child: LeaScore()),
                         Container(
                             width: MediaQuery.of(context).size.width,
                             child: KjMethod()),

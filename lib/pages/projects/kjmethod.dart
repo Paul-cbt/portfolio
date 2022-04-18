@@ -116,21 +116,26 @@ class _KjMethodState extends State<KjMethod> {
                   child: CarouselSlider(
                       items: [
                         ZoomableImage(
-                            borderRadius: BorderRadius.circular(20),
+                            borderRadius:
+                                BorderRadius.circular(isBig ? 20 : 15),
                             path: "kjmethod/kj1.png"),
                         Center(
                           child: ZoomableVideo(
-                              borderRadius: BorderRadius.circular(10),
+                              borderRadius:
+                                  BorderRadius.circular(isBig ? 20 : 15),
                               path: "kjmethod/homeAnimation.mp4"),
                         ),
                         ZoomableImage(
-                            borderRadius: BorderRadius.circular(20),
+                            borderRadius:
+                                BorderRadius.circular(isBig ? 20 : 15),
                             path: "kjmethod/kj2.png"),
                         ZoomableImage(
-                            borderRadius: BorderRadius.circular(20),
+                            borderRadius:
+                                BorderRadius.circular(isBig ? 20 : 15),
                             path: "kjmethod/kj3.png"),
                         ZoomableImage(
-                            borderRadius: BorderRadius.circular(20),
+                            borderRadius:
+                                BorderRadius.circular(isBig ? 20 : 15),
                             path: "kjmethod/kj4.png")
                       ],
                       options: CarouselOptions(
@@ -181,7 +186,8 @@ class _KjMethodState extends State<KjMethod> {
                   child: CarouselSlider(
                       items: [
                         ZoomableImage(
-                            borderRadius: BorderRadius.circular(20),
+                            borderRadius:
+                                BorderRadius.circular(isBig ? 20 : 15),
                             path: "kjmethod/kj1.png"),
                         Center(
                           child: ZoomableVideo(
@@ -189,13 +195,16 @@ class _KjMethodState extends State<KjMethod> {
                               path: "kjmethod/homeAnimation.mp4"),
                         ),
                         ZoomableImage(
-                            borderRadius: BorderRadius.circular(20),
+                            borderRadius:
+                                BorderRadius.circular(isBig ? 20 : 15),
                             path: "kjmethod/kj2.png"),
                         ZoomableImage(
-                            borderRadius: BorderRadius.circular(20),
+                            borderRadius:
+                                BorderRadius.circular(isBig ? 20 : 15),
                             path: "kjmethod/kj3.png"),
                         ZoomableImage(
-                            borderRadius: BorderRadius.circular(20),
+                            borderRadius:
+                                BorderRadius.circular(isBig ? 20 : 15),
                             path: "kjmethod/kj4.png")
                       ],
                       options: CarouselOptions(

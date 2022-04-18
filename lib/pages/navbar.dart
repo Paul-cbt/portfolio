@@ -91,6 +91,7 @@ class EndNavBar extends StatefulWidget {
 class _EndNavBarState extends State<EndNavBar> {
   @override
   Widget build(BuildContext context) {
+    TextStyle elementStyle = TextStyle(fontSize: 20, color: Colors.white);
     return Container(
       decoration: BoxDecoration(
         borderRadius: BorderRadius.only(
@@ -99,60 +100,160 @@ class _EndNavBarState extends State<EndNavBar> {
       ),
       width: 200,
       height: MediaQuery.of(context).size.height,
-      child: SafeArea(
-          child: Column(
+      child: Column(
         children: [
+          Row(
+            mainAxisAlignment: MainAxisAlignment.end,
+            children: [
+              IconButton(
+                  onPressed: () {
+                    Navigator.of(context).pop();
+                  },
+                  icon: Icon(Icons.close, color: Colors.white))
+            ],
+          ),
           SizedBox(
-            height: 100,
+            height: 70,
           ),
           TextButton(
               onPressed: () {
                 widget.controller.animateToPage(0,
                     duration: Duration(milliseconds: 500),
                     curve: Curves.easeIn);
+                Navigator.of(context).pop();
               },
-              child: Text(
-                "Home",
-                style: Theme.of(context).textTheme.bodyText1,
+              child: SizedBox(
+                width: 120,
+                child: Row(
+                  children: [
+                    Icon(
+                      Icons.home,
+                      color: Colors.white,
+                    ),
+                    SizedBox(
+                      width: 15,
+                    ),
+                    Text(
+                      "Home",
+                      style: elementStyle,
+                    ),
+                  ],
+                ),
               )),
+          SizedBox(
+            height: 10,
+            width: 100,
+            child: Divider(
+              thickness: 1,
+            ),
+          ),
           TextButton(
               onPressed: () {
                 widget.controller.animateToPage(2,
                     duration: Duration(milliseconds: 500),
                     curve: Curves.easeIn);
+                Navigator.of(context).pop();
               },
-              child: Text(
-                "Projects",
-                style: Theme.of(context).textTheme.bodyText1,
+              child: SizedBox(
+                width: 120,
+                child: Row(
+                  children: [
+                    Icon(
+                      Icons.dashboard,
+                      color: Colors.white,
+                    ),
+                    SizedBox(
+                      width: 15,
+                    ),
+                    Text("Projects", style: elementStyle),
+                  ],
+                ),
               )),
+          SizedBox(
+            height: 10,
+            width: 100,
+            child: Divider(
+              thickness: 1,
+            ),
+          ),
           TextButton(
               onPressed: () {
                 widget.controller.animateToPage(3,
                     duration: Duration(milliseconds: 500),
                     curve: Curves.easeIn);
+                Navigator.of(context).pop();
               },
-              child: Text(
-                "Contact",
-                style: Theme.of(context).textTheme.bodyText1,
+              child: SizedBox(
+                width: 120,
+                child: Row(
+                  children: [
+                    Icon(
+                      Icons.alternate_email,
+                      color: Colors.white,
+                    ),
+                    SizedBox(
+                      width: 15,
+                    ),
+                    Text("Contact", style: elementStyle),
+                  ],
+                ),
               )),
+          SizedBox(
+            height: 10,
+            width: 100,
+            child: Divider(
+              thickness: 1,
+            ),
+          ),
           TextButton(
               onPressed: () {
                 launch("https://www.fiverr.com/cpaul08");
+                Navigator.of(context).pop();
               },
-              child: Text(
-                "Fiverr",
-                style: Theme.of(context).textTheme.bodyText1,
+              child: SizedBox(
+                width: 120,
+                child: Row(
+                  children: [
+                    Icon(
+                      Icons.open_in_new,
+                      color: Colors.white,
+                    ),
+                    SizedBox(
+                      width: 15,
+                    ),
+                    Text("Fiverr", style: elementStyle),
+                  ],
+                ),
               )),
+          SizedBox(
+            height: 10,
+            width: 100,
+            child: Divider(
+              thickness: 1,
+            ),
+          ),
           TextButton(
               onPressed: () {
                 launch("https://github.com/Paul-cbt/portfolio");
+                Navigator.of(context).pop();
               },
-              child: Text(
-                "GitHub",
-                style: Theme.of(context).textTheme.bodyText1,
+              child: SizedBox(
+                width: 120,
+                child: Row(
+                  children: [
+                    Icon(
+                      Icons.open_in_new,
+                      color: Colors.white,
+                    ),
+                    SizedBox(
+                      width: 15,
+                    ),
+                    Text("GitHub", style: elementStyle),
+                  ],
+                ),
               )),
         ],
-      )),
+      ),
     );
   }
 }
