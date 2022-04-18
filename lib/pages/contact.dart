@@ -221,17 +221,19 @@ class _ContactState extends State<Contact> {
                                   : 140,
                             ),
                           ),
+                          const SizedBox(
+                            height: 30,
+                          ),
                           Container(
-                            height: 310,
                             alignment: Alignment.center,
                             constraints: BoxConstraints(maxWidth: 400),
-                            padding: EdgeInsets.only(left: 5, right: 5),
+                            padding: EdgeInsets.only(left: 10, right: 10),
                             child: Column(
                               mainAxisAlignment: MainAxisAlignment.center,
                               children: [
                                 RichText(
                                     text: TextSpan(
-                                        text: "Wrapping up.\n",
+                                        text: "Wrapping up.\n\n",
                                         style: TextStyle(
                                           fontSize: 35,
                                           color: Theme.of(context)
@@ -312,6 +314,7 @@ class _ContactState extends State<Contact> {
                             ),
                           ),
                         ]),
+                    Spacer(),
                     Row(
                       mainAxisSize: MainAxisSize.min,
                       children: [
@@ -370,7 +373,6 @@ class _ContactState extends State<Contact> {
                             child: Signature()),
                       ],
                     ),
-                    Spacer(),
                     Container(
                       alignment: Alignment.bottomLeft,
                       margin: EdgeInsets.fromLTRB(15, 0, 0,

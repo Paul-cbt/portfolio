@@ -21,7 +21,9 @@ class _QuoteBuilderState extends State<QuoteBuilder> {
     'Amazing as always',
     'He is very good and talented! Merci paul!',
     'Amazing seller, I had to book him again for his quality work',
-    'I highly recommend his skills and willingness to help you create your project'
+    'I highly recommend his skills and willingness to help you create your project',
+    'Paul is simply amazing!',
+    'Forget about other developers, Paul is all you need.'
   ];
   @override
   void initState() {

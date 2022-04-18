@@ -142,8 +142,7 @@ class _TeacherAtnState extends State<TeacherAtn> {
                 ),
                 Container(
                   constraints: BoxConstraints(
-                      maxHeight:
-                          MediaQuery.of(context).size.height - 300 - 300),
+                      maxHeight: MediaQuery.of(context).size.height - 410),
                   child: CarouselSlider(
                       items: [
                         ZoomableImage(

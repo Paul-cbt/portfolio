@@ -43,7 +43,7 @@ class _HomeState extends State<Home> {
   Widget build(BuildContext context) {
     return SwipeUp(
         color: Theme.of(context).primaryColorLight,
-        sensitivity: 0.3,
+        sensitivity: 0.9,
         expand: false,
         showArrow: true,
         animate: true,
@@ -119,7 +119,7 @@ class _HomeState extends State<Home> {
                           bottomLeft: radius,
                           bottomRight: radius,
                           topLeft: radius),
-                      path: "me3.jpeg")),
+                      path: "me3.jpg")),
             if (MediaQuery.of(context).size.width > 840)
               Container(
                 alignment: Alignment.centerLeft,
@@ -230,7 +230,7 @@ class _HomeState extends State<Home> {
                                 bottomLeft: radius,
                                 bottomRight: radius,
                                 topLeft: radius),
-                            path: "me3.jpeg")),
+                            path: "me3.jpg")),
                     Container(
                       child: RichText(
                           text: TextSpan(

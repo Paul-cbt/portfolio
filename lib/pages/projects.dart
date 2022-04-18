@@ -143,8 +143,8 @@ class _ProjectsState extends State<Projects> {
                   },
                   child: Image.asset(
                     "desk-lamp.png",
-                    height: MediaQuery.of(context).size.width > 375 ? 140 : 70,
-                    width: MediaQuery.of(context).size.width > 375 ? 130 : 70,
+                    height: MediaQuery.of(context).size.width > 500 ? 140 : 70,
+                    width: MediaQuery.of(context).size.width > 500 ? 130 : 70,
                   ),
                 ),
                 child: GestureDetector(
@@ -159,8 +159,8 @@ class _ProjectsState extends State<Projects> {
                   },
                   child: Image.asset(
                     "desk-lamp.png",
-                    height: MediaQuery.of(context).size.width > 375 ? 130 : 70,
-                    width: MediaQuery.of(context).size.width > 375 ? 130 : 70,
+                    height: MediaQuery.of(context).size.width > 500 ? 130 : 70,
+                    width: MediaQuery.of(context).size.width > 500 ? 130 : 70,
                   ),
                 ),
               ),

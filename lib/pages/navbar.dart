@@ -28,7 +28,7 @@ class _NavBarState extends State<NavBar> {
                     curve: Curves.easeIn);
               },
               child: Text(
-                "home",
+                "Home",
                 style: Theme.of(context).textTheme.bodyText1,
               )),
           TextButton(
@@ -38,7 +38,7 @@ class _NavBarState extends State<NavBar> {
                     curve: Curves.easeIn);
               },
               child: Text(
-                "projects",
+                "Projects",
                 style: Theme.of(context).textTheme.bodyText1,
               )),
           TextButton(
@@ -48,7 +48,7 @@ class _NavBarState extends State<NavBar> {
                     curve: Curves.easeIn);
               },
               child: Text(
-                "contact",
+                "Contact",
                 style: Theme.of(context).textTheme.bodyText1,
               )),
           TextButton(

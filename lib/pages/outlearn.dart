@@ -182,16 +182,20 @@ class _OutLearnState extends State<OutLearn> {
                   child: CarouselSlider(
                       items: [
                         ZoomableImage(
-                            borderRadius: BorderRadius.circular(20),
+                            borderRadius:
+                                BorderRadius.circular(isBig ? 20 : 10),
                             path: "1.png"),
                         ZoomableImage(
-                            borderRadius: BorderRadius.circular(20),
+                            borderRadius:
+                                BorderRadius.circular(isBig ? 20 : 10),
                             path: "2.png"),
                         ZoomableImage(
-                            borderRadius: BorderRadius.circular(20),
+                            borderRadius:
+                                BorderRadius.circular(isBig ? 20 : 10),
                             path: "3.png"),
                         ZoomableImage(
-                            borderRadius: BorderRadius.circular(20),
+                            borderRadius:
+                                BorderRadius.circular(isBig ? 20 : 10),
                             path: "4.png")
                       ],
                       options: CarouselOptions(

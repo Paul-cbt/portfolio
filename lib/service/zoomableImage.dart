@@ -89,15 +89,18 @@ class _ZoomableImageState extends State<ZoomableImage> {
           child: kIsWeb
               ? CachedNetworkImage(
                   placeholder: (context, url) {
-                    return Shimmer.fromColors(
-                      period: Duration(milliseconds: 700),
-                      child: Container(
-                        height: widget.height,
-                        width: widget.width,
-                        color: Colors.grey,
+                    return ClipRRect(
+                      borderRadius: widget.borderRadius,
+                      child: Shimmer.fromColors(
+                        period: Duration(milliseconds: 700),
+                        child: Container(
+                          height: widget.height,
+                          width: widget.width,
+                          color: Colors.grey,
+                        ),
+                        baseColor: Colors.grey[300] ?? Colors.grey,
+                        highlightColor: Colors.grey[100] ?? Colors.grey,
                       ),
-                      baseColor: Colors.grey[300] ?? Colors.grey,
-                      highlightColor: Colors.grey[100] ?? Colors.grey,
                     );
                   },
                   imageUrl: "assets/${widget.path}",

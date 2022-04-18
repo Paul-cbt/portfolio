@@ -19,7 +19,7 @@ class _PresentationState extends State<Presentation> {
 
   Radius radius = Radius.circular(100);
   double fontSize = 22;
-  double smallFontSize = 18;
+  double smallFontSize = 15;
 
   @override
   Widget build(BuildContext context) {
@@ -161,17 +161,11 @@ class _PresentationState extends State<Presentation> {
         if (MediaQuery.of(context).size.width <= 1143)
           Container(
             alignment: Alignment.center,
-            margin: EdgeInsets.only(left: 10),
+            margin: EdgeInsets.only(left: 10, top: 70),
             child: Column(
               mainAxisSize: MainAxisSize.min,
               children: [
                 Container(
-                  margin: EdgeInsets.only(
-                      left: MediaQuery.of(context).size.width > 1389
-                          ? MediaQuery.of(context).size.width / 6
-                          : MediaQuery.of(context).size.width > 1000
-                              ? MediaQuery.of(context).size.width / 15
-                              : 30),
                   child: Material(
                       color: Colors.transparent,
                       child: ZoomableImage(
@@ -184,6 +178,7 @@ class _PresentationState extends State<Presentation> {
                           ),
                           path: "me10.jpg")),
                 ),
+                SizedBox(height: 10),
                 Container(
                   margin: EdgeInsets.only(
                       right: MediaQuery.of(context).size.width > 1389
@@ -198,7 +193,7 @@ class _PresentationState extends State<Presentation> {
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
                       Text(
-                        "About Me\n\n",
+                        "About Me\n",
                         style: TextStyle(
                           fontSize: 35,
                           color: Theme.of(context).textTheme.headline6?.color,
