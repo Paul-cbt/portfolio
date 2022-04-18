@@ -105,23 +105,6 @@ class _HomeState extends State<Home> {
             ),
             if (MediaQuery.of(context).size.width > 840)
               Container(
-                  alignment: Alignment.centerRight,
-                  margin: EdgeInsets.only(
-                      right: MediaQuery.of(context).size.width > 1250
-                          ? MediaQuery.of(context).size.width / 5
-                          : MediaQuery.of(context).size.width > 1000
-                              ? MediaQuery.of(context).size.width / 10
-                              : 30),
-                  child: ZoomableImage(
-                      height: 350,
-                      width: 350,
-                      borderRadius: BorderRadius.only(
-                          bottomLeft: radius,
-                          bottomRight: radius,
-                          topLeft: radius),
-                      path: "me3.jpg")),
-            if (MediaQuery.of(context).size.width > 840)
-              Container(
                 alignment: Alignment.centerLeft,
                 margin: EdgeInsets.only(
                     left: MediaQuery.of(context).size.width > 1250
@@ -211,11 +194,32 @@ class _HomeState extends State<Home> {
                     const SizedBox(
                       height: 10,
                     ),
-                    QuoteBuilder(
-                        maxWidth: MediaQuery.of(context).size.width / 2 - 50)
+                    Container(
+                      margin: EdgeInsets.only(right: 500),
+                      child: QuoteBuilder(
+                          maxWidth:
+                              MediaQuery.of(context).size.width / 2 - 100),
+                    )
                   ],
                 ),
               ),
+            if (MediaQuery.of(context).size.width > 840)
+              Container(
+                  alignment: Alignment.centerRight,
+                  margin: EdgeInsets.only(
+                      right: MediaQuery.of(context).size.width > 1250
+                          ? MediaQuery.of(context).size.width / 5
+                          : MediaQuery.of(context).size.width > 1000
+                              ? MediaQuery.of(context).size.width / 10
+                              : 30),
+                  child: ZoomableImage(
+                      height: 350,
+                      width: 350,
+                      borderRadius: BorderRadius.only(
+                          bottomLeft: radius,
+                          bottomRight: radius,
+                          topLeft: radius),
+                      path: "me3.jpg")),
             if (MediaQuery.of(context).size.width <= 840)
               Container(
                 alignment: Alignment.center,

@@ -109,6 +109,7 @@ class _WrapperState extends State<Wrapper> with SingleTickerProviderStateMixin {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      endDrawer: EndNavBar(controller: controller),
       body: ScrollConfiguration(
         behavior: ScrollConfiguration.of(context).copyWith(
           dragDevices: {
