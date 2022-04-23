@@ -205,115 +205,92 @@ class _ContactState extends State<Contact> {
                 height: MediaQuery.of(context).size.height,
                 child: Column(
                   children: [
-                    SizedBox(
-                      height: 70,
+                    Spacer(
+                      flex: 2,
                     ),
-                    Column(
-                        mainAxisAlignment: MainAxisAlignment.center,
+                    Container(
+                      alignment: Alignment.center,
+                      child: Image.asset(
+                        "car.png",
+                        height: MediaQuery.of(context).size.width > 500 &&
+                                MediaQuery.of(context).size.height > 800
+                            ? 350
+                            : 140,
+                      ),
+                    ),
+                    Spacer(),
+                    Padding(
+                      padding: const EdgeInsets.only(left: 20, right: 20),
+                      child: Row(
                         children: [
-                          Container(
-                            alignment: Alignment.center,
-                            child: Image.asset(
-                              "car.png",
-                              height: MediaQuery.of(context).size.width > 500 &&
-                                      MediaQuery.of(context).size.height > 800
-                                  ? 350
-                                  : 140,
+                          Text(
+                            "Wrapping up.",
+                            style: TextStyle(
+                              fontSize: 35,
+                              color:
+                                  Theme.of(context).textTheme.headline6?.color,
+                              fontFamily: "Noto",
                             ),
+                            textAlign: TextAlign.start,
                           ),
-                          const SizedBox(
-                            height: 30,
+                        ],
+                      ),
+                    ),
+                    Spacer(),
+                    Padding(
+                      padding: const EdgeInsets.only(left: 20, right: 20),
+                      child: RichText(
+                          text: TextSpan(children: [
+                        TextSpan(
+                          text: "If you're in search for a ",
+                          style: TextStyle(
+                            fontSize: fontSize,
+                            color: Theme.of(context).textTheme.headline1?.color,
+                            fontFamily: "Noto",
                           ),
-                          Container(
-                            alignment: Alignment.center,
-                            constraints: BoxConstraints(maxWidth: 400),
-                            padding: EdgeInsets.only(left: 10, right: 10),
-                            child: Column(
-                              mainAxisAlignment: MainAxisAlignment.center,
-                              children: [
-                                RichText(
-                                    text: TextSpan(
-                                        text: "Wrapping up.\n\n",
-                                        style: TextStyle(
-                                          fontSize: 35,
-                                          color: Theme.of(context)
-                                              .textTheme
-                                              .headline6
-                                              ?.color,
-                                          fontFamily: "Noto",
-                                        ),
-                                        children: [
-                                      TextSpan(
-                                        text: "If you're in search for a ",
-                                        style: TextStyle(
-                                          fontSize: fontSize,
-                                          color: Theme.of(context)
-                                              .textTheme
-                                              .headline1
-                                              ?.color,
-                                          fontFamily: "Noto",
-                                        ),
-                                      ),
-                                      TextSpan(
-                                        text: "young",
-                                        style: TextStyle(
-                                          fontSize: fontSize,
-                                          color: Theme.of(context)
-                                              .textTheme
-                                              .headline6
-                                              ?.color,
-                                          fontFamily: "Noto",
-                                        ),
-                                      ),
-                                      TextSpan(
-                                        text: " and ",
-                                        style: TextStyle(
-                                          fontSize: fontSize,
-                                          color: Theme.of(context)
-                                              .textTheme
-                                              .headline1
-                                              ?.color,
-                                          fontFamily: "Noto",
-                                        ),
-                                      ),
-                                      TextSpan(
-                                        text: "motivated",
-                                        style: TextStyle(
-                                          fontSize: fontSize,
-                                          color: Theme.of(context)
-                                              .textTheme
-                                              .headline6
-                                              ?.color,
-                                          fontFamily: "Noto",
-                                        ),
-                                      ),
-                                      TextSpan(
-                                        text: " creative developer,",
-                                        style: TextStyle(
-                                          fontSize: fontSize,
-                                          color: Theme.of(context)
-                                              .textTheme
-                                              .headline1
-                                              ?.color,
-                                          fontFamily: "Noto",
-                                        ),
-                                      ),
-                                      TextSpan(
-                                        text: " reachout!",
-                                        style: TextStyle(
-                                          fontSize: fontSize,
-                                          color: Theme.of(context)
-                                              .textTheme
-                                              .headline6
-                                              ?.color,
-                                          fontFamily: "Noto",
-                                        ),
-                                      ),
-                                    ])),
-                              ],
-                            ),
+                        ),
+                        TextSpan(
+                          text: "young",
+                          style: TextStyle(
+                            fontSize: fontSize,
+                            color: Theme.of(context).textTheme.headline6?.color,
+                            fontFamily: "Noto",
                           ),
-                        ]),
+                        ),
+                        TextSpan(
+                          text: " and ",
+                          style: TextStyle(
+                            fontSize: fontSize,
+                            color: Theme.of(context).textTheme.headline1?.color,
+                            fontFamily: "Noto",
+                          ),
+                        ),
+                        TextSpan(
+                          text: "motivated",
+                          style: TextStyle(
+                            fontSize: fontSize,
+                            color: Theme.of(context).textTheme.headline6?.color,
+                            fontFamily: "Noto",
+                          ),
+                        ),
+                        TextSpan(
+                          text: " creative developer,",
+                          style: TextStyle(
+                            fontSize: fontSize,
+                            color: Theme.of(context).textTheme.headline1?.color,
+                            fontFamily: "Noto",
+                          ),
+                        ),
+                        TextSpan(
+                          text: " reachout!",
+                          style: TextStyle(
+                            fontSize: fontSize,
+                            color: Theme.of(context).textTheme.headline6?.color,
+                            fontFamily: "Noto",
+                          ),
+                        ),
+                      ])),
+                    ),
                     Spacer(),
                     Row(
                       mainAxisSize: MainAxisSize.min,
@@ -364,14 +341,17 @@ class _ContactState extends State<Contact> {
                     SizedBox(
                       height: 10,
                     ),
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        Container(
-                            height: 80,
-                            padding: EdgeInsets.only(left: 15, right: 5),
-                            child: Signature()),
-                      ],
+                    Padding(
+                      padding: const EdgeInsets.only(left: 20, right: 20),
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.start,
+                        children: [
+                          Container(
+                              height: 80,
+                              padding: EdgeInsets.only(left: 0, right: 0),
+                              child: Signature()),
+                        ],
+                      ),
                     ),
                     Container(
                       alignment: Alignment.bottomLeft,
