@@ -25,7 +25,7 @@ class AppTheme {
       accentColor: Colors.black,
       shadowColor: Colors.black87,
       primaryColorLight: Colors.white,
-      fontFamily: "Noto",
+      fontFamily: "QuickSand",
       textTheme: TextTheme(
           bodyText1: TextStyle(
             color: Color(0xFF989898),
@@ -48,7 +48,7 @@ class AppTheme {
       scaffoldBackgroundColor: Colors.white,
       primaryColor: Colors.white,
       primaryColorLight: Colors.black,
-      fontFamily: "Noto",
+      fontFamily: "QuickSand",
       shadowColor: Colors.grey,
       accentColor: Colors.white,
       textTheme: TextTheme(

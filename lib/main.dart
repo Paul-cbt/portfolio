@@ -6,7 +6,7 @@ import 'package:portfolio/pages/contact.dart';
 import 'package:portfolio/pages/home.dart';
 import 'package:portfolio/pages/navbar.dart';
 import 'package:portfolio/pages/presentation.dart';
-import 'package:portfolio/pages/projects.dart';
+import 'package:portfolio/pages/projects/projects.dart';
 import 'package:portfolio/service/playMusic.dart';
 import 'package:portfolio/service/theme.dart';
 import 'package:universal_html/html.dart' as uni;
@@ -57,6 +57,7 @@ class _WrapperState extends State<Wrapper> with SingleTickerProviderStateMixin {
   ScrollPhysics physics = PageScrollPhysics();
   bool pageSnapping = false;
   int page = 0;
+  int lastPage = 6;
   bool isScrollingWithFinger = true;
 
   PageController controller = PageController();
@@ -108,168 +109,185 @@ class _WrapperState extends State<Wrapper> with SingleTickerProviderStateMixin {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      endDrawer: EndNavBar(controller: controller),
-      body: ScrollConfiguration(
-        behavior: ScrollConfiguration.of(context).copyWith(
-          dragDevices: {
-            PointerDeviceKind.touch,
-            PointerDeviceKind.mouse,
-          },
-        ),
-        child: Listener(
-          onPointerMove: (event) {
-            //if user is using a touch screen for example
-            if (!pageSnapping) {
-              setState(() {
-                isScrollingWithFinger = true;
-                pageSnapping = true;
-              });
-            }
-          },
-          onPointerSignal: (PointerSignalEvent event) {
-            //if user is using mouse
-
-            setState(() {
-              isScrollingWithFinger = false;
-            });
-            if (event is PointerScrollEvent) {
-              if (event.scrollDelta.dy > 0) {
-                try {
-                  double offSet = controller.offset -
-                      page * MediaQuery.of(context).size.height;
-
-                  if (offSet < 0) {
-                    setState(() {
-                      pageSnapping = true;
-                    });
-                  } else {
-                    setState(() {
-                      pageSnapping = false;
-                    });
-                  }
-                } catch (e) {}
-              } else if (event.scrollDelta.dy < 0) {
-                try {
-                  double offSet = controller.offset -
-                      page * MediaQuery.of(context).size.height;
-
-                  if (offSet > 0) {
-                    setState(() {
-                      pageSnapping = true;
-                    });
-                  } else {
-                    setState(() {
-                      pageSnapping = false;
-                    });
-                  }
-                } catch (e) {}
+    return DefaultTextStyle(
+      style: TextStyle(fontFamily: 'QuickSand'),
+      child: Scaffold(
+        endDrawer: EndNavBar(controller: controller),
+        body: ScrollConfiguration(
+          behavior: ScrollConfiguration.of(context).copyWith(
+            dragDevices: {
+              PointerDeviceKind.touch,
+              PointerDeviceKind.mouse,
+            },
+          ),
+          child: Listener(
+            onPointerMove: (event) {
+              //if user is using a touch screen for example
+              if (!pageSnapping) {
+                setState(() {
+                  isScrollingWithFinger = true;
+                  pageSnapping = true;
+                });
               }
-            }
-          },
-          child: Container(
-            decoration: BoxDecoration(
-              gradient: LinearGradient(
-                  transform: GradientRotation(page < 2 ? -15 : 0),
-                  colors: [
-                    Theme.of(context).textTheme.headline2?.color ??
-                        Colors.white,
-                    Theme.of(context).textTheme.headline3?.color ??
-                        Colors.white,
-                  ],
-                  begin: (page < 2 ? Alignment.topLeft : Alignment.bottomLeft),
-                  end: page < 2 ? Alignment.bottomRight : Alignment.topRight),
-            ),
-            child: Stack(
-              children: [
-                Scrollbar(
-                  isAlwaysShown: MediaQuery.of(context).size.width > 500,
-                  controller: controller,
-                  child: ScrollConfiguration(
-                    behavior: ScrollConfiguration.of(context).copyWith(
-                      dragDevices: {
-                        PointerDeviceKind.touch,
-                        PointerDeviceKind.mouse,
-                      },
-                    ),
-                    child: PageView(
-                      physics: ScrollPhysics(),
-                      pageSnapping: pageSnapping,
-                      allowImplicitScrolling: true,
-                      onPageChanged: (value) {
-                        setState(() {
-                          page = value;
-                        });
-                      },
-                      scrollDirection: Axis.vertical,
-                      controller: controller,
-                      children: [
-                        Home(
-                          controller: controller,
-                        ),
-                        Presentation(
-                          controller: controller,
-                        ),
-                        Projects(),
-                        Contact()
-                      ],
-                    ),
-                  ),
-                ),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.end,
-                  children: [
-                    NavBar(
-                      controller: controller,
-                    ),
-                  ],
-                ),
-                if (!hasPlayedMusic &&
-                    (MediaQuery.of(context).size.width > 700 ||
-                        page == 0 ||
-                        page == 3) &&
-                    MediaQuery.of(context).size.width > 365)
-                  Container(
-                    alignment: Alignment.bottomRight,
-                    child: PlayMusic(
-                        body: Container(),
-                        color: Theme.of(context).primaryColorLight,
-                        child: Material(
-                            color: Colors.transparent,
-                            child: Text('Start concert',
-                                style: TextStyle(
-                                    fontSize:
-                                        MediaQuery.of(context).size.width > 500
-                                            ? 20
-                                            : 13,
-                                    color:
-                                        Theme.of(context).primaryColorLight))),
-                        onSwipe: () {}),
-                  ),
-                Container(
-                  margin: EdgeInsets.only(right: 10, bottom: 10),
-                  alignment: Alignment.bottomRight,
-                  child: InkWell(
-                    onTap: () {
-                      startMusic();
+            },
+            onPointerSignal: (PointerSignalEvent event) {
+              //if user is using mouse
+
+              setState(() {
+                isScrollingWithFinger = false;
+              });
+              if (event is PointerScrollEvent) {
+                if (event.scrollDelta.dy > 0) {
+                  try {
+                    double offSet = controller.offset -
+                        page * MediaQuery.of(context).size.height;
+
+                    if (offSet < 0) {
                       setState(() {
-                        hasPlayedMusic = true;
+                        pageSnapping = true;
                       });
-                      iconController.status.index == 0
-                          ? iconController.forward()
-                          : iconController.reverse();
-                    },
-                    child: AnimatedIcon(
-                        size: 30,
-                        icon: AnimatedIcons.play_pause,
-                        progress: iconController),
+                    } else {
+                      setState(() {
+                        pageSnapping = false;
+                      });
+                    }
+                  } catch (e) {}
+                } else if (event.scrollDelta.dy < 0) {
+                  try {
+                    double offSet = controller.offset -
+                        page * MediaQuery.of(context).size.height;
+
+                    if (offSet > 0) {
+                      setState(() {
+                        pageSnapping = true;
+                      });
+                    } else {
+                      setState(() {
+                        pageSnapping = false;
+                      });
+                    }
+                  } catch (e) {}
+                }
+              }
+            },
+            child: Container(
+              decoration: BoxDecoration(
+                gradient: LinearGradient(
+                    transform: GradientRotation(page < 2 ? -15 : 0),
+                    colors: [
+                      Theme.of(context).textTheme.headline2?.color ??
+                          Colors.white,
+                      Theme.of(context).textTheme.headline3?.color ??
+                          Colors.white,
+                    ],
+                    begin:
+                        (page < 2 ? Alignment.topLeft : Alignment.bottomLeft),
+                    end: page < 2 ? Alignment.bottomRight : Alignment.topRight),
+              ),
+              child: Stack(
+                children: [
+                  Scrollbar(
+                    isAlwaysShown: MediaQuery.of(context).size.width > 500,
+                    controller: controller,
+                    child: ScrollConfiguration(
+                      behavior: ScrollConfiguration.of(context).copyWith(
+                        dragDevices: {
+                          PointerDeviceKind.touch,
+                          PointerDeviceKind.mouse,
+                        },
+                      ),
+                      child: PageView(
+                        physics: ScrollPhysics(),
+                        pageSnapping: pageSnapping,
+                        allowImplicitScrolling: true,
+                        onPageChanged: (value) {
+                          setState(() {
+                            page = value;
+                          });
+                        },
+                        scrollDirection: Axis.vertical,
+                        controller: controller,
+                        children: [
+                          Home(
+                            controller: controller,
+                          ),
+                          Presentation(
+                            controller: controller,
+                          ),
+                          ...Project.values
+                              .map(
+                                (e) => Projects(project: e),
+                              )
+                              .toList(),
+                          Contact()
+                        ],
+                      ),
+                    ),
                   ),
-                )
-              ],
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.end,
+                    children: [
+                      NavBar(
+                        controller: controller,
+                      ),
+                    ],
+                  ),
+                  if (!hasPlayedMusic &&
+                      (MediaQuery.of(context).size.width > 700 ||
+                          page == 0 ||
+                          page == 3) &&
+                      MediaQuery.of(context).size.width > 425)
+                    Container(
+                      alignment: Alignment.bottomRight,
+                      child: PlayMusic(
+                          body: Container(),
+                          color: Theme.of(context).primaryColorLight,
+                          child: Material(
+                              color: Colors.transparent,
+                              child: Text('Start concert',
+                                  style: TextStyle(
+                                      fontSize:
+                                          MediaQuery.of(context).size.width >
+                                                  650
+                                              ? 20
+                                              : 13,
+                                      color: Theme.of(context)
+                                          .primaryColorLight))),
+                          onSwipe: () {}),
+                    ),
+                  Container(
+                    margin: EdgeInsets.only(right: 10, bottom: 10),
+                    alignment: Alignment.bottomRight,
+                    child: InkWell(
+                      onTap: () {
+                        startMusic();
+                        setState(() {
+                          hasPlayedMusic = true;
+                        });
+                        iconController.status.index == 0
+                            ? iconController.forward()
+                            : iconController.reverse();
+                      },
+                      child: AnimatedIcon(
+                          size: 30,
+                          icon: AnimatedIcons.play_pause,
+                          progress: iconController),
+                    ),
+                  )
+                ],
+              ),
             ),
           ),
         ),
       ),
     );
   }
+}
+
+enum Project {
+  leaScore,
+
+  outLearn,
+  kjMethod,
+  teacherATN,
 }

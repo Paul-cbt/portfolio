@@ -73,7 +73,7 @@ class _SignatureState extends State<Signature> with TickerProviderStateMixin {
                               fontSize: MediaQuery.of(context).size.width > 1200
                                   ? 20
                                   : 15,
-                              fontFamily: "Noto",
+                              fontFamily: "QuickSand",
                               color: Theme.of(context)
                                   .canvasColor
                                   .withOpacity(0.6)),

@@ -2,9 +2,11 @@
 
 import 'package:flutter/material.dart';
 import 'package:hovering/hovering.dart';
+import 'package:portfolio/main.dart';
 import 'package:portfolio/pages/projects/kjmethod.dart';
 import 'package:portfolio/pages/projects/leascore.dart';
 import 'package:portfolio/pages/projects/outlearn.dart';
+import 'package:portfolio/pages/projects/projectUtils.dart';
 import 'package:portfolio/pages/projects/robot.dart';
 import 'package:portfolio/pages/projects/teacherAtn.dart';
 import 'package:portfolio/service/theme.dart';
@@ -12,7 +14,8 @@ import 'package:provider/provider.dart';
 import 'package:page_view_indicators/circle_page_indicator.dart';
 
 class Projects extends StatefulWidget {
-  const Projects({Key? key}) : super(key: key);
+  final Project project;
+  const Projects({Key? key, required this.project}) : super(key: key);
 
   @override
   _ProjectsState createState() => _ProjectsState();
@@ -32,6 +35,26 @@ class _ProjectsState extends State<Projects> {
   int page = 0;
   @override
   Widget build(BuildContext context) {
+    Widget child = Container();
+    switch (widget.project) {
+      case Project.leaScore:
+        child = Container(
+            width: MediaQuery.of(context).size.width, child: LeaScore());
+        break;
+      case Project.kjMethod:
+        child = Container(
+            width: MediaQuery.of(context).size.width, child: KjMethod());
+        break;
+      case Project.outLearn:
+        child = Container(
+            width: MediaQuery.of(context).size.width, child: OutLearn());
+        break;
+      case Project.teacherATN:
+        child = Container(
+            width: MediaQuery.of(context).size.width, child: TeacherAtn());
+        break;
+      default:
+    }
     return Container(
       height: MediaQuery.of(context).size.height,
       width: MediaQuery.of(context).size.width,
@@ -55,77 +78,13 @@ class _ProjectsState extends State<Projects> {
                     height: 40,
                   ),
                   Container(
-                    height: MediaQuery.of(context).size.width <= 1000
-                        ? MediaQuery.of(context).size.height - 280
-                        : MediaQuery.of(context).size.height / 4 + 200,
                     width: MediaQuery.of(context).size.width,
-                    child: PageView(
-                      onPageChanged: (value) {
-                        setState(() {
-                          page = value;
-                          _currentPageNotifier.value = value;
-                        });
-                      },
-                      controller: controller,
-                      children: [
-                        Container(
-                            width: MediaQuery.of(context).size.width,
-                            child: OutLearn()),
-                        Container(
-                            width: MediaQuery.of(context).size.width,
-                            child: LeaScore()),
-                        Container(
-                            width: MediaQuery.of(context).size.width,
-                            child: KjMethod()),
-                        Container(
-                            width: MediaQuery.of(context).size.width,
-                            child: TeacherAtn()),
-                        Container(
-                            width: MediaQuery.of(context).size.width,
-                            child: Robots()),
-                      ],
-                    ),
+                    child: child,
                   ),
-                  Padding(
-                    padding: const EdgeInsets.all(8.0),
-                    child: SizedBox(
-                      height: 20,
-                      child: CirclePageIndicator(
-                        itemCount: 4,
-                        currentPageNotifier: _currentPageNotifier,
-                      ),
-                    ),
+                  SizedBox(
+                    height: 20,
                   ),
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      Container(
-                        margin: EdgeInsets.only(left: 10),
-                        child: IconButton(
-                            color: page > 0
-                                ? Theme.of(context).primaryColorLight
-                                : Colors.grey,
-                            onPressed: () {
-                              controller.previousPage(
-                                  duration: Duration(milliseconds: 500),
-                                  curve: Curves.easeIn);
-                            },
-                            icon: Icon(Icons.arrow_back)),
-                      ),
-                      Container(
-                          margin: EdgeInsets.only(right: 10),
-                          child: IconButton(
-                              color: page < 2
-                                  ? Theme.of(context).primaryColorLight
-                                  : Colors.grey,
-                              onPressed: () {
-                                controller.nextPage(
-                                    duration: Duration(milliseconds: 500),
-                                    curve: Curves.easeIn);
-                              },
-                              icon: Icon(Icons.arrow_forward))),
-                    ],
-                  ),
+                  getDescForProject(widget.project, context)
                 ],
               )),
           Container(

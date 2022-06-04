@@ -122,7 +122,7 @@ class _HomeState extends State<Home> {
                             text: "Hello.\n",
                             style: TextStyle(
                                 fontSize: 50,
-                                fontFamily: "Noto",
+                                fontFamily: "QuickSand",
                                 color: Theme.of(context)
                                     .textTheme
                                     .bodyText1
@@ -132,7 +132,7 @@ class _HomeState extends State<Home> {
                             text: "I'm ",
                             style: TextStyle(
                               fontSize: 50,
-                              fontFamily: "Noto",
+                              fontFamily: "QuickSand",
                             ),
                           ),
                           TextSpan(
@@ -141,21 +141,21 @@ class _HomeState extends State<Home> {
                               fontSize: 50,
                               color:
                                   Theme.of(context).textTheme.bodyText2?.color,
-                              fontFamily: "Noto",
+                              fontFamily: "QuickSand",
                             ),
                           ),
                           TextSpan(
                             text: ",\n",
                             style: TextStyle(
                               fontSize: 50,
-                              fontFamily: "Noto",
+                              fontFamily: "QuickSand",
                             ),
                           ),
                           TextSpan(
                             text: "a ",
                             style: TextStyle(
                               fontSize: 40,
-                              fontFamily: "Noto",
+                              fontFamily: "QuickSand",
                             ),
                           ),
                           TextSpan(
@@ -164,14 +164,14 @@ class _HomeState extends State<Home> {
                               fontSize: 40,
                               color:
                                   Theme.of(context).textTheme.bodyText2?.color,
-                              fontFamily: "Noto",
+                              fontFamily: "QuickSand",
                             ),
                           ),
                           TextSpan(
                             text: " and ",
                             style: TextStyle(
                               fontSize: 40,
-                              fontFamily: "Noto",
+                              fontFamily: "QuickSand",
                             ),
                           ),
                           TextSpan(
@@ -180,14 +180,14 @@ class _HomeState extends State<Home> {
                               fontSize: 40,
                               color:
                                   Theme.of(context).textTheme.bodyText2?.color,
-                              fontFamily: "Noto",
+                              fontFamily: "QuickSand",
                             ),
                           ),
                           TextSpan(
                             text: " dev",
                             style: TextStyle(
                               fontSize: 40,
-                              fontFamily: "Noto",
+                              fontFamily: "QuickSand",
                             ),
                           )
                         ])),
@@ -241,7 +241,7 @@ class _HomeState extends State<Home> {
                               text: "Hello.\n",
                               style: TextStyle(
                                   fontSize: smallFontSize,
-                                  fontFamily: "Noto",
+                                  fontFamily: "QuickSand",
                                   color: Theme.of(context)
                                       .textTheme
                                       .bodyText1
@@ -251,7 +251,7 @@ class _HomeState extends State<Home> {
                               text: "I'm ",
                               style: TextStyle(
                                 fontSize: smallFontSize,
-                                fontFamily: "Noto",
+                                fontFamily: "QuickSand",
                               ),
                             ),
                             TextSpan(
@@ -262,21 +262,21 @@ class _HomeState extends State<Home> {
                                     .textTheme
                                     .bodyText2
                                     ?.color,
-                                fontFamily: "Noto",
+                                fontFamily: "QuickSand",
                               ),
                             ),
                             TextSpan(
                               text: ",\n",
                               style: TextStyle(
                                 fontSize: smallFontSize,
-                                fontFamily: "Noto",
+                                fontFamily: "QuickSand",
                               ),
                             ),
                             TextSpan(
                               text: "a ",
                               style: TextStyle(
                                 fontSize: subSmallFontSize,
-                                fontFamily: "Noto",
+                                fontFamily: "QuickSand",
                               ),
                             ),
                             TextSpan(
@@ -287,14 +287,14 @@ class _HomeState extends State<Home> {
                                     .textTheme
                                     .bodyText2
                                     ?.color,
-                                fontFamily: "Noto",
+                                fontFamily: "QuickSand",
                               ),
                             ),
                             TextSpan(
                               text: " and ",
                               style: TextStyle(
                                 fontSize: subSmallFontSize,
-                                fontFamily: "Noto",
+                                fontFamily: "QuickSand",
                               ),
                             ),
                             TextSpan(
@@ -305,14 +305,14 @@ class _HomeState extends State<Home> {
                                     .textTheme
                                     .bodyText2
                                     ?.color,
-                                fontFamily: "Noto",
+                                fontFamily: "QuickSand",
                               ),
                             ),
                             TextSpan(
                               text: " dev",
                               style: TextStyle(
                                 fontSize: subSmallFontSize,
-                                fontFamily: "Noto",
+                                fontFamily: "QuickSand",
                               ),
                             )
                           ])),

@@ -121,25 +121,40 @@ class _OutLearnState extends State<OutLearn> {
                   width: 400,
                   child: CarouselSlider(
                       items: [
+                        ClipRRect(
+                          borderRadius: BorderRadius.circular(20),
+                          child: SizedBox(
+                            width: 152.5798526,
+                            child: ZoomableImage(
+                                height: 300,
+                                borderRadius: BorderRadius.circular(0),
+                                width: 142.5798526,
+                                path: "1.png"),
+                          ),
+                        ),
                         ZoomableImage(
-                            borderRadius: BorderRadius.circular(20),
-                            path: "1.png"),
-                        ZoomableImage(
+                            height: 300,
+                            width: 142.5798526,
                             borderRadius: BorderRadius.circular(20),
                             path: "2.png"),
                         ZoomableImage(
+                            height: 300,
+                            width: 142.5798526,
                             borderRadius: BorderRadius.circular(20),
                             path: "3.png"),
                         ZoomableImage(
+                            height: 300,
+                            width: 142.5798526,
                             borderRadius: BorderRadius.circular(20),
                             path: "4.png")
                       ],
                       options: CarouselOptions(
                         autoPlay: true,
-                        aspectRatio: 2.0,
+                        aspectRatio: 207 / 448,
                         height: 300,
+                        enlargeStrategy: CenterPageEnlargeStrategy.height,
                         viewportFraction: 0.36,
-                        enlargeCenterPage: true,
+                        enlargeCenterPage: false,
                       )),
                 )
               ],

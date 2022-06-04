@@ -66,7 +66,7 @@ class _QuoteBuilderState extends State<QuoteBuilder> {
                   style: TextStyle(
                     fontSize: fontSize,
                     color: Theme.of(context).textTheme.headline6?.color,
-                    fontFamily: "Noto",
+                    fontFamily: "QuickSand",
                   ),
                   children: [
                     TextSpan(text: quotes[index]),

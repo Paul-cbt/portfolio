@@ -49,7 +49,7 @@ class _PresentationState extends State<Presentation> {
           ),
         if (MediaQuery.of(context).size.width > 1143)
           Align(
-            alignment: Alignment.centerRight,
+            alignment: Alignment.center,
             child: Container(
               width: 580,
               alignment: Alignment.centerRight,
@@ -59,11 +59,14 @@ class _PresentationState extends State<Presentation> {
                       : MediaQuery.of(context).size.width > 1000
                           ? MediaQuery.of(context).size.width / 15
                           : 30,
-                  top: 0),
+                  top: 40),
               child: Column(
                 mainAxisSize: MainAxisSize.min,
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
+                  const SizedBox(
+                    height: 35,
+                  ),
                   RichText(
                       textAlign: TextAlign.justify,
                       text: TextSpan(
@@ -71,7 +74,7 @@ class _PresentationState extends State<Presentation> {
                           style: TextStyle(
                             fontSize: 35,
                             color: Theme.of(context).textTheme.headline6?.color,
-                            fontFamily: "Noto",
+                            fontFamily: "QuickSand",
                           ),
                           children: [
                             TextSpan(
@@ -82,7 +85,7 @@ class _PresentationState extends State<Presentation> {
                                     .textTheme
                                     .headline1
                                     ?.color,
-                                fontFamily: "Noto",
+                                fontFamily: "QuickSand",
                               ),
                             ),
                             TextSpan(
@@ -93,7 +96,7 @@ class _PresentationState extends State<Presentation> {
                                     .textTheme
                                     .headline6
                                     ?.color,
-                                fontFamily: "Noto",
+                                fontFamily: "QuickSand",
                               ),
                             ),
                             TextSpan(
@@ -105,7 +108,7 @@ class _PresentationState extends State<Presentation> {
                                     .textTheme
                                     .headline1
                                     ?.color,
-                                fontFamily: "Noto",
+                                fontFamily: "QuickSand",
                               ),
                             ),
                             TextSpan(
@@ -116,7 +119,7 @@ class _PresentationState extends State<Presentation> {
                                     .textTheme
                                     .headline1
                                     ?.color,
-                                fontFamily: "Noto",
+                                fontFamily: "QuickSand",
                               ),
                             ),
                             TextSpan(
@@ -127,7 +130,7 @@ class _PresentationState extends State<Presentation> {
                                     .textTheme
                                     .headline6
                                     ?.color,
-                                fontFamily: "Noto",
+                                fontFamily: "QuickSand",
                               ),
                             ),
                             TextSpan(
@@ -139,7 +142,7 @@ class _PresentationState extends State<Presentation> {
                                     .textTheme
                                     .headline1
                                     ?.color,
-                                fontFamily: "Noto",
+                                fontFamily: "QuickSand",
                               ),
                             ),
                             TextSpan(
@@ -150,7 +153,7 @@ class _PresentationState extends State<Presentation> {
                                     .textTheme
                                     .headline6
                                     ?.color,
-                                fontFamily: "Noto",
+                                fontFamily: "QuickSand",
                               ),
                             ),
                           ])),
@@ -160,8 +163,8 @@ class _PresentationState extends State<Presentation> {
           ),
         if (MediaQuery.of(context).size.width <= 1143)
           Container(
-            alignment: Alignment.center,
-            margin: EdgeInsets.only(left: 10, top: 70),
+            alignment: Alignment.topCenter,
+            margin: EdgeInsets.only(left: 15, top: 70),
             child: Column(
               mainAxisSize: MainAxisSize.min,
               children: [
@@ -186,32 +189,33 @@ class _PresentationState extends State<Presentation> {
                           : MediaQuery.of(context).size.width > 1000
                               ? MediaQuery.of(context).size.width / 15
                               : 30,
-                      top: 0),
+                      top: 60),
                   padding: EdgeInsets.only(left: 10, right: 10),
                   child: Column(
                     mainAxisSize: MainAxisSize.min,
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
                       Text(
-                        "About Me\n",
+                        "About Me",
                         style: TextStyle(
                           fontSize: 35,
                           color: Theme.of(context).textTheme.headline6?.color,
-                          fontFamily: "Noto",
+                          fontFamily: "QuickSand",
                         ),
                       ),
                       RichText(
                           textAlign: TextAlign.justify,
                           text: TextSpan(children: [
                             TextSpan(
-                              text: "I'm Paul, a 18 years old developer from ",
+                              text:
+                                  "\nI'm Paul, a 18 years old developer from ",
                               style: TextStyle(
                                 fontSize: smallFontSize,
                                 color: Theme.of(context)
                                     .textTheme
                                     .headline1
                                     ?.color,
-                                fontFamily: "Noto",
+                                fontFamily: "QuickSand",
                               ),
                             ),
                             TextSpan(
@@ -222,7 +226,7 @@ class _PresentationState extends State<Presentation> {
                                     .textTheme
                                     .headline6
                                     ?.color,
-                                fontFamily: "Noto",
+                                fontFamily: "QuickSand",
                               ),
                             ),
                             TextSpan(
@@ -234,7 +238,7 @@ class _PresentationState extends State<Presentation> {
                                     .textTheme
                                     .headline1
                                     ?.color,
-                                fontFamily: "Noto",
+                                fontFamily: "QuickSand",
                               ),
                             ),
                             TextSpan(
@@ -245,7 +249,7 @@ class _PresentationState extends State<Presentation> {
                                     .textTheme
                                     .headline1
                                     ?.color,
-                                fontFamily: "Noto",
+                                fontFamily: "QuickSand",
                               ),
                             ),
                             TextSpan(
@@ -256,7 +260,7 @@ class _PresentationState extends State<Presentation> {
                                     .textTheme
                                     .headline6
                                     ?.color,
-                                fontFamily: "Noto",
+                                fontFamily: "QuickSand",
                               ),
                             ),
                             TextSpan(
@@ -268,7 +272,7 @@ class _PresentationState extends State<Presentation> {
                                     .textTheme
                                     .headline1
                                     ?.color,
-                                fontFamily: "Noto",
+                                fontFamily: "QuickSand",
                               ),
                             ),
                             TextSpan(
@@ -279,7 +283,29 @@ class _PresentationState extends State<Presentation> {
                                     .textTheme
                                     .headline6
                                     ?.color,
-                                fontFamily: "Noto",
+                                fontFamily: "QuickSand",
+                              ),
+                            ),
+                            TextSpan(
+                              text: " Currently studying Computer Science in ",
+                              style: TextStyle(
+                                fontSize: smallFontSize,
+                                color: Theme.of(context)
+                                    .textTheme
+                                    .headline1
+                                    ?.color,
+                                fontFamily: "QuickSand",
+                              ),
+                            ),
+                            TextSpan(
+                              text: "Paris",
+                              style: TextStyle(
+                                fontSize: smallFontSize,
+                                color: Theme.of(context)
+                                    .textTheme
+                                    .headline6
+                                    ?.color,
+                                fontFamily: "QuickSand",
                               ),
                             ),
                           ])),

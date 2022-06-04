@@ -44,7 +44,7 @@ class _ContactState extends State<Contact> {
                                       .textTheme
                                       .headline6
                                       ?.color,
-                                  fontFamily: "Noto",
+                                  fontFamily: "QuickSand",
                                 ),
                                 children: [
                               TextSpan(
@@ -55,7 +55,7 @@ class _ContactState extends State<Contact> {
                                       .textTheme
                                       .headline1
                                       ?.color,
-                                  fontFamily: "Noto",
+                                  fontFamily: "QuickSand",
                                 ),
                               ),
                               TextSpan(
@@ -66,7 +66,7 @@ class _ContactState extends State<Contact> {
                                       .textTheme
                                       .headline6
                                       ?.color,
-                                  fontFamily: "Noto",
+                                  fontFamily: "QuickSand",
                                 ),
                               ),
                               TextSpan(
@@ -77,7 +77,7 @@ class _ContactState extends State<Contact> {
                                       .textTheme
                                       .headline1
                                       ?.color,
-                                  fontFamily: "Noto",
+                                  fontFamily: "QuickSand",
                                 ),
                               ),
                               TextSpan(
@@ -88,7 +88,7 @@ class _ContactState extends State<Contact> {
                                       .textTheme
                                       .headline6
                                       ?.color,
-                                  fontFamily: "Noto",
+                                  fontFamily: "QuickSand",
                                 ),
                               ),
                               TextSpan(
@@ -99,7 +99,7 @@ class _ContactState extends State<Contact> {
                                       .textTheme
                                       .headline1
                                       ?.color,
-                                  fontFamily: "Noto",
+                                  fontFamily: "QuickSand",
                                 ),
                               ),
                               TextSpan(
@@ -110,7 +110,7 @@ class _ContactState extends State<Contact> {
                                       .textTheme
                                       .headline6
                                       ?.color,
-                                  fontFamily: "Noto",
+                                  fontFamily: "QuickSand",
                                 ),
                               ),
                             ])),
@@ -229,7 +229,7 @@ class _ContactState extends State<Contact> {
                               fontSize: 35,
                               color:
                                   Theme.of(context).textTheme.headline6?.color,
-                              fontFamily: "Noto",
+                              fontFamily: "QuickSand",
                             ),
                             textAlign: TextAlign.start,
                           ),
@@ -246,7 +246,7 @@ class _ContactState extends State<Contact> {
                           style: TextStyle(
                             fontSize: fontSize,
                             color: Theme.of(context).textTheme.headline1?.color,
-                            fontFamily: "Noto",
+                            fontFamily: "QuickSand",
                           ),
                         ),
                         TextSpan(
@@ -254,7 +254,7 @@ class _ContactState extends State<Contact> {
                           style: TextStyle(
                             fontSize: fontSize,
                             color: Theme.of(context).textTheme.headline6?.color,
-                            fontFamily: "Noto",
+                            fontFamily: "QuickSand",
                           ),
                         ),
                         TextSpan(
@@ -262,7 +262,7 @@ class _ContactState extends State<Contact> {
                           style: TextStyle(
                             fontSize: fontSize,
                             color: Theme.of(context).textTheme.headline1?.color,
-                            fontFamily: "Noto",
+                            fontFamily: "QuickSand",
                           ),
                         ),
                         TextSpan(
@@ -270,7 +270,7 @@ class _ContactState extends State<Contact> {
                           style: TextStyle(
                             fontSize: fontSize,
                             color: Theme.of(context).textTheme.headline6?.color,
-                            fontFamily: "Noto",
+                            fontFamily: "QuickSand",
                           ),
                         ),
                         TextSpan(
@@ -278,7 +278,7 @@ class _ContactState extends State<Contact> {
                           style: TextStyle(
                             fontSize: fontSize,
                             color: Theme.of(context).textTheme.headline1?.color,
-                            fontFamily: "Noto",
+                            fontFamily: "QuickSand",
                           ),
                         ),
                         TextSpan(
@@ -286,7 +286,7 @@ class _ContactState extends State<Contact> {
                           style: TextStyle(
                             fontSize: fontSize,
                             color: Theme.of(context).textTheme.headline6?.color,
-                            fontFamily: "Noto",
+                            fontFamily: "QuickSand",
                           ),
                         ),
                       ])),

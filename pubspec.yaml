@@ -78,6 +78,13 @@ flutter:
         - asset: fonts/NotoSansJP-Regular.otf
           style: italic
           weight: 300
+    - family: QuickSand
+      fonts:
+        - asset: fonts/Quicksand-Medium.ttf
+    - family: QuickSandSemi
+      fonts:
+        - asset: fonts/Quicksand-SemiBold.ttf
+
 
   # To add assets to your application, add an assets section, like this:
   # assets:
