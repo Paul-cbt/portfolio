@@ -44,7 +44,7 @@ class _NavBarState extends State<NavBar> {
                     )),
                 TextButton(
                     onPressed: () {
-                      widget.controller.animateToPage(3,
+                      widget.controller.animateToPage(6,
                           duration: Duration(milliseconds: 500),
                           curve: Curves.easeIn);
                     },
@@ -178,7 +178,7 @@ class _EndNavBarState extends State<EndNavBar> {
           ),
           TextButton(
               onPressed: () {
-                widget.controller.animateToPage(3,
+                widget.controller.animateToPage(6,
                     duration: Duration(milliseconds: 500),
                     curve: Curves.easeIn);
                 Navigator.of(context).pop();
