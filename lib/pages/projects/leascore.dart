@@ -76,7 +76,7 @@ class _LeaScoreState extends State<LeaScore> {
           ),
         ),
         SizedBox(
-          height: MediaQuery.of(context).size.width > 1000 ? 40 : 20,
+          height: MediaQuery.of(context).size.width > 1000 ? 40 : 0,
         ),
         if (MediaQuery.of(context).size.width > 1000)
           Container(

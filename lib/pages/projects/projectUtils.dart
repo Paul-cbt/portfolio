@@ -158,6 +158,12 @@ Widget getDescForProject(Project project, BuildContext context) {
                     fontSize: descFontSize,
                     color: Theme.of(context).textTheme.bodyText2?.color),
               ),
+              Text(
+                "- speech to text",
+                style: TextStyle(
+                    fontSize: descFontSize,
+                    color: Theme.of(context).textTheme.bodyText2?.color),
+              ),
             ],
           ),
         ],

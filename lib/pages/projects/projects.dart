@@ -62,7 +62,8 @@ class _ProjectsState extends State<Projects> {
         children: [
           Container(
               alignment: Alignment.topCenter,
-              margin: EdgeInsets.only(top: 100),
+              margin: EdgeInsets.only(
+                  top: MediaQuery.of(context).size.width > 1000 ? 100 : 50),
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.start,
                 children: [
@@ -75,7 +76,7 @@ class _ProjectsState extends State<Projects> {
                     ),
                   ),
                   SizedBox(
-                    height: 40,
+                    height: MediaQuery.of(context).size.width > 1000 ? 40 : 10,
                   ),
                   Container(
                     width: MediaQuery.of(context).size.width,

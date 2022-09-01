@@ -236,7 +236,7 @@ class _WrapperState extends State<Wrapper> with SingleTickerProviderStateMixin {
                       (MediaQuery.of(context).size.width > 700 ||
                           page == 0 ||
                           page == lastPage) &&
-                      MediaQuery.of(context).size.width > 425)
+                      MediaQuery.of(context).size.width > 550)
                     Container(
                       alignment: Alignment.bottomRight,
                       child: PlayMusic(
@@ -248,7 +248,7 @@ class _WrapperState extends State<Wrapper> with SingleTickerProviderStateMixin {
                                   style: TextStyle(
                                       fontSize:
                                           MediaQuery.of(context).size.width >
-                                                  650
+                                                  700
                                               ? 20
                                               : 13,
                                       color: Theme.of(context)
