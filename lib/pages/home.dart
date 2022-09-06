@@ -4,6 +4,7 @@ import 'package:hovering/hovering.dart';
 import 'package:portfolio/pages/quoteBuilder.dart';
 // import 'package:portfolio/service/swipeUp.dart';
 import 'package:portfolio/service/theme.dart';
+import 'package:portfolio/service/utils.dart';
 import 'package:portfolio/service/zoomableImage.dart';
 import 'package:provider/provider.dart';
 import 'package:swipe_up/swipe_up.dart';
@@ -56,287 +57,292 @@ class _HomeState extends State<Home> {
           widget.controller.animateToPage(1,
               duration: Duration(milliseconds: 500), curve: Curves.easeOut);
         },
-        body: Container(
-          height: MediaQuery.of(context).size.height,
-          child: Stack(children: [
-            Container(
-              alignment: Alignment.topLeft,
-              margin: EdgeInsets.only(
-                  left: MediaQuery.of(context).size.width > 375 ? 20 : 5),
-              child: Material(
-                color: Colors.transparent,
-                child: HoverWidget(
-                  onHover: (event) {},
-                  hoverChild: GestureDetector(
-                    onTap: () {
-                      if (Theme.of(context).brightness == Brightness.light) {
-                        Provider.of<AppStateNotifier>(context, listen: false)
-                            .updateTheme(true);
-                      } else {
-                        Provider.of<AppStateNotifier>(context, listen: false)
-                            .updateTheme(false);
-                      }
-
-                      return true;
-                    },
-                    child: Image.asset(
-                      "ceiling-lamp.png",
-                      height:
-                          MediaQuery.of(context).size.width > 840 ? 140 : 75,
-                      width: MediaQuery.of(context).size.width > 840 ? 130 : 70,
-                    ),
-                  ),
-                  child: GestureDetector(
-                    onTap: () {
-                      if (Theme.of(context).brightness == Brightness.light) {
-                        Provider.of<AppStateNotifier>(context, listen: false)
-                            .updateTheme(true);
-                      } else {
-                        Provider.of<AppStateNotifier>(context, listen: false)
-                            .updateTheme(false);
-                      }
-
-                      return true;
-                    },
-                    child: Image.asset(
-                      "ceiling-lamp.png",
-                      height:
-                          MediaQuery.of(context).size.width > 840 ? 130 : 70,
-                      width: MediaQuery.of(context).size.width > 840 ? 130 : 70,
-                    ),
+        body: Center(
+          child: Container(
+            height: MediaQuery.of(context).size.height,
+            constraints: BoxConstraints(maxWidth: 1500),
+            child: Stack(children: [
+              if (MediaQuery.of(context).size.width > 1143)
+                Center(
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      SizedBox(
+                        width: getMaxWidth(context) / 2 + 20,
+                        child: Column(
+                          mainAxisSize: MainAxisSize.min,
+                          children: [
+                            RichText(
+                                text: TextSpan(
+                                    text: "Hello.\n",
+                                    style: TextStyle(
+                                        fontSize: 50,
+                                        fontFamily: "QuickSand",
+                                        color: Theme.of(context)
+                                            .textTheme
+                                            .bodyText1
+                                            .color),
+                                    children: [
+                                  TextSpan(
+                                    text: "I'm ",
+                                    style: TextStyle(
+                                      fontSize: 50,
+                                      fontFamily: "QuickSand",
+                                    ),
+                                  ),
+                                  TextSpan(
+                                    text: "Paul",
+                                    style: TextStyle(
+                                      fontSize: 50,
+                                      color: Theme.of(context)
+                                          .textTheme
+                                          .bodyText2
+                                          ?.color,
+                                      fontFamily: "QuickSand",
+                                    ),
+                                  ),
+                                  TextSpan(
+                                    text: ",\n",
+                                    style: TextStyle(
+                                      fontSize: 50,
+                                      fontFamily: "QuickSand",
+                                    ),
+                                  ),
+                                  TextSpan(
+                                    text: "a ",
+                                    style: TextStyle(
+                                      fontSize: 40,
+                                      fontFamily: "QuickSand",
+                                    ),
+                                  ),
+                                  TextSpan(
+                                    text: "mobile",
+                                    style: TextStyle(
+                                      fontSize: 40,
+                                      color: Theme.of(context)
+                                          .textTheme
+                                          .bodyText2
+                                          ?.color,
+                                      fontFamily: "QuickSand",
+                                    ),
+                                  ),
+                                  TextSpan(
+                                    text: " and ",
+                                    style: TextStyle(
+                                      fontSize: 40,
+                                      fontFamily: "QuickSand",
+                                    ),
+                                  ),
+                                  TextSpan(
+                                    text: "Web",
+                                    style: TextStyle(
+                                      fontSize: 40,
+                                      color: Theme.of(context)
+                                          .textTheme
+                                          .bodyText2
+                                          ?.color,
+                                      fontFamily: "QuickSand",
+                                    ),
+                                  ),
+                                  TextSpan(
+                                    text: " dev",
+                                    style: TextStyle(
+                                      fontSize: 40,
+                                      fontFamily: "QuickSand",
+                                    ),
+                                  )
+                                ])),
+                            const SizedBox(
+                              height: 10,
+                            ),
+                            Container(
+                              margin: EdgeInsets.only(right: 0),
+                              child: QuoteBuilder(
+                                  maxWidth: getMaxWidth(context) / 2 - 20),
+                            )
+                          ],
+                        ),
+                      ),
+                      SizedBox(
+                        width: 40,
+                      ),
+                      ZoomableImage(
+                        width: getMaxWidth(context) / 2 - 20,
+                        height: getMaxWidth(context) / 2 - 20,
+                        borderRadius: BorderRadius.only(
+                            bottomLeft: radius,
+                            bottomRight: radius,
+                            topLeft: radius),
+                        path:
+                            CustomElements(context: context).homePageImagepath,
+                      )
+                    ],
                   ),
                 ),
-              ),
-            ),
-            if (MediaQuery.of(context).size.width > 840)
               Container(
-                alignment: Alignment.centerLeft,
+                alignment: Alignment.topLeft,
                 margin: EdgeInsets.only(
-                    left: MediaQuery.of(context).size.width > 1250
-                        ? MediaQuery.of(context).size.width / 5
-                        : MediaQuery.of(context).size.width > 1000
-                            ? MediaQuery.of(context).size.width / 10
-                            : 30),
-                child: Column(
-                  // mainAxisSize: MainAxisSize.max,
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    RichText(
-                        text: TextSpan(
-                            text: "Hello.\n",
-                            style: TextStyle(
-                                fontSize: 50,
-                                fontFamily: "QuickSand",
-                                color: Theme.of(context)
-                                    .textTheme
-                                    .bodyText1
-                                    .color),
-                            children: [
-                          TextSpan(
-                            text: "I'm ",
-                            style: TextStyle(
-                              fontSize: 50,
-                              fontFamily: "QuickSand",
-                            ),
-                          ),
-                          TextSpan(
-                            text: "Paul",
-                            style: TextStyle(
-                              fontSize: 50,
-                              color:
-                                  Theme.of(context).textTheme.bodyText2?.color,
-                              fontFamily: "QuickSand",
-                            ),
-                          ),
-                          TextSpan(
-                            text: ",\n",
-                            style: TextStyle(
-                              fontSize: 50,
-                              fontFamily: "QuickSand",
-                            ),
-                          ),
-                          TextSpan(
-                            text: "a ",
-                            style: TextStyle(
-                              fontSize: 40,
-                              fontFamily: "QuickSand",
-                            ),
-                          ),
-                          TextSpan(
-                            text: "mobile",
-                            style: TextStyle(
-                              fontSize: 40,
-                              color:
-                                  Theme.of(context).textTheme.bodyText2?.color,
-                              fontFamily: "QuickSand",
-                            ),
-                          ),
-                          TextSpan(
-                            text: " and ",
-                            style: TextStyle(
-                              fontSize: 40,
-                              fontFamily: "QuickSand",
-                            ),
-                          ),
-                          TextSpan(
-                            text: "Web",
-                            style: TextStyle(
-                              fontSize: 40,
-                              color:
-                                  Theme.of(context).textTheme.bodyText2?.color,
-                              fontFamily: "QuickSand",
-                            ),
-                          ),
-                          TextSpan(
-                            text: " dev",
-                            style: TextStyle(
-                              fontSize: 40,
-                              fontFamily: "QuickSand",
-                            ),
-                          )
-                        ])),
-                    const SizedBox(
-                      height: 10,
+                    left: MediaQuery.of(context).size.width > 375 ? 20 : 5),
+                child: Material(
+                  color: Colors.transparent,
+                  child: HoverWidget(
+                    onHover: (event) {},
+                    hoverChild: GestureDetector(
+                      onTap: () {
+                        if (Theme.of(context).brightness == Brightness.light) {
+                          Provider.of<AppStateNotifier>(context, listen: false)
+                              .updateTheme(true);
+                        } else {
+                          Provider.of<AppStateNotifier>(context, listen: false)
+                              .updateTheme(false);
+                        }
+
+                        return true;
+                      },
+                      child: Image.asset(
+                        "ceiling-lamp.png",
+                        height:
+                            MediaQuery.of(context).size.width > 840 ? 140 : 75,
+                        width:
+                            MediaQuery.of(context).size.width > 840 ? 130 : 70,
+                      ),
                     ),
-                    Container(
-                      margin: EdgeInsets.only(right: 500),
-                      child: QuoteBuilder(
-                          maxWidth:
-                              MediaQuery.of(context).size.width / 2 - 100),
-                    )
-                  ],
+                    child: GestureDetector(
+                      onTap: () {
+                        if (Theme.of(context).brightness == Brightness.light) {
+                          Provider.of<AppStateNotifier>(context, listen: false)
+                              .updateTheme(true);
+                        } else {
+                          Provider.of<AppStateNotifier>(context, listen: false)
+                              .updateTheme(false);
+                        }
+
+                        return true;
+                      },
+                      child: Image.asset(
+                        "ceiling-lamp.png",
+                        height:
+                            MediaQuery.of(context).size.width > 840 ? 130 : 70,
+                        width:
+                            MediaQuery.of(context).size.width > 840 ? 130 : 70,
+                      ),
+                    ),
+                  ),
                 ),
               ),
-            if (MediaQuery.of(context).size.width > 840)
-              Container(
-                  alignment: Alignment.centerRight,
-                  margin: EdgeInsets.only(
-                      right: MediaQuery.of(context).size.width > 1250
-                          ? MediaQuery.of(context).size.width / 5
-                          : MediaQuery.of(context).size.width > 1000
-                              ? MediaQuery.of(context).size.width / 10
-                              : 30),
-                  child: ZoomableImage(
-                      height: 350,
-                      width: 350,
-                      borderRadius: BorderRadius.only(
-                          bottomLeft: radius,
-                          bottomRight: radius,
-                          topLeft: radius),
-                      path: "me3.jpg")),
-            if (MediaQuery.of(context).size.width <= 840)
-              Container(
-                alignment: Alignment.center,
-                child: Column(
-                  mainAxisSize: MainAxisSize.min,
-                  children: [
-                    Container(
-                        child: ZoomableImage(
-                            height: MediaQuery.of(context).size.height / 3,
-                            width: MediaQuery.of(context).size.height / 3,
-                            borderRadius: BorderRadius.only(
-                                bottomLeft: radius,
-                                bottomRight: radius,
-                                topLeft: radius),
-                            path: "me3.jpg")),
-                    Container(
-                      child: RichText(
-                          text: TextSpan(
-                              text: "Hello.\n",
-                              style: TextStyle(
+              if (MediaQuery.of(context).size.width <= 1143)
+                Container(
+                  alignment: Alignment.center,
+                  child: Column(
+                    mainAxisSize: MainAxisSize.min,
+                    children: [
+                      Container(
+                          child: ZoomableImage(
+                              height: MediaQuery.of(context).size.height / 3,
+                              width: MediaQuery.of(context).size.height / 3,
+                              borderRadius: BorderRadius.only(
+                                  bottomLeft: radius,
+                                  bottomRight: radius,
+                                  topLeft: radius),
+                              path: "me3.jpg")),
+                      Container(
+                        child: RichText(
+                            text: TextSpan(
+                                text: "Hello.\n",
+                                style: TextStyle(
+                                    fontSize: smallFontSize,
+                                    fontFamily: "QuickSand",
+                                    color: Theme.of(context)
+                                        .textTheme
+                                        .bodyText1
+                                        .color),
+                                children: [
+                              TextSpan(
+                                text: "I'm ",
+                                style: TextStyle(
                                   fontSize: smallFontSize,
                                   fontFamily: "QuickSand",
+                                ),
+                              ),
+                              TextSpan(
+                                text: "Paul",
+                                style: TextStyle(
+                                  fontSize: smallFontSize,
                                   color: Theme.of(context)
                                       .textTheme
-                                      .bodyText1
-                                      .color),
-                              children: [
-                            TextSpan(
-                              text: "I'm ",
-                              style: TextStyle(
-                                fontSize: smallFontSize,
-                                fontFamily: "QuickSand",
+                                      .bodyText2
+                                      ?.color,
+                                  fontFamily: "QuickSand",
+                                ),
                               ),
-                            ),
-                            TextSpan(
-                              text: "Paul",
-                              style: TextStyle(
-                                fontSize: smallFontSize,
-                                color: Theme.of(context)
-                                    .textTheme
-                                    .bodyText2
-                                    ?.color,
-                                fontFamily: "QuickSand",
+                              TextSpan(
+                                text: ",\n",
+                                style: TextStyle(
+                                  fontSize: smallFontSize,
+                                  fontFamily: "QuickSand",
+                                ),
                               ),
-                            ),
-                            TextSpan(
-                              text: ",\n",
-                              style: TextStyle(
-                                fontSize: smallFontSize,
-                                fontFamily: "QuickSand",
+                              TextSpan(
+                                text: "a ",
+                                style: TextStyle(
+                                  fontSize: subSmallFontSize,
+                                  fontFamily: "QuickSand",
+                                ),
                               ),
-                            ),
-                            TextSpan(
-                              text: "a ",
-                              style: TextStyle(
-                                fontSize: subSmallFontSize,
-                                fontFamily: "QuickSand",
+                              TextSpan(
+                                text: "mobile",
+                                style: TextStyle(
+                                  fontSize: subSmallFontSize,
+                                  color: Theme.of(context)
+                                      .textTheme
+                                      .bodyText2
+                                      ?.color,
+                                  fontFamily: "QuickSand",
+                                ),
                               ),
-                            ),
-                            TextSpan(
-                              text: "mobile",
-                              style: TextStyle(
-                                fontSize: subSmallFontSize,
-                                color: Theme.of(context)
-                                    .textTheme
-                                    .bodyText2
-                                    ?.color,
-                                fontFamily: "QuickSand",
+                              TextSpan(
+                                text: " and ",
+                                style: TextStyle(
+                                  fontSize: subSmallFontSize,
+                                  fontFamily: "QuickSand",
+                                ),
                               ),
-                            ),
-                            TextSpan(
-                              text: " and ",
-                              style: TextStyle(
-                                fontSize: subSmallFontSize,
-                                fontFamily: "QuickSand",
+                              TextSpan(
+                                text: "Web",
+                                style: TextStyle(
+                                  fontSize: subSmallFontSize,
+                                  color: Theme.of(context)
+                                      .textTheme
+                                      .bodyText2
+                                      ?.color,
+                                  fontFamily: "QuickSand",
+                                ),
                               ),
-                            ),
-                            TextSpan(
-                              text: "Web",
-                              style: TextStyle(
-                                fontSize: subSmallFontSize,
-                                color: Theme.of(context)
-                                    .textTheme
-                                    .bodyText2
-                                    ?.color,
-                                fontFamily: "QuickSand",
-                              ),
-                            ),
-                            TextSpan(
-                              text: " dev",
-                              style: TextStyle(
-                                fontSize: subSmallFontSize,
-                                fontFamily: "QuickSand",
-                              ),
-                            )
-                          ])),
-                    ),
-                    const SizedBox(
-                      height: 10,
-                    ),
-                    Center(
-                        child: Padding(
-                      padding: const EdgeInsets.symmetric(horizontal: 20),
-                      child: QuoteBuilder(
-                        maxWidth: 280,
-                        center: true,
+                              TextSpan(
+                                text: " dev",
+                                style: TextStyle(
+                                  fontSize: subSmallFontSize,
+                                  fontFamily: "QuickSand",
+                                ),
+                              )
+                            ])),
                       ),
-                    ))
-                  ],
-                ),
-              )
-          ]),
+                      const SizedBox(
+                        height: 10,
+                      ),
+                      Center(
+                          child: Padding(
+                        padding: const EdgeInsets.symmetric(horizontal: 20),
+                        child: QuoteBuilder(
+                          maxWidth: 280,
+                          center: true,
+                        ),
+                      ))
+                    ],
+                  ),
+                )
+            ]),
+          ),
         ),
         child: Material(
             color: Colors.transparent,

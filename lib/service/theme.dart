@@ -68,3 +68,15 @@ class AppTheme {
       indicatorColor: Color(0xFF9f5f80),
       backgroundColor: Color(0xFFffaf63));
 }
+
+class CustomElements {
+  BuildContext context;
+  CustomElements({required this.context});
+
+  Brightness brightness() {
+    return Theme.of(context).brightness;
+  }
+
+  String get homePageImagepath =>
+      brightness() == Brightness.light ? 'homeMeLight.jpg' : 'homeMeDark.jpeg';
+}

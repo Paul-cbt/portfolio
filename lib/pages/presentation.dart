@@ -39,6 +39,7 @@ class _PresentationState extends State<Presentation> {
               children: [
                 ZoomableImage(
                     width: getMaxWidth(context) / 2 - 20,
+                    height: getMaxWidth(context) / 2 - 20,
                     borderRadius: BorderRadius.only(
                       bottomLeft: radius,
                       topRight: radius,
@@ -47,10 +48,10 @@ class _PresentationState extends State<Presentation> {
                     ),
                     path: "me10.jpg"),
                 SizedBox(
-                  width: 40,
+                  width: 80,
                 ),
                 SizedBox(
-                  width: getMaxWidth(context) / 2 - 20,
+                  width: getMaxWidth(context) / 2 + 20,
                   child: Column(
                     mainAxisSize: MainAxisSize.min,
                     mainAxisAlignment: MainAxisAlignment.center,

@@ -10,6 +10,7 @@ class ZoomableImage extends StatefulWidget {
   final double? width;
   final BoxFit? fit;
   final bool? zoomable;
+
   const ZoomableImage(
       {required this.borderRadius,
       required this.path,
@@ -23,6 +24,13 @@ class ZoomableImage extends StatefulWidget {
 }
 
 class _ZoomableImageState extends State<ZoomableImage> {
+  late String oldPath;
+  @override
+  void initState() {
+    oldPath = widget.path;
+    super.initState();
+  }
+
   @override
   void setState(fn) {
     if (mounted) {
@@ -84,36 +92,40 @@ class _ZoomableImageState extends State<ZoomableImage> {
           : () {},
       child: Hero(
         tag: widget.path,
-        child: ClipRRect(
-          borderRadius: widget.borderRadius,
-          child: kIsWeb
-              ? CachedNetworkImage(
-                  placeholder: (context, url) {
-                    return ClipRRect(
-                      borderRadius: widget.borderRadius,
-                      child: Shimmer.fromColors(
-                        period: Duration(milliseconds: 700),
-                        child: Container(
-                          height: widget.height,
-                          width: widget.width,
-                          color: Colors.grey,
-                        ),
-                        baseColor: Colors.grey[300] ?? Colors.grey,
-                        highlightColor: Colors.grey[100] ?? Colors.grey,
-                      ),
-                    );
-                  },
-                  imageUrl: "assets/${widget.path}",
-                  height: widget.height,
-                  width: widget.width,
-                  fit: widget.fit ?? BoxFit.fitHeight,
-                )
-              : Image.asset(
-                  "assets/${widget.path}",
-                  height: widget.height,
-                  width: widget.width,
-                  fit: widget.fit ?? BoxFit.fitHeight,
-                ),
+        child: Stack(
+          children: [
+            ClipRRect(
+              borderRadius: widget.borderRadius,
+              child: kIsWeb
+                  ? CachedNetworkImage(
+                      placeholder: (context, url) {
+                        return ClipRRect(
+                          borderRadius: widget.borderRadius,
+                          child: Shimmer.fromColors(
+                            period: Duration(milliseconds: 700),
+                            child: Container(
+                              height: widget.height,
+                              width: widget.width,
+                              color: Colors.grey,
+                            ),
+                            baseColor: Colors.grey[300] ?? Colors.grey,
+                            highlightColor: Colors.grey[100] ?? Colors.grey,
+                          ),
+                        );
+                      },
+                      imageUrl: "assets/${widget.path}",
+                      height: widget.height,
+                      width: widget.width,
+                      fit: widget.fit ?? BoxFit.fitHeight,
+                    )
+                  : Image.asset(
+                      "assets/${widget.path}",
+                      height: widget.height,
+                      width: widget.width,
+                      fit: widget.fit ?? BoxFit.fitHeight,
+                    ),
+            ),
+          ],
         ),
       ),
     );
