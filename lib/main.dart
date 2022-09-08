@@ -87,6 +87,28 @@ class _WrapperState extends State<Wrapper> with SingleTickerProviderStateMixin {
     hasLoadedMusic = true;
   }
 
+  void precacheAll() async {
+    await Future.delayed(Duration(seconds: 1));
+    precacheImage(NetworkImage('assets/1.png'), context);
+    precacheImage(NetworkImage('assets/2.png'), context);
+    precacheImage(NetworkImage('assets/3.png'), context);
+    precacheImage(NetworkImage('assets/4.png'), context);
+
+    precacheImage(NetworkImage('assets/leascore/lea1.png'), context);
+    precacheImage(NetworkImage('assets/leascore/lea2.png'), context);
+    precacheImage(NetworkImage('assets/leascore/lea3.png'), context);
+    precacheImage(NetworkImage('assets/leascore/lea4.png'), context);
+
+    precacheImage(NetworkImage('assets/kjmethod/kj1.png'), context);
+    precacheImage(NetworkImage('assets/kjmethod/kj2.png'), context);
+    precacheImage(NetworkImage('assets/kjmethod/kj3.png'), context);
+    precacheImage(NetworkImage('assets/kjmethod/kj4.png'), context);
+
+    precacheImage(NetworkImage('assets/home.png'), context);
+    precacheImage(NetworkImage('assets/watch.png.png'), context);
+    precacheImage(NetworkImage('assets/random.png'), context);
+  }
+
   @override
   void initState() {
     var loader = uni.document.getElementsByClassName('info');
@@ -109,6 +131,7 @@ class _WrapperState extends State<Wrapper> with SingleTickerProviderStateMixin {
 
   @override
   Widget build(BuildContext context) {
+    precacheAll();
     return DefaultTextStyle(
       style: TextStyle(fontFamily: 'QuickSand'),
       child: Scaffold(

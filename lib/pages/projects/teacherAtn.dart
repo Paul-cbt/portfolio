@@ -20,10 +20,6 @@ class _TeacherAtnState extends State<TeacherAtn> {
 
   @override
   Widget build(BuildContext context) {
-    precacheImage(NetworkImage('assets/home.png'), context);
-    precacheImage(NetworkImage('assets/watch.png.png'), context);
-    precacheImage(NetworkImage('assets/random.png'), context);
-
     isBig = MediaQuery.of(context).size.width > 436;
     return Column(
       children: [

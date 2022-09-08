@@ -22,11 +22,6 @@ class _LeaScoreState extends State<LeaScore> {
 
   @override
   Widget build(BuildContext context) {
-    precacheImage(NetworkImage('assets/leascore/lea1.png'), context);
-    precacheImage(NetworkImage('assets/leascore/lea2.png'), context);
-    precacheImage(NetworkImage('assets/leascore/lea3.png'), context);
-    precacheImage(NetworkImage('assets/leascore/lea4.png'), context);
-
     isBig = MediaQuery.of(context).size.width > 436;
     return Column(
       children: [

@@ -22,11 +22,6 @@ class _KjMethodState extends State<KjMethod> {
 
   @override
   Widget build(BuildContext context) {
-    precacheImage(NetworkImage('assets/kjmethod/kj1.png'), context);
-    precacheImage(NetworkImage('assets/kjmethod/kj2.png'), context);
-    precacheImage(NetworkImage('assets/kjmethod/kj3.png'), context);
-    precacheImage(NetworkImage('assets/kjmethod/kj4.png'), context);
-
     isBig = MediaQuery.of(context).size.width > 436;
     return Column(
       children: [

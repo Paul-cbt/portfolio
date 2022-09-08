@@ -27,10 +27,6 @@ class _OutLearnState extends State<OutLearn> {
 
   @override
   Widget build(BuildContext context) {
-    precacheImage(NetworkImage('assets/1.png'), context);
-    precacheImage(NetworkImage('assets/2.png'), context);
-    precacheImage(NetworkImage('assets/3.png'), context);
-    precacheImage(NetworkImage('assets/4.png'), context);
     isBig = MediaQuery.of(context).size.width > 436;
     return Column(
       children: [

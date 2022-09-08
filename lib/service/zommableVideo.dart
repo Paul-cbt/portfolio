@@ -64,15 +64,16 @@ class _ZoomableVideoState extends State<ZoomableVideo> {
       fit: StackFit.loose,
       children: [
         Container(
-          height: 200,
-          width: 390,
+          height: 300,
+          width: 300 * _controller.value.aspectRatio,
           child: ClipRRect(
             borderRadius: widget.borderRadius,
             child: AnimatedSwitcher(
                 duration: Duration(milliseconds: 300),
                 child: !loading
                     ? Container(
-                        height: 200,
+                        height: 300,
+                        width: 300 * _controller.value.aspectRatio,
                         child: AspectRatio(
                           aspectRatio: _controller.value.aspectRatio,
                           child: ClipRRect(
@@ -81,8 +82,8 @@ class _ZoomableVideoState extends State<ZoomableVideo> {
                         ),
                       )
                     : Container(
-                        height: 200,
-                        width: 400,
+                        height: 300,
+                        width: 300 * _controller.value.aspectRatio,
                         child: Center(
                           child: SpinKitWave(
                             color: Theme.of(context).textTheme.headline4?.color,
@@ -115,7 +116,7 @@ class _ZoomableVideoState extends State<ZoomableVideo> {
                                     duration: Duration(milliseconds: 300),
                                     child: !loading
                                         ? Container(
-                                            color: Colors.amber,
+                                            color: Colors.transparent,
                                             child: AspectRatio(
                                               aspectRatio: _controller2
                                                   .value.aspectRatio,
