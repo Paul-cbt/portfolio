@@ -10,10 +10,11 @@ class ZoomableImage extends StatefulWidget {
   final double? width;
   final BoxFit? fit;
   final bool? zoomable;
-
+  final bool showShimmerLoading;
   const ZoomableImage(
       {required this.borderRadius,
       required this.path,
+      this.showShimmerLoading = false,
       this.fit,
       this.zoomable,
       this.height,
@@ -49,83 +50,105 @@ class _ZoomableImageState extends State<ZoomableImage> {
                   opaque: false,
                   barrierDismissible: true,
                   pageBuilder: (BuildContext context, _, __) {
-                    return Container(
-                      child: Stack(
-                        children: [
-                          Container(
-                            width: MediaQuery.of(context).size.width,
-                          ),
-                          Container(
-                            alignment: Alignment.center,
-                            padding: EdgeInsets.all(15),
-                            child: InteractiveViewer(
-                              constrained: true,
-                              child: Hero(
-                                tag: widget.path,
-                                child: ClipRRect(
-                                  borderRadius: BorderRadius.circular(10),
-                                  child: kIsWeb
-                                      ? CachedNetworkImage(
-                                          placeholder: (context, url) {
-                                            return Shimmer.fromColors(
-                                              child: Container(
-                                                  height: 300, width: 600),
-                                              baseColor: Colors.grey[300] ??
-                                                  Colors.grey,
-                                              highlightColor:
-                                                  Colors.grey[100] ??
-                                                      Colors.grey,
-                                            );
-                                          },
-                                          imageUrl: "assets/${widget.path}",
-                                        )
-                                      : Image.asset("assets/${widget.path}"),
-                                ),
+                    return SafeArea(
+                      child: Container(
+                        alignment: Alignment.center,
+                        padding: EdgeInsets.all(15),
+                        child: InteractiveViewer(
+                          constrained: true,
+                          child: Hero(
+                            transitionOnUserGestures: false,
+                            tag: widget.path,
+                            child: Material(
+                              color: Colors.transparent,
+                              child: ClipRRect(
+                                borderRadius: widget.borderRadius,
+                                child: kIsWeb
+                                    ? Image.network(
+                                        'assets/${widget.path}',
+                                        loadingBuilder:
+                                            (context, child, loadingProgress) {
+                                          return AnimatedSwitcher(
+                                            duration: const Duration(
+                                                milliseconds: 400),
+                                            child: loadingProgress
+                                                        ?.cumulativeBytesLoaded ==
+                                                    loadingProgress
+                                                        ?.expectedTotalBytes
+                                                ? child
+                                                : ClipRRect(
+                                                    borderRadius:
+                                                        widget.borderRadius,
+                                                    child: Shimmer.fromColors(
+                                                      period: Duration(
+                                                          milliseconds: 700),
+                                                      child: Container(
+                                                        color: Colors.grey,
+                                                      ),
+                                                      baseColor:
+                                                          Colors.grey[300] ??
+                                                              Colors.grey,
+                                                      highlightColor:
+                                                          Colors.grey[100] ??
+                                                              Colors.grey,
+                                                    ),
+                                                  ),
+                                          );
+                                        },
+                                      )
+                                    : Image.asset("assets/${widget.path}"),
                               ),
                             ),
                           ),
-                        ],
+                        ),
                       ),
                     );
                   }));
             }
           : () {},
       child: Hero(
+        transitionOnUserGestures: false,
         tag: widget.path,
-        child: Stack(
-          children: [
-            ClipRRect(
-              borderRadius: widget.borderRadius,
-              child: kIsWeb
-                  ? CachedNetworkImage(
-                      placeholder: (context, url) {
-                        return ClipRRect(
-                          borderRadius: widget.borderRadius,
-                          child: Shimmer.fromColors(
-                            period: Duration(milliseconds: 700),
-                            child: Container(
-                              height: widget.height,
-                              width: widget.width,
-                              color: Colors.grey,
-                            ),
-                            baseColor: Colors.grey[300] ?? Colors.grey,
-                            highlightColor: Colors.grey[100] ?? Colors.grey,
-                          ),
-                        );
-                      },
-                      imageUrl: "assets/${widget.path}",
-                      height: widget.height,
-                      width: widget.width,
-                      fit: widget.fit ?? BoxFit.fitHeight,
-                    )
-                  : Image.asset(
-                      "assets/${widget.path}",
-                      height: widget.height,
-                      width: widget.width,
-                      fit: widget.fit ?? BoxFit.fitHeight,
-                    ),
-            ),
-          ],
+        child: Material(
+          color: Colors.transparent,
+          child: ClipRRect(
+            borderRadius: widget.borderRadius,
+            child: kIsWeb
+                ? Image.network(
+                    'assets/${widget.path}',
+                    height: widget.height,
+                    width: widget.width,
+                    fit: widget.fit ?? BoxFit.fitHeight,
+                    loadingBuilder: (context, child, loadingProgress) {
+                      return AnimatedSwitcher(
+                        duration: const Duration(milliseconds: 400),
+                        child: loadingProgress?.cumulativeBytesLoaded ==
+                                loadingProgress?.expectedTotalBytes
+                            ? child
+                            : ClipRRect(
+                                borderRadius: widget.borderRadius,
+                                child: Shimmer.fromColors(
+                                  period: Duration(milliseconds: 700),
+                                  child: Container(
+                                    height: widget.height,
+                                    width: widget.width,
+                                    color: Colors.grey,
+                                  ),
+                                  baseColor: Colors.grey[300] ?? Colors.grey,
+                                  highlightColor:
+                                      Colors.grey[100] ?? Colors.grey,
+                                ),
+                              ),
+                      );
+                    },
+                  )
+                : Image.asset(
+                    "assets/${widget.path}",
+                    height: widget.height,
+                    width: widget.width,
+                    fit: widget.fit ?? BoxFit.fitHeight,
+                  ),
+          ),
         ),
       ),
     );

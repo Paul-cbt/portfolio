@@ -37,16 +37,18 @@ class _PresentationState extends State<Presentation> {
             child: Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                ZoomableImage(
-                    width: getMaxWidth(context) / 2 - 20,
-                    height: getMaxWidth(context) / 2 - 20,
-                    borderRadius: BorderRadius.only(
-                      bottomLeft: radius,
-                      topRight: radius,
-                      bottomRight: radius,
-                      // topLeft: radius
-                    ),
-                    path: "me10.jpg"),
+                SizedBox(
+                  width: getMaxWidth(context) / 2 - 20,
+                  height: getMaxWidth(context) / 2 - 20,
+                  child: ZoomableImage(
+                      borderRadius: BorderRadius.only(
+                        bottomLeft: radius,
+                        topRight: radius,
+                        bottomRight: radius,
+                        // topLeft: radius
+                      ),
+                      path: "me10.jpg"),
+                ),
                 SizedBox(
                   width: 80,
                 ),
@@ -169,15 +171,17 @@ class _PresentationState extends State<Presentation> {
                 Container(
                   child: Material(
                       color: Colors.transparent,
-                      child: ZoomableImage(
-                          height: MediaQuery.of(context).size.height / 3,
-                          borderRadius: BorderRadius.only(
-                            bottomLeft: radius,
-                            topRight: radius,
-                            bottomRight: radius,
-                            // topLeft: radius
-                          ),
-                          path: "me10.jpg")),
+                      child: SizedBox(
+                        height: MediaQuery.of(context).size.height / 3,
+                        child: ZoomableImage(
+                            borderRadius: BorderRadius.only(
+                              bottomLeft: radius,
+                              topRight: radius,
+                              bottomRight: radius,
+                              // topLeft: radius
+                            ),
+                            path: "me10.jpg"),
+                      )),
                 ),
                 SizedBox(height: 10),
                 Container(

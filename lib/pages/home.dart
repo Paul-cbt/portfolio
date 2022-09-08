@@ -42,6 +42,8 @@ class _HomeState extends State<Home> {
   Radius radius = Radius.circular(100);
   @override
   Widget build(BuildContext context) {
+    precacheImage(NetworkImage('assets/homeMeDark.jpeg'), context);
+
     if (MediaQuery.of(context).size.width > 1143) {
       radius = Radius.circular(100);
     } else {
@@ -166,15 +168,18 @@ class _HomeState extends State<Home> {
                       SizedBox(
                         width: 40,
                       ),
-                      ZoomableImage(
+                      SizedBox(
                         width: getMaxWidth(context) / 2 - 20,
                         height: getMaxWidth(context) / 2 - 20,
-                        borderRadius: BorderRadius.only(
-                            bottomLeft: radius,
-                            bottomRight: radius,
-                            topLeft: radius),
-                        path:
-                            CustomElements(context: context).homePageImagepath,
+                        child: ZoomableImage(
+                          showShimmerLoading: false,
+                          // borderRadius: BorderRadius.circular(20),
+                          borderRadius: BorderRadius.only(
+                              bottomLeft: radius,
+                              bottomRight: radius,
+                              topLeft: radius),
+                          path: 'homeMeDark.jpeg',
+                        ),
                       )
                     ],
                   ),
@@ -236,15 +241,15 @@ class _HomeState extends State<Home> {
                   child: Column(
                     mainAxisSize: MainAxisSize.min,
                     children: [
-                      Container(
+                      SizedBox(
+                          height: MediaQuery.of(context).size.height / 3,
+                          width: MediaQuery.of(context).size.height / 3,
                           child: ZoomableImage(
-                              height: MediaQuery.of(context).size.height / 3,
-                              width: MediaQuery.of(context).size.height / 3,
                               borderRadius: BorderRadius.only(
                                   bottomLeft: radius,
                                   bottomRight: radius,
                                   topLeft: radius),
-                              path: "me3.jpg")),
+                              path: "homeMeDark.jpeg")),
                       Container(
                         child: RichText(
                             text: TextSpan(

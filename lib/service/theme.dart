@@ -53,7 +53,7 @@ class AppTheme {
       accentColor: Colors.white,
       textTheme: TextTheme(
           bodyText1: TextStyle(color: Colors.black),
-          headline6: TextStyle(color: Color(0xffAA96DA)),
+          headline6: TextStyle(color: Color(0xffA57FC9)),
           headline4: TextStyle(color: Color(0xffFCBAD3)),
           headline2: TextStyle(color: Color(0xFFFFFFD2).withOpacity(0.5)),
           headline3: TextStyle(color: Color(0xfffffff)),
