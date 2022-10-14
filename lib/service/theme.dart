@@ -77,6 +77,5 @@ class CustomElements {
     return Theme.of(context).brightness;
   }
 
-  String get homePageImagepath =>
-      brightness() == Brightness.light ? 'homeMeLight.jpg' : 'homeMeDark.jpeg';
+  String get homePageImagepath => 'meHome.jpg';
 }

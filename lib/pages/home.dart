@@ -42,7 +42,7 @@ class _HomeState extends State<Home> {
   Radius radius = Radius.circular(100);
   @override
   Widget build(BuildContext context) {
-    precacheImage(NetworkImage('assets/homeMeDark.jpg'), context);
+    precacheImage(NetworkImage('assets/meHome.jpg'), context);
 
     if (MediaQuery.of(context).size.width > 1143) {
       radius = Radius.circular(100);
@@ -178,7 +178,7 @@ class _HomeState extends State<Home> {
                               bottomLeft: radius,
                               bottomRight: radius,
                               topLeft: radius),
-                          path: 'homeMeDark.jpg',
+                          path: 'meHome.jpg',
                         ),
                       )
                     ],
@@ -249,7 +249,7 @@ class _HomeState extends State<Home> {
                                   bottomLeft: radius,
                                   bottomRight: radius,
                                   topLeft: radius),
-                              path: "homeMeDark.jpg")),
+                              path: "meHome.jpg")),
                       Container(
                         child: RichText(
                             text: TextSpan(

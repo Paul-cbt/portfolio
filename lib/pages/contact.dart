@@ -125,7 +125,7 @@ class _ContactState extends State<Contact> {
                               children: [
                                 TextButton.icon(
                                     onPressed: () {
-                                      launch("mailto:paulcbt@outlook.com");
+                                      launch("mailto:dev@paulcaubet.com");
                                     },
                                     icon: Icon(Icons.mail_outline,
                                         size: 30,
@@ -142,28 +142,28 @@ class _ContactState extends State<Contact> {
                                               .bodyText2
                                               ?.color),
                                     )),
-                                SizedBox(
-                                  width: 20,
-                                ),
-                                TextButton.icon(
-                                    onPressed: () {
-                                      launch("assets/cv.pdf");
-                                    },
-                                    icon: Icon(Icons.download,
-                                        size: 30,
-                                        color: Theme.of(context)
-                                            .textTheme
-                                            .bodyText2
-                                            ?.color),
-                                    label: Text(
-                                      "Resume",
-                                      style: TextStyle(
-                                          fontSize: 20,
-                                          color: Theme.of(context)
-                                              .textTheme
-                                              .bodyText2
-                                              ?.color),
-                                    )),
+                                // SizedBox(
+                                //   width: 20,
+                                // ),
+                                // TextButton.icon(
+                                //     onPressed: () {
+                                //       launch("assets/cv.pdf");
+                                //     },
+                                //     icon: Icon(Icons.download,
+                                //         size: 30,
+                                //         color: Theme.of(context)
+                                //             .textTheme
+                                //             .bodyText2
+                                //             ?.color),
+                                //     label: Text(
+                                //       "Resume",
+                                //       style: TextStyle(
+                                //           fontSize: 20,
+                                //           color: Theme.of(context)
+                                //               .textTheme
+                                //               .bodyText2
+                                //               ?.color),
+                                //     )),
                               ],
                             ),
                             SizedBox(
