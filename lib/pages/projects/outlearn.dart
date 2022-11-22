@@ -25,9 +25,14 @@ class _OutLearnState extends State<OutLearn> {
     }
   }
 
+  // void delayed() async {
+
+  // }
+
   @override
   Widget build(BuildContext context) {
     isBig = MediaQuery.of(context).size.width > 436;
+
     return Column(
       children: [
         Container(

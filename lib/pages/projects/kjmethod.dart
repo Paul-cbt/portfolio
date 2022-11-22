@@ -119,12 +119,10 @@ class _KjMethodState extends State<KjMethod> {
                             borderRadius:
                                 BorderRadius.circular(isBig ? 20 : 15),
                             path: "kjmethod/kj1.png"),
-                        Center(
-                          child: ZoomableVideo(
-                              borderRadius:
-                                  BorderRadius.circular(isBig ? 20 : 15),
-                              path: "kjmethod/homeAnimation.mp4"),
-                        ),
+                        ZoomableVideo(
+                            borderRadius:
+                                BorderRadius.circular(isBig ? 20 : 15),
+                            path: "kjmethod/homeAnimation.mp4"),
                         ZoomableImage(
                             borderRadius:
                                 BorderRadius.circular(isBig ? 20 : 15),

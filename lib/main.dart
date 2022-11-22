@@ -59,6 +59,7 @@ class _WrapperState extends State<Wrapper> with SingleTickerProviderStateMixin {
   int page = 0;
   int lastPage = 6;
   bool isScrollingWithFinger = true;
+  bool isInit = false;
 
   PageController controller = PageController();
   @override
@@ -105,7 +106,7 @@ class _WrapperState extends State<Wrapper> with SingleTickerProviderStateMixin {
     precacheImage(NetworkImage('assets/kjmethod/kj4.png'), context);
 
     precacheImage(NetworkImage('assets/home.png'), context);
-    precacheImage(NetworkImage('assets/watch.png.png'), context);
+    precacheImage(NetworkImage('assets/watch.png'), context);
     precacheImage(NetworkImage('assets/random.png'), context);
   }
 
@@ -131,7 +132,10 @@ class _WrapperState extends State<Wrapper> with SingleTickerProviderStateMixin {
 
   @override
   Widget build(BuildContext context) {
-    precacheAll();
+    if (!isInit) {
+      precacheAll();
+      isInit = true;
+    }
     return DefaultTextStyle(
       style: TextStyle(fontFamily: 'QuickSand'),
       child: Scaffold(
