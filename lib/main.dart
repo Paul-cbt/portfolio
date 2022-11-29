@@ -5,7 +5,7 @@ import 'package:flutter/material.dart';
 import 'package:portfolio/pages/contact.dart';
 import 'package:portfolio/pages/home.dart';
 import 'package:portfolio/pages/navbar.dart';
-import 'package:portfolio/pages/presentation.dart';
+import 'package:portfolio/pages/aboutMe/presentation.dart';
 import 'package:portfolio/pages/projects/projects.dart';
 import 'package:portfolio/service/playMusic.dart';
 import 'package:portfolio/service/theme.dart';

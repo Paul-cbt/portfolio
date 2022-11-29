@@ -112,43 +112,34 @@ class _ZoomableImageState extends State<ZoomableImage> {
         child: Material(
           color: Colors.transparent,
           child: ClipRRect(
-            borderRadius: widget.borderRadius,
-            child: kIsWeb
-                ? Image.network(
-                    'assets/${widget.path}',
-                    height: widget.height,
-                    width: widget.width,
-                    fit: widget.fit ?? BoxFit.fitHeight,
-                    loadingBuilder: (context, child, loadingProgress) {
-                      return AnimatedSwitcher(
-                        duration: const Duration(milliseconds: 400),
-                        child: loadingProgress?.cumulativeBytesLoaded ==
-                                loadingProgress?.expectedTotalBytes
-                            ? child
-                            : ClipRRect(
-                                borderRadius: widget.borderRadius,
-                                child: Shimmer.fromColors(
-                                  period: Duration(milliseconds: 700),
-                                  child: Container(
-                                    height: widget.height,
-                                    width: widget.width,
-                                    color: Colors.grey,
-                                  ),
-                                  baseColor: Colors.grey[300] ?? Colors.grey,
-                                  highlightColor:
-                                      Colors.grey[100] ?? Colors.grey,
-                                ),
+              borderRadius: widget.borderRadius,
+              child: Image.network(
+                'assets/${widget.path}',
+                height: widget.height,
+                width: widget.width,
+                fit: widget.fit ?? BoxFit.fitHeight,
+                loadingBuilder: (context, child, loadingProgress) {
+                  return AnimatedSwitcher(
+                    duration: const Duration(milliseconds: 400),
+                    child: loadingProgress?.cumulativeBytesLoaded ==
+                            loadingProgress?.expectedTotalBytes
+                        ? child
+                        : ClipRRect(
+                            borderRadius: widget.borderRadius,
+                            child: Shimmer.fromColors(
+                              period: Duration(milliseconds: 700),
+                              child: Container(
+                                height: widget.height,
+                                width: widget.width,
+                                color: Colors.grey,
                               ),
-                      );
-                    },
-                  )
-                : Image.asset(
-                    "assets/${widget.path}",
-                    height: widget.height,
-                    width: widget.width,
-                    fit: widget.fit ?? BoxFit.fitHeight,
-                  ),
-          ),
+                              baseColor: Colors.grey[300] ?? Colors.grey,
+                              highlightColor: Colors.grey[100] ?? Colors.grey,
+                            ),
+                          ),
+                  );
+                },
+              )),
         ),
       ),
     );
